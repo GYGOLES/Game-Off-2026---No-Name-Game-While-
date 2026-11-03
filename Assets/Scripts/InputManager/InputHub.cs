@@ -6,7 +6,7 @@ namespace Assets.Scripts.Inputmanager
 {
     public class InputHub : IInputModeSwitch, IInitializable, IDisposable
     {
-        public InputManager Actions{get; private set;} = new();
+        internal InputManager Actions{get; private set;} = new();
         public InputMode CurrentMode{get; private set;}
 
         
@@ -17,7 +17,7 @@ namespace Assets.Scripts.Inputmanager
             Actions.Disable();
             Actions.Dispose();
 
-            Debug.Log($"{"Disposed"}");
+            Debug.Log($"{"Input: Disposed"}");
         }
 
         public void SetGameplay(){if(CurrentMode != InputMode.Gameplay) ApplyMode(InputMode.Gameplay);}

@@ -28,7 +28,7 @@ namespace Assets.Scripts.Inputmanager
             _binder.Bind(_p.Look, BindType.performed | BindType.canceled, h => Look?.Invoke(h.ReadValue<Vector2>()));
             _binder.Bind(_p.Interact, BindType.started| BindType.performed | BindType.canceled, h => Interact?.Invoke(InputExtensions.ToPhase(h)));
 
-            Debug.Log("Intialized");
+            Debug.Log($"{"Input: Intialized"}");
         }
 
         
