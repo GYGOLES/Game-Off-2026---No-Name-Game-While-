@@ -10,7 +10,7 @@ namespace Assets.Scripts.Inputmanager
         public InputMode CurrentMode{get; private set;}
 
         
-        public void Initialize() => ApplyMode(InputMode.None);
+        public void Initialize() => ApplyMode(InputMode.Gameplay);
 
         public void Dispose()
         {
