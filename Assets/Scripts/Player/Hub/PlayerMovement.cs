@@ -15,7 +15,7 @@ public class PlayerMovement : IDisposable
 
     private void OnMove(Vector2 v) => _move = v;
 
-    public void Tick(CharacterController body, float dt)
+    public void MoveTick(PlayerContext ctx , Transform body)
     {
         Vector3 forward = body.transform.TransformDirection(Vector3.forward);
         forward.y = 0f;
@@ -26,10 +26,18 @@ public class PlayerMovement : IDisposable
         right.Normalize();
 
         Vector3 wishDir = _move.x*right + _move.y*forward;
-
-        body.Move(wishDir*dt);
+        ctx.velocity.x = wishDir.x;
+        ctx.velocity.z = wishDir.z;
     }
 
+    public void GravityTick(PlayerContext ctx, bool g)
+    {
+        Debug.Log(g);
+        if (!g)
+        {
+            ctx.velocity.y -= 20;
+        }
+    }
     public void Dispose()
     {
         if(_input == null)return;

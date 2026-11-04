@@ -10,6 +10,8 @@ namespace Assets.Scripts.Player.Hub
         private PlayerCamera _pl;
         private PlayerMovement _movement;
 
+        PlayerContext ctx = new PlayerContext();
+
         [Inject]
         public void Construct(PlayerCamera camera, PlayerMovement movement)
         {
@@ -20,7 +22,12 @@ namespace Assets.Scripts.Player.Hub
         void Update()
         {
             _pl.Tick(_controller.transform, _orientation);
-            _movement.Tick(_controller, Time.deltaTime);
+
+        
+            _movement.GravityTick(ctx, _controller.isGrounded);
+            _movement.MoveTick(ctx, _controller.transform);
+
+            _controller.Move(ctx.velocity*Time.deltaTime*5);
         }
     }
 }
