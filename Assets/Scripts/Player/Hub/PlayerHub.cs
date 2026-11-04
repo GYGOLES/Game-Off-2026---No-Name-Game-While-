@@ -24,10 +24,10 @@ namespace Assets.Scripts.Player.Hub
             _pl.Tick(_controller.transform, _orientation);
 
         
-            _movement.GravityTick(ctx, _controller.isGrounded);
+            _movement.GravityTick(ctx, _controller.isGrounded, Time.deltaTime);
             _movement.MoveTick(ctx, _controller.transform);
 
-            _controller.Move(ctx.velocity*Time.deltaTime*5);
+            _controller.Move(ctx.velocity*Time.deltaTime);
         }
     }
 }
