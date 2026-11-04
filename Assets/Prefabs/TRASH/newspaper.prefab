@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 450409777318350170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.95, y: -0.377, z: 1.157}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.907, y: -0.37812, z: 1.2188}
+  m_LocalScale: {x: 1.8556, y: 1.8556, z: 1.8556}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -335,7 +335,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 0
     m_Material: {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 0
     elementGroup: 0
     m_TextureGroup: 5
@@ -352,7 +352,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 0
     m_Material: {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 0
     elementGroup: 0
     m_TextureGroup: 5
@@ -369,7 +369,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 0
     m_Material: {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 0
     elementGroup: 0
     m_TextureGroup: 5
@@ -386,7 +386,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 0
     m_Material: {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 0
     elementGroup: 0
     m_TextureGroup: 5
@@ -788,11 +788,27 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4210
+  m_VersionIndex: 4218
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 1200000011000000
+  m_SelectedEdges:
+  - a: 73
+    b: 74
+  - a: 72
+    b: 73
+  - a: 74
+    b: 75
+  - a: 75
+    b: 72
+  - a: 70
+    b: 71
+  - a: 69
+    b: 70
+  - a: 71
+    b: 68
+  - a: 68
+    b: 69
+  m_SelectedVertices: 490000004a000000480000004b00000046000000470000004500000044000000
 --- !u!114 &7583333914971659099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,6 +860,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 57425ee69c12e3e42a22c342331fda5b, type: 2}
+  - {fileID: 2100000, guid: 8f3243093b61f6a4ea536b1bd4b2a9bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
