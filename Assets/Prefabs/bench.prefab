@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 2260122682598411293}
   - component: {fileID: 917612244841570509}
   - component: {fileID: 7275040716739931739}
-  - component: {fileID: 4828447112031278453}
+  - component: {fileID: 3060030571942814355}
   m_Layer: 0
   m_Name: bench
   m_TagString: Untagged
@@ -858,33 +858,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_VersionIndex: 3084
   m_IsSelectable: 1
-  m_SelectedFaces: 110000000d00000004000000
-  m_SelectedEdges:
-  - a: 68
-    b: 69
-  - a: 70
-    b: 68
-  - a: 69
-    b: 71
-  - a: 71
-    b: 70
-  - a: 52
-    b: 53
-  - a: 54
-    b: 52
-  - a: 53
-    b: 55
-  - a: 55
-    b: 54
-  - a: 16
-    b: 17
-  - a: 18
-    b: 16
-  - a: 17
-    b: 19
-  - a: 19
-    b: 18
-  m_SelectedVertices: 440000004500000046000000470000003400000035000000360000003700000010000000110000001200000013000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &2260122682598411293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,8 +943,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2919219693605073380}
   m_Mesh: {fileID: 0}
---- !u!64 &4828447112031278453
-MeshCollider:
+--- !u!65 &3060030571942814355
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -985,7 +961,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 7, y: 0.46064913, z: 1}
+  m_Center: {x: -0.5, y: -0.019675434, z: 0}

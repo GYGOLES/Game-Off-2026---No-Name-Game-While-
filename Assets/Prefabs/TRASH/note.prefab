@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2431225623124203700}
   - component: {fileID: 2259872316523012173}
   - component: {fileID: 2397759325526557834}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2441433137160032962}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0726}
+  m_LocalPosition: {x: 0, y: 0, z: -0.084}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.0521, y: -0.004}
-  m_SizeDelta: {x: 10.1, y: 18.63}
+  m_AnchoredPosition: {x: 0.038, y: -0.004}
+  m_SizeDelta: {x: 10.5, y: 17.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2259872316523012173
 Canvas:
@@ -91,8 +91,9 @@ GameObject:
   - component: {fileID: 5732269837285371358}
   - component: {fileID: 6118515418665835305}
   - component: {fileID: 365353615413401612}
-  - component: {fileID: 7945221491429543083}
-  m_Layer: 0
+  - component: {fileID: 3810920094342767859}
+  - component: {fileID: -5357514398568949253}
+  m_Layer: 6
   m_Name: note
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +206,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 7.487113, y: 4.8499527}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 0
@@ -222,7 +223,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 7.487113, y: 4.8499527}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 0
@@ -284,12 +285,12 @@ MonoBehaviour:
   - {x: 0.20471974, y: 0.99999994}
   - {x: 0.0000001937151, y: 0.99999994}
   - {x: 0, y: 1}
-  - {x: 0.1332264, y: 1}
-  - {x: 0, y: 0.79528046}
-  - {x: 0.1332264, y: 0.79528046}
-  - {x: 0.1332261, y: 0.7952801}
-  - {x: 0, y: 0.7952801}
-  - {x: 0.1332261, y: 1}
+  - {x: 0.9974811, y: 1}
+  - {x: 0, y: 0.007119894}
+  - {x: 0.9974811, y: 0.007119894}
+  - {x: 0.99747884, y: 0.0071178675}
+  - {x: 0, y: 0.0071178675}
+  - {x: 0.99747884, y: 1}
   - {x: 0, y: 1}
   m_Textures2: []
   m_Textures3: []
@@ -327,7 +328,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4222
+  m_VersionIndex: 4406
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -382,7 +383,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d1a60a98b3482564eaaf98b9bfc905e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -414,8 +415,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5940851872768866319}
   m_Mesh: {fileID: 0}
---- !u!64 &7945221491429543083
-MeshCollider:
+--- !u!65 &3810920094342767859
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -432,10 +433,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 0.1332264, y: 0.001071237, z: 0.20471993}
+  m_Center: {x: 0.045612812, y: -0.0044643814, z: -0.072660446}
+--- !u!114 &-5357514398568949253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940851872768866319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981091f30f49fb443b4a4667e538bd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Test
+  _audio: {fileID: 11400000, guid: 1273a2eaa1336514fb61e0231361d08f, type: 2}
 --- !u!1 &7287637806821467120
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,8 +460,9 @@ GameObject:
   - component: {fileID: 5977529924968447307}
   - component: {fileID: 1643241126724814163}
   - component: {fileID: 5162675916890883966}
-  m_Layer: 5
-  m_Name: Text (TMP) (1)
+  - component: {fileID: 8424855283783842095}
+  m_Layer: 6
+  m_Name: TEXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -470,7 +484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.119999886}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1643241126724814163
@@ -533,12 +547,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 0.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0.1
-  m_fontSizeMax: 1
+  m_fontSizeMax: 0.8
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -578,3 +592,43 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8424855283783842095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7287637806821467120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:618129ca0c63c034993e09e51c102cb3
+    m_TableEntryReference:
+      m_KeyId: 268590338048
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5162675916890883966}
+        m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []

@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 6787928295300610400}
   - component: {fileID: 7388651732256300430}
   - component: {fileID: 5494877095321826635}
-  - component: {fileID: 5704916275622269222}
-  m_Layer: 0
+  - component: {fileID: 4476937567284943716}
+  - component: {fileID: -157472633510834070}
+  m_Layer: 6
   m_Name: can
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,8 +657,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3162852426287345251}
   m_Mesh: {fileID: 0}
---- !u!64 &5704916275622269222
-MeshCollider:
+--- !u!65 &4476937567284943716
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -674,7 +675,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.1, z: 0.086602546}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-157472633510834070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3162852426287345251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981091f30f49fb443b4a4667e538bd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Test
+  _audio: {fileID: 11400000, guid: 1273a2eaa1336514fb61e0231361d08f, type: 2}

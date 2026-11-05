@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 9052206170655033905}
   - component: {fileID: 4641787895793178462}
   - component: {fileID: 8774391070980588731}
-  - component: {fileID: 3269256576472733274}
-  m_Layer: 0
+  - component: {fileID: 6965642949110762675}
+  - component: {fileID: -4371005200513232730}
+  m_Layer: 6
   m_Name: food_box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,8 +576,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4915859050571597987}
   m_Mesh: {fileID: 0}
---- !u!64 &3269256576472733274
-MeshCollider:
+--- !u!65 &6965642949110762675
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -593,7 +594,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 0.14875507, y: 0.11792159, z: 0.13315964}
+  m_Center: {x: 0, y: 0.0024135113, z: 0}
+--- !u!114 &-4371005200513232730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4915859050571597987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981091f30f49fb443b4a4667e538bd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Test
+  _audio: {fileID: 11400000, guid: 1273a2eaa1336514fb61e0231361d08f, type: 2}

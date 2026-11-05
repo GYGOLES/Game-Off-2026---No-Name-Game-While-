@@ -60,6 +60,10 @@ MonoBehaviour:
     m_Localized: "You can\u2019t run, he\u2019s watching. You need to call the police."
     m_Metadata:
       m_Items: []
+  - m_Id: 89359767298048
+    m_Localized: note_9
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

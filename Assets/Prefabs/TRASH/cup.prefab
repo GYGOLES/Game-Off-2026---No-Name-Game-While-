@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 4405147674106218302}
   - component: {fileID: 6993331413262336143}
   - component: {fileID: 1173201511803301135}
-  - component: {fileID: 3140266179194592246}
-  m_Layer: 0
+  - component: {fileID: 4340781727017794088}
+  - component: {fileID: -306897944320231819}
+  m_Layer: 6
   m_Name: cup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,8 +1017,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3560321272936591325}
   m_Mesh: {fileID: 0}
---- !u!64 &3140266179194592246
-MeshCollider:
+--- !u!65 &4340781727017794088
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1034,7 +1035,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 0.12687063, y: 0.12326984, z: 0.10987282}
+  m_Center: {x: -0.00000023841858, y: 0.011634922, z: 0}
+--- !u!114 &-306897944320231819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560321272936591325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981091f30f49fb443b4a4667e538bd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Test
+  _audio: {fileID: 11400000, guid: 1273a2eaa1336514fb61e0231361d08f, type: 2}
