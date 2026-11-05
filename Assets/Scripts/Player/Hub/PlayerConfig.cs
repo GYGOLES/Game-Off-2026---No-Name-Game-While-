@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 [Serializable]
 public sealed class PlayerConfig
@@ -32,6 +33,25 @@ public sealed class PlayerConfig
 
     public float Gravity => _gravity;
     public float StayGround => _stayGround;
+
+    [Header("Links")]
+    [SerializeField] Camera _camera;
+    [SerializeField] CharacterController _controller;
+
+    public Camera Camera => _camera;
+    public CharacterController Controller => _controller;
+
+    [Header("RaySettings")]
+    [SerializeField] float _interactRay = 2f;
+    [SerializeField] float _groundRay = 1.5f;
+    [SerializeField] LayerMask _groundLayer;
+    [SerializeField] LayerMask _interactLayer;
+    
+    public float InteractRay => _interactRay;
+    public float GroundRay => _groundRay;
+
+    public LayerMask GroundLayer => _groundLayer;
+    public LayerMask InteractLayer => _interactLayer;
 
     public void SetSensitivity(float value) => _sensitivity = Mathf.Clamp(value, MinSensitivity, MaxSensitivity);
     public void SetInvertY(bool b) => _invertY = b;

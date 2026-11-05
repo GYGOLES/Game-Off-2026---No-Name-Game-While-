@@ -18,7 +18,7 @@ namespace Assets.Scripts.Player.Hub
         PlayerContext ctx = new PlayerContext();
 
         [Inject]
-        public void Construct(PlayerCamera camera, PlayerMovement movement, HeadBobingEffect ef, PlayerSounds sounds, PlayerHit hit)
+        public void Construct(PlayerCamera camera, PlayerMovement movement, HeadBobingEffect ef, PlayerSounds sounds, PlayerHit hit, PlayerInteract interact)
         {
             _pl = camera;
             _movement = movement;

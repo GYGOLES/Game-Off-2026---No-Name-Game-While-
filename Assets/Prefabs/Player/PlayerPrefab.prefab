@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619359637153065130}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HeadBob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 4199413229942597158}
   - component: {fileID: 1859100918635412564}
   - component: {fileID: 7480676152682833}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4157438323267135360}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 8540320033709306886}
   - component: {fileID: 2954524616460341943}
   - component: {fileID: 8710861295206464556}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: garbage_bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1120,7 +1120,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2561
+  m_VersionIndex: 2567
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1243,7 +1243,7 @@ GameObject:
   - component: {fileID: 7071542875482922995}
   - component: {fileID: 1761777944037281146}
   - component: {fileID: 6123698407784142634}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DustEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6086,7 +6086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1411096931647884174}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RotationCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6122,7 +6122,7 @@ GameObject:
   - component: {fileID: 7905869573965030622}
   - component: {fileID: 7428314487499737283}
   - component: {fileID: 681221857501857176}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
