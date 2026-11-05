@@ -48,3 +48,14 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  _pool:
+    _poolSize: 40
+    _prefab: {fileID: 3199161748652277146, guid: 3b1afc5899a489b469d5c6a3816a365a, type: 3}
+  _playerConfig:
+    _lookLimit: 80
+    _sensitivity: 0.05
+    _invertY: 0
+    _walkSpeed: 4
+    _sprintSpeed: 6.65
+    _gravity: 20
+    _stayGround: -2
