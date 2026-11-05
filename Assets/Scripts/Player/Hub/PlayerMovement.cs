@@ -38,6 +38,7 @@ namespace Assets.Scripts.Player.Hub
             ctx.velocity.x = wishDir.x;
             ctx.velocity.z = wishDir.z;
             ctx.currentInput = _move;
+            ctx.IsSprinting = _sprint && ctx.currentInput.sqrMagnitude > 0.0001f;
         }
 
         public void GravityTick(PlayerContext ctx, bool g, float dt)
