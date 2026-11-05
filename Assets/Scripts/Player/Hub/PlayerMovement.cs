@@ -37,6 +37,7 @@ namespace Assets.Scripts.Player.Hub
             Vector3 wishDir = (_move.x*right + _move.y*forward)*_currentSpeed;
             ctx.velocity.x = wishDir.x;
             ctx.velocity.z = wishDir.z;
+            ctx.currentInput = _move;
         }
 
         public void GravityTick(PlayerContext ctx, bool g, float dt)

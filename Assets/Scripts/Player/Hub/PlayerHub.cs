@@ -6,17 +6,20 @@ namespace Assets.Scripts.Player.Hub
     {
         [SerializeField] CharacterController _controller;
         [SerializeField] Transform _orientation;
+        [SerializeField] Transform _headBobing;
 
         private PlayerCamera _pl;
         private PlayerMovement _movement;
+        private HeadBobingEffect _effect;
 
         PlayerContext ctx = new PlayerContext();
 
         [Inject]
-        public void Construct(PlayerCamera camera, PlayerMovement movement)
+        public void Construct(PlayerCamera camera, PlayerMovement movement, HeadBobingEffect ef)
         {
             _pl = camera;
             _movement = movement;
+            _effect = ef;
         }
 
         void Update()
@@ -28,6 +31,10 @@ namespace Assets.Scripts.Player.Hub
             _movement.MoveTick(ctx, _controller.transform);
 
             _controller.Move(ctx.velocity*Time.deltaTime);
+        }
+        void LateUpdate()
+        {
+            _effect.Tick(ctx, Time.deltaTime);
         }
     }
 }
