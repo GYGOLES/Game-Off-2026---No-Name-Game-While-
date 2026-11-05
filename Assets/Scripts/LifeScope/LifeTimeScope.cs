@@ -23,8 +23,10 @@ public class LifeTimeScope : LifetimeScope
         builder.Register<PlayerMovement>(Lifetime.Singleton);
         builder.Register<PlayerInteract>(Lifetime.Singleton);
 
+        builder.Register<PlayerHit>(Lifetime.Singleton);
+        builder.Register<PlayerMotor>(Lifetime.Singleton);
+
         builder.RegisterComponentInHierarchy<HeadBobingEffect>();
-        builder.RegisterComponentInHierarchy<PlayerHit>();
         builder.RegisterComponentInHierarchy<PlayerSounds>();
         builder.RegisterComponentInHierarchy<PlayerHub>();
     }

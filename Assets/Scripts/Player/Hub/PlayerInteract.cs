@@ -7,7 +7,7 @@ namespace Assets.Scripts.Player.Hub
     {
         private readonly PlayerConfig _config;
         private readonly IPlayerInput _input;
-        public PlayerInteract(PlayerConfig config, IPlayerInput input)
+        public PlayerInteract(PlayerConfig config, IPlayerInput input )
         {
             _config = config;
             _input = input;

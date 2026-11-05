@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
+
 
 [Serializable]
 public sealed class PlayerConfig
@@ -40,6 +40,13 @@ public sealed class PlayerConfig
 
     public Camera Camera => _camera;
     public CharacterController Controller => _controller;
+
+    [Header("Transforms")]
+    [SerializeField] Transform _orientation;
+    [SerializeField] Transform _headBobing;
+
+    public Transform Orientation => _orientation;
+    public Transform HeadBobing => _headBobing;
 
     [Header("RaySettings")]
     [SerializeField] float _interactRay = 2f;

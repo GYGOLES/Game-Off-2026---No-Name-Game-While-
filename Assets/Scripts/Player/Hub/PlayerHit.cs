@@ -1,17 +1,21 @@
 using UnityEngine;
-
-public class PlayerHit : MonoBehaviour
-{
-    [SerializeField] CharacterController _controller;
-    [SerializeField] float dist = 0.15f;
-    [SerializeField] LayerMask mask;
-    public void Tick(PlayerContext ctx)
+namespace Assets.Scripts.Player.Hub
+{    
+    public sealed class PlayerHit
     {
-        RaycastHit hit;
-        float leg = _controller.transform.position.y + (_controller.height*0.5f - _controller.radius);
-        Vector3 origin = new Vector3(_controller.transform.position.x, leg, _controller.transform.position.z);
-        Physics.Raycast(origin, Vector3.down, out hit, dist, mask, QueryTriggerInteraction.Ignore );
+        private readonly PlayerConfig _config;
+        public PlayerHit(PlayerConfig config)
+        {
+            _config = config;
+        }
+        public void Tick(PlayerContext ctx)
+        {
+            RaycastHit hit;
+            float leg = _config.Controller.transform.position.y + (_config.Controller.height*0.5f - _config.Controller.radius);
+            Vector3 origin = new Vector3(_config.Controller.transform.position.x, leg, _config.Controller.transform.position.z);
+            Physics.Raycast(origin, Vector3.down, out hit, _config.GroundRay, _config.GroundLayer, QueryTriggerInteraction.Ignore );
 
-        ctx.hit = hit;
+            ctx.hit = hit;
+        }
     }
 }
