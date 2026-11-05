@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafbb34848f3d1046864890edd69b9d4, type: 3}
   m_Name: FootStep
   m_EditorClassIdentifier: Assembly-CSharp::AudioScriptableObj
-  volume: 0.2
+  volume: 0.1
   arrayClips:
-  - {fileID: 8300000, guid: 875fdb08bb0068a46aa9f05e3ebbb3bc, type: 3}
-  clip: {fileID: 0}
+  - {fileID: 8300000, guid: 6e3ae2ca23a45944d9df87f9b31ea5e2, type: 3}
+  - {fileID: 8300000, guid: 24631bce86ccb9f41aebf585c944e02a, type: 3}
+  - {fileID: 8300000, guid: 7c0ef156de5cc314c8ab123814faaf6f, type: 3}
+  - {fileID: 8300000, guid: 863e93a5e4ebcb0478c79e27dee8fc50, type: 3}
+  - {fileID: 8300000, guid: d2c6fc6faae11ab4992dad600f28d40a, type: 3}
+  - {fileID: 8300000, guid: c7f43a0afa8ed5442b52d4c46bb4c0d5, type: 3}
+  - {fileID: 8300000, guid: eb9f7b88d47569449804304bbd2d5ed5, type: 3}
+  clip: {fileID: 8300000, guid: 6e3ae2ca23a45944d9df87f9b31ea5e2, type: 3}
