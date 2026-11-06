@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Statistics_text_UI Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Statistics_text_UI
+  m_TableCollectionNameGuidString: ab4fdede1fb87684c9cd85ba9b7d7069
+  m_Entries:
+  - m_Id: 282997022720
+    m_Key: statistics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 783809503232
+    m_Key: end_of_shift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3371934146560
+    m_Key: garbage_collection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3744484810752
+    m_Key: notes_found
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4019169779712
+    m_Key: mental_state
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4657182138368
+    m_Key: reprimand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5437859553280
+    m_Key: continue
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5268617983839698968
+  references:
+    version: 2
+    RefIds:
+    - rid: 5268617983839698968
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1794001227924
