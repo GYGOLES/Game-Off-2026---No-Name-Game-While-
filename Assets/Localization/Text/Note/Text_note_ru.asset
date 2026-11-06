@@ -28,36 +28,46 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 435724963840
-    m_Localized: There he is again. The cloak, the platform, everything the same.
-      Maybe I imagined it?
+    m_Localized: "\u041E\u043F\u044F\u0442\u044C \u043E\u043D. \u041F\u043B\u0430\u0449,
+      \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0430, \u0432\u0441\u0451
+      \u0442\u043E \u0436\u0435. \u041C\u043E\u0436\u0435\u0442, \u043F\u043E\u043A\u0430\u0437\u0430\u043B\u043E\u0441\u044C?"
     m_Metadata:
       m_Items: []
   - m_Id: 446806315008
-    m_Localized: Very creepy guy.
+    m_Localized: "\u041E\u0447\u0435\u043D\u044C \u0436\u0443\u0442\u043A\u0438\u0439
+      \u0447\u0443\u0432\u0430\u043A"
     m_Metadata:
       m_Items: []
   - m_Id: 471959556096
-    m_Localized: "I\u2019ve seen this guy somewhere before, but I can\u2019t remember
-      where\u2026"
+    m_Localized: "\u0413\u0434\u0435 \u0442\u043E \u044F \u0443\u0436\u0435 \u0432\u0438\u0434\u0435\u043B
+      \u044D\u0442\u043E\u0433\u043E \u043C\u0443\u0436\u0438\u043A\u0430, \u043D\u043E
+      \u043D\u0435 \u043C\u043E\u0433\u0443 \u0432\u0441\u043F\u043E\u043C\u043D\u0438\u0442\u044C
+      \u0433\u0434\u0435..."
     m_Metadata:
       m_Items: []
   - m_Id: 485167419392
-    m_Localized: "He stood by the column all night. The cloak is already black, but
-      it\u2019s him, I\u2019m sure."
+    m_Localized: "\u0421\u0442\u043E\u044F\u043B \u0443 \u043A\u043E\u043B\u043E\u043D\u043D\u044B
+      \u0432\u0441\u044E \u043D\u043E\u0447\u044C. \n\u041F\u043B\u0430\u0449 \u0443\u0436\u0435
+      \u0447\u0451\u0440\u043D\u044B\u0439, \u043D\u043E \u044D\u0442\u043E \u043E\u043D,
+      \u044F \u0443\u0432\u0435\u0440\u0435\u043D\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 496009695232
-    m_Localized: "I saw a man with a bloodied knife in his pocket. The police accepted
-      the statement. I didn\u2019t see his face."
+    m_Localized: "I saw a man with a bloodied knife in his pocket. \nThe militia
+      took my report. I didn\u2019t see his face."
     m_Metadata:
       m_Items: []
   - m_Id: 518344364032
-    m_Localized: "He followed me from the house to the station. He didn\u2019t turn
-      around. I know it\u2019s him."
+    m_Localized: "\u0428\u0451\u043B \u0437\u0430 \u043C\u043D\u043E\u0439 \u043E\u0442
+      \u0434\u043E\u043C\u0430 \u0434\u043E \u0441\u0442\u0430\u043D\u0446\u0438\u0438.
+      \n\u041D\u0435 \u043E\u0431\u043E\u0440\u0430\u0447\u0438\u0432\u0430\u043B\u0441\u044F.
+      \u042F \u0437\u043D\u0430\u044E, \u0447\u0442\u043E \u044D\u0442\u043E \u043E\u043D."
     m_Metadata:
       m_Items: []
   - m_Id: 531308957696
-    m_Localized: "You can\u2019t run, he\u2019s watching. You need to call the police."
+    m_Localized: "\u0411\u0435\u0436\u0430\u0442\u044C \u043D\u0435\u043B\u044C\u0437\u044F,
+      \u043E\u043D \u0441\u043C\u043E\u0442\u0440\u0438\u0442. \u041D\u0430\u0434\u043E
+      \u0437\u0432\u043E\u043D\u0438\u0442\u044C \u0432 \u043C\u0438\u043B\u0438\u0446\u0438\u044E."
     m_Metadata:
       m_Items: []
   - m_Id: 89359767298048

@@ -17,7 +17,29 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: cd5eac7a093acfa4eb1838f4a42248ec, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 329678249254912
+    m_Localized: "Thursday, 26 October 2006\nTerminal Station Back on Schedule.\nAfter
+      renovation, the station is open to passengers again. \nThe city commission
+      noted a shortage of cleaning staff and has assigned the station to the correctional
+      labor service.\nTonight: around +2\xB0C, wet snow possible."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329716367089664
+    m_Localized: "Friday, 27 October 2006\nResidents Report Disturbances Near the
+      Station\nResidents have asked for a check of the lighting and noise in the
+      tunnels. \nThe Metro Administration blames ongoing repair work. \nThe militia
+      reminds citizens not to leave belongings unattended.\nNight security reduced
+      at several stations."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329728379576320
+    m_Localized: "Saturday, 28 October 2006\nBody Found in the Metro\nA man\u2019s
+      body was found at the station overnight. \nThere are no signs of violence,
+      the cause of death has not been established, and the identity is being determined.
+      \nThe Metro Administration states that no night duty is scheduled at the station."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

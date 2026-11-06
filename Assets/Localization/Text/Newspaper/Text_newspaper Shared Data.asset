@@ -14,7 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Text_newspaper
   m_TableCollectionNameGuidString: cd5eac7a093acfa4eb1838f4a42248ec
-  m_Entries: []
+  m_Entries:
+  - m_Id: 329678249254912
+    m_Key: newspaper_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329716367089664
+    m_Key: newspaper_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329728379576320
+    m_Key: newspaper_3
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

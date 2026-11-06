@@ -30,11 +30,6 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: de98ac603b778434e993bdedb44c7be2
-    m_Address: Assets/Localization/Text/ADS/Text_ads Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: fd6fe3e73b317d04c9f73ceb80f20f3b, type: 2}
   m_SchemaSet:
