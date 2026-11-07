@@ -909,4 +909,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981091f30f49fb443b4a4667e538bd0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Test
-  _audio: {fileID: 11400000, guid: 1273a2eaa1336514fb61e0231361d08f, type: 2}
+  _audio: {fileID: 11400000, guid: 534d0a739ea9f64479b61bffe53fa4f6, type: 2}

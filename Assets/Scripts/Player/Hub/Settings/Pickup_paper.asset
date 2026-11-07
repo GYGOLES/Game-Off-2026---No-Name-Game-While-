@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafbb34848f3d1046864890edd69b9d4, type: 3}
+  m_Name: Pickup_paper
+  m_EditorClassIdentifier: Assembly-CSharp::AudioScriptableObj
+  volume: 0.1
+  arrayClips:
+  - {fileID: 8300000, guid: 24feb84b04bc5d1409dc6f91bfb6d71d, type: 3}
+  - {fileID: 8300000, guid: 7cb19324c57ed3947b4740cb59209562, type: 3}
+  clip: {fileID: 8300000, guid: 6e3ae2ca23a45944d9df87f9b31ea5e2, type: 3}
