@@ -38,6 +38,7 @@ namespace Assets.Scripts.Player.Hub
                 if(interact == null)return;
 
                 interact.Interact(_config.Controller.gameObject);
+                
             }
         }
 

@@ -1,10 +1,23 @@
 using UnityEngine;
 
-public class Test : AudioAbs, IInteract
+public class ItemsCollect : AudioAbs, IInteract
 {
     public void Interact(GameObject gameObject)
     {
-        Debug.Log("INTERACT");
-        PlayAtPosition(GetRandomClip(_audio.ArraClips), transform.position);
+        PlaySound();
+
+        
+    }
+
+    void PlaySound()
+    {
+        if(_audio != null&&_audio.ArraClips.Length > 0)
+        {
+            PlayAtPosition(GetRandomClip(_audio.ArraClips), transform.position);
+        }
+        else
+        {
+            Debug.LogError("NO CLIP IN OBJECT");
+        }
     }
 }

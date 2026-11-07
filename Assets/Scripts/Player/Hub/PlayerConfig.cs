@@ -60,6 +60,15 @@ public sealed class PlayerConfig
     public LayerMask GroundLayer => _groundLayer;
     public LayerMask InteractLayer => _interactLayer;
 
+    [Header("States")]
+    [SerializeField] float _maxStamina = 100f;
+    [SerializeField] float _staminaRecover = 5f;
+    [SerializeField] float _staminaDrain = 10f;
+    
+    public float MaxStamina => _maxStamina;
+    public float StaminaRecover => _staminaRecover;
+    public float StaminaDrain => _staminaDrain;
+
     public void SetSensitivity(float value) => _sensitivity = Mathf.Clamp(value, MinSensitivity, MaxSensitivity);
     public void SetInvertY(bool b) => _invertY = b;
 
