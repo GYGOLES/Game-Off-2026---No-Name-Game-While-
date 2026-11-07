@@ -21,6 +21,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c64c8123ad279c478ec789b78ec13a2
+    m_Address: End_game_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 78c737c4038b884409dc82e4f6582694
     m_Address: Text_note_ru
     m_ReadOnly: 1

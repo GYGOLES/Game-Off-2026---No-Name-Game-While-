@@ -13,8 +13,46 @@ MonoBehaviour:
   m_Name: End_game Shared Data
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: End_game
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: 0fa41eabb8565c440a299ec7b748330d
+  m_Entries:
+  - m_Id: 5672894464
+    m_Key: end_game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 612580294656
+    m_Key: head_end_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 702980128768
+    m_Key: head_end_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 710970277888
+    m_Key: head_end_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 717496614912
+    m_Key: head_end_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2562264760320
+    m_Key: body_end_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2564408049664
+    m_Key: 'body_end_2
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2566089965568
+    m_Key: body_end_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2568006762496
+    m_Key: body_end_4
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
