@@ -47,7 +47,26 @@ MonoBehaviour:
   parentReference:
     TypeName: 
   autoRun: 1
-  autoInjectGameObjects: []
+  autoInjectGameObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _pool:
     _poolSize: 40
     _prefab: {fileID: 3199161748652277146, guid: 3b1afc5899a489b469d5c6a3816a365a, type: 3}
@@ -61,6 +80,8 @@ MonoBehaviour:
     _stayGround: -2
     _camera: {fileID: 0}
     _controller: {fileID: 0}
+    _orientation: {fileID: 0}
+    _headBobing: {fileID: 0}
     _interactRay: 1.5
     _groundRay: 1.5
     _groundLayer:
@@ -69,3 +90,8 @@ MonoBehaviour:
     _interactLayer:
       serializedVersion: 2
       m_Bits: 64
+    _maxStamina: 100
+    _staminaRecover: 5
+    _staminaDrain: 10
+    _maxWeight: 20
+    _maxBagStorage: 10

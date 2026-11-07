@@ -6,11 +6,14 @@ namespace Assets.Scripts.Player.Hub
     public class PlayerInteract : IDisposable
     {
         private readonly PlayerConfig _config;
+        private readonly PlayerCarry _carry;
+
         private readonly IPlayerInput _input;
-        public PlayerInteract(PlayerConfig config, IPlayerInput input )
+        public PlayerInteract(PlayerConfig config, PlayerCarry carry, IPlayerInput input )
         {
             _config = config;
             _input = input;
+            _carry = carry;
 
             _input.Interact += Interact;
         }
@@ -37,8 +40,7 @@ namespace Assets.Scripts.Player.Hub
                 IInteract interact = hit.transform.GetComponentInParent<IInteract>();
                 if(interact == null)return;
 
-                interact.Interact(_config.Controller.gameObject);
-                
+                interact.Interact(_carry);
             }
         }
 

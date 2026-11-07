@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerStates
 {
     private readonly PlayerConfig _config;
+
     private float _currentStamina;
     private float _staminaTimer;
     private bool _staminaOut;
@@ -39,7 +40,7 @@ public class PlayerStates
 
         if (canSprint)
         {
-            StaminaDrain(dt*10);
+            StaminaDrain(dt);
         }
         else
         {
@@ -49,7 +50,7 @@ public class PlayerStates
 
     private void StaminaDrain(float dt)
     {
-        _currentStamina -= dt;
+        _currentStamina -= _config.StaminaDrain*dt;
 
         if(_currentStamina <= 0)
         {
@@ -59,7 +60,7 @@ public class PlayerStates
     }
     private void StaminaRegenerate(float dt)
     {
-        _currentStamina = Mathf.Min(_currentStamina + 5 * dt, _config.MaxStamina);
+        _currentStamina = Mathf.Min(_currentStamina + _config.StaminaRecover * dt, _config.MaxStamina);
     }
     private void SetExhausted(bool b)
     {

@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 4998306404758375914}
   - component: {fileID: 7319105504625926498}
   - component: {fileID: 3875492394327165186}
+  - component: {fileID: 8886712730751444045}
   m_Layer: 3
   m_Name: PlayerPrefab 1
   m_TagString: Untagged
@@ -246,6 +247,20 @@ MonoBehaviour:
   magnitude: 0.17
   moveRate: 1
   runRate: 0.6
+--- !u!114 &8886712730751444045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3751665930493063228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b7f7f7015411e45b97f7bff22321a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUI
+  _bagStorage: {fileID: 0}
+  _stamina: {fileID: 0}
 --- !u!1 &3942308986257868584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,7 +1219,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2585
+  m_VersionIndex: 2588
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
