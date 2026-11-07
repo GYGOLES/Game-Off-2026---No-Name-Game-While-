@@ -910,3 +910,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Test
   _audio: {fileID: 11400000, guid: 534d0a739ea9f64479b61bffe53fa4f6, type: 2}
+  _item: {fileID: 11400000, guid: e290fc0f959b4ea4c85693f6852ce805, type: 2}

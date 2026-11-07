@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2781189a90b9b874a97d8f95d428f1cf, type: 3}
-  m_Name: Item
+  m_Name: Item_newspaper
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeight
   ItemName: 
   Weight: 0

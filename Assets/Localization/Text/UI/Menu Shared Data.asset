@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Menu Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Menu
+  m_TableCollectionNameGuidString: 3907b160325886a408e9a8a17d884419
+  m_Entries:
+  - m_Id: 6859882496
+    m_Key: resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142562394112
+    m_Key: options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 241900290048
+    m_Key: exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1399574331392
+    m_Key: paused
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3390635606016
+    m_Key: back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4032859045888
+    m_Key: full_screen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9220525228032
+    m_Key: sound volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9795748855808
+    m_Key: language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10164625309696
+    m_Key: vsync
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5268617998486732890
+  references:
+    version: 2
+    RefIds:
+    - rid: 5268617998486732890
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1794057088239
