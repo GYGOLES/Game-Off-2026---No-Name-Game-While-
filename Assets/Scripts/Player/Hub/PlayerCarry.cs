@@ -15,6 +15,7 @@ public sealed class PlayerCarry
     public event Action<int> BagIntChange;
 
     public PlayerCarry(PlayerConfig config) => _config = config;
+
     public bool TryAdd(ItemWeight weight)
     {
         if(_totalWeight + weight.Weight > _config.MaxWeight || _BagCollection >= _config.MaxBagStorage)return false;
@@ -36,15 +37,15 @@ public sealed class PlayerCarry
         BagIntChange?.Invoke(_BagCollection);
     }   
 
-    public void FullDrop(ItemWeight item)
+    public bool FullDrop()
     {
-        if(_BagCollection > 0)
-        {
-            _BagCollection = 0;
-            _totalWeight = 0f;
-            WeightChanged?.Invoke(_totalWeight);
-            BagIntChange?.Invoke(_BagCollection);
-            item = null;
-        }
+        if(_BagCollection <= 0)return false;
+
+        _BagCollection = 0;
+        _totalWeight = 0f;
+        WeightChanged?.Invoke(_totalWeight);
+        BagIntChange?.Invoke(_BagCollection);
+        
+        return true;
     }
 }

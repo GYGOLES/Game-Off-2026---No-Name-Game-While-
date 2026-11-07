@@ -27,6 +27,7 @@ public class LifeTimeScope : LifetimeScope
         builder.Register<PlayerMotor>(Lifetime.Singleton);
         builder.Register<PlayerStates>(Lifetime.Singleton);
         builder.Register<PlayerCarry>(Lifetime.Singleton);
+        builder.Register<PlayerHand>(Lifetime.Singleton);
 
         builder.RegisterComponentInHierarchy<HeadBobingEffect>();
         builder.RegisterComponentInHierarchy<PlayerUI>();

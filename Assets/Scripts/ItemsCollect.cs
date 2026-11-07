@@ -3,12 +3,11 @@ using UnityEngine;
 public class ItemsCollect : AudioAbs, IInteract
 {
     [SerializeField] ItemWeight _item;
-    public void Interact(PlayerCarry carry)
+    public void Interact(PlayerCarry carry, PlayerHand hand)
     {
-        
         if(_item != null)
         {
-            if (carry.TryAdd(_item))
+            if (carry.TryAdd(_item)&&hand.Occupied)
             {
                 PlaySound();
                 gameObject.SetActive(false);

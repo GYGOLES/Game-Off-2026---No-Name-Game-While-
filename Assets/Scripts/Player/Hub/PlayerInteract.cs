@@ -7,13 +7,15 @@ namespace Assets.Scripts.Player.Hub
     {
         private readonly PlayerConfig _config;
         private readonly PlayerCarry _carry;
+        private readonly PlayerHand _hand;
 
         private readonly IPlayerInput _input;
-        public PlayerInteract(PlayerConfig config, PlayerCarry carry, IPlayerInput input )
+        public PlayerInteract(PlayerConfig config, PlayerCarry carry, IPlayerInput input, PlayerHand hand)
         {
             _config = config;
             _input = input;
             _carry = carry;
+            _hand = hand;
 
             _input.Interact += Interact;
         }
@@ -40,7 +42,7 @@ namespace Assets.Scripts.Player.Hub
                 IInteract interact = hit.transform.GetComponentInParent<IInteract>();
                 if(interact == null)return;
 
-                interact.Interact(_carry);
+                interact.Interact(_carry, _hand);
             }
         }
 

@@ -30,10 +30,14 @@ public class PlayerUI : MonoBehaviour
     }
     void OnEnable()
     {
+        if(_carry == null)return;
+
         _carry.BagIntChange += BagText;
     }
     void OnDisable()
     {
+        if(_carry == null)return;
+
         _carry.BagIntChange -= BagText;
     }
 
@@ -45,11 +49,13 @@ public class PlayerUI : MonoBehaviour
     }
     public void Stamina()
     {
+        if(_stamina == null || _states == null)return;
+
         _stamina.text = _states.Stamina.ToString("F0");
     }
     void Update()
     {
-        if(_stamina == null)return;
+        if(_stamina == null || _states == null)return;
 
         Stamina();
     }

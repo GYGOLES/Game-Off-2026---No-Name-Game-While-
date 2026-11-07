@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7335153271400925138}
   m_Father: {fileID: 8215329524597103213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &329469413913485271
@@ -293,6 +294,38 @@ Transform:
   - {fileID: 8215329524597103213}
   m_Father: {fileID: 3841440361771792628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4513040765833849840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7335153271400925138}
+  m_Layer: 3
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7335153271400925138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4513040765833849840}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2533983714301231673}
+  m_Father: {fileID: 7912308909421239601}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4613044296541205823
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,11 +356,11 @@ Transform:
   m_GameObject: {fileID: 4613044296541205823}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.548, z: 0.674}
+  m_LocalPosition: {x: 0, y: -0.548, z: 0.6739999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8215329524597103213}
+  m_Father: {fileID: 7335153271400925138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6013512505399483807
 MonoBehaviour:
@@ -1219,7 +1252,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2588
+  m_VersionIndex: 2591
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6237,7 +6270,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2533983714301231673}
   - {fileID: 7912308909421239601}
   m_Father: {fileID: 680232840104833835}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
