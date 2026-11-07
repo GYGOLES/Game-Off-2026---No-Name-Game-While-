@@ -73,6 +73,14 @@ MonoBehaviour:
     m_Localized: "\u041D\u0435\u0442"
     m_Metadata:
       m_Items: []
+  - m_Id: 90842477985792
+    m_Localized: Terminal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91037005611008
+    m_Localized: "\u041D\u0430\u0447\u0430\u0442\u044C \u0438\u0433\u0440\u0443"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
