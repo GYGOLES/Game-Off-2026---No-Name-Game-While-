@@ -51,6 +51,22 @@ MonoBehaviour:
     m_Key: vsync
     m_Metadata:
       m_Items: []
+  - m_Id: 31423601934336
+    m_Key: restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31799340269568
+    m_Key: confirmation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32446055809024
+    m_Key: yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32458978459648
+    m_Key: no
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

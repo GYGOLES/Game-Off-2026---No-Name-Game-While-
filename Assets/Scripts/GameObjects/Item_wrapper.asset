@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2781189a90b9b874a97d8f95d428f1cf, type: 3}
   m_Name: Item_wrapper
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeight
-  ItemName: 
-  Weight: 0
+  ItemName: wrapper
+  Weight: 1
