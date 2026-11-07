@@ -21,7 +21,7 @@ MonoBehaviour:
   - m_Id: 329678249254912
     m_Localized: "Thursday, 26 October 2006\nTerminal Station Back on Schedule.\nAfter
       renovation, the station is open to passengers again. \nThe city commission
-      noted a shortage of cleaning staff and has assigned the station to the correctional
+      noted a shortage of cleaning staff \nand has assigned the station to the correctional
       labor service.\nTonight: around +2\xB0C, wet snow possible."
     m_Metadata:
       m_Items: []
@@ -36,7 +36,7 @@ MonoBehaviour:
   - m_Id: 329728379576320
     m_Localized: "Saturday, 28 October 2006\nBody Found in the Metro\nA man\u2019s
       body was found at the station overnight. \nThere are no signs of violence,
-      the cause of death has not been established, and the identity is being determined.
+      the cause of death has not been established, \nand the identity is being determined.
       \nThe Metro Administration states that no night duty is scheduled at the station."
     m_Metadata:
       m_Items: []

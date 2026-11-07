@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Start_Text_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 2008bf3232f2f8e4c85594505fdb5bc8, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5757722624
+    m_Localized: Appendix No. 7 to the Instruction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3008602562560
+    m_Localized: ORDER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3321640247296
+    m_Localized: "Convict \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588
+      (full name), born 19\u2588\u2588, convicted under Art. \u2588\u2588\u2588 of
+      the Criminal Code of the Russian Federation, is directed to serve correctional
+      labor in the form of three night shifts cleaning premises, starting 26 October
+      2006. Report by 11:00 PM. Failure to complete the required volume of work results
+      in a reprimand. A second reprimand results in conversion of the sentence to
+      imprisonment."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4925265272832
+    m_Localized: 'Head of inspection
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8921405186048
+    m_Localized: (rank)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8936479514624
+    m_Localized: (signature)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8952656945152
+    m_Localized: (name)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11027902095360
+    m_Localized: Major
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11092053975040
+    m_Localized: Yevmenenko S P
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11069480230912
+    m_Localized: Yevmenenko
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
