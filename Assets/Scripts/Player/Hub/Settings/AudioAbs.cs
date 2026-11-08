@@ -21,6 +21,16 @@ public abstract class AudioAbs : MonoBehaviour
     {
         service.PlaySound(clip,atPosition? pos : transform.position);
     }
+    protected void PlayRandomClips(AudioClip[] clip, Vector3 pos, bool atPosition)
+    {
+        service.PlaySound(GetRandomClip(clip), atPosition? pos : transform.position);
+    }
+    protected void PlayDefaultClips()
+    {
+        if(_audio == null || _audio.ArraClips.Length <= 0)return;
+
+        PlayRandomClips(_audio.ArraClips, transform.position, false);
+    }
     protected AudioClip GetRandomClip(AudioClip[] clips)    
     {
         if(clips.Length == 0)return null;

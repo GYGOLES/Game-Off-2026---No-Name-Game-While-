@@ -124,8 +124,8 @@ public class PlayerSounds : AudioAbs
     }
     private void PlayFootStep(AudioScriptableObj audio, Vector3 pos)
     {
+        if(audio == null || audio.ArraClips.Length <= 0)return;
         AudioClip clip = GetRandomClip(audio.ArraClips);
-        if(clip == null|| audio == null)return;
         PlayAtPosition(clip, pos, audio.Volume);
     }
     public void PlayAction(PlayerActions actions)

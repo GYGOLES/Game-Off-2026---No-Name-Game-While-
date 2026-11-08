@@ -7,16 +7,24 @@ public class ItemsCollect : AudioAbs, IInteract
     {
         if(_item != null)
         {
-            if (carry.TryAdd(_item)&&hand.Occupied)
-            {
-                PlaySound();
-                gameObject.SetActive(false);
-                enabled = true;
+            if (hand.Occupied)
+            {    
+                if (carry.TryAdd(_item))
+                {
+                    PlayDefaultClips();
+                    gameObject.SetActive(false);
+                    enabled = true;
+                }
+                else
+                {
+                    Debug.LogWarning("Full bag");
+                }
             }
             else
             {
-                Debug.LogError("Full Bag");
+                Debug.Log("There's nothing in hands");
             }
+            
         }
         else
         {
@@ -24,17 +32,5 @@ public class ItemsCollect : AudioAbs, IInteract
         }
 
         
-    }
-
-    void PlaySound()
-    {
-        if(_audio != null&&_audio.ArraClips.Length > 0)
-        {
-            PlayAtPosition(GetRandomClip(_audio.ArraClips), transform.position);
-        }
-        else
-        {
-            Debug.LogError("NO CLIP IN OBJECT");
-        }
     }
 }

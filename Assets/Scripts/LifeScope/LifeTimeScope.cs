@@ -13,7 +13,9 @@ public class LifeTimeScope : LifetimeScope
     {
         builder.RegisterEntryPoint<InputHub>().As<IInputModeSwitch>().AsSelf();
         builder.RegisterEntryPoint<PlayerInput>().As<IPlayerInput>();
-        builder.RegisterEntryPoint<AudioService>().As<IAudioService>().As<IStartable>();
+        builder.RegisterEntryPoint<UIInput>().As<IUInput>();
+
+        builder.RegisterEntryPoint<AudioService>().As<IAudioService>();
 
         _playerConfig.Load();
         builder.RegisterInstance(_playerConfig);
@@ -31,6 +33,8 @@ public class LifeTimeScope : LifetimeScope
 
         builder.RegisterComponentInHierarchy<HeadBobingEffect>();
         builder.RegisterComponentInHierarchy<PlayerUI>();
+        builder.RegisterComponentInHierarchy<Menu>();
+
         builder.RegisterComponentInHierarchy<PlayerSounds>();
         builder.RegisterComponentInHierarchy<PlayerHub>();
     }
