@@ -46,11 +46,10 @@ public class Menu : MonoBehaviour
         {
             _gameplay[i].SetActive(false);
         }
-        u
         Time.timeScale = 0f;
         _mode.SetUI();
     }
-    private void DisableMenu()
+    public void DisableMenu()
     {
         for (int i = 0; i < _menu.Length; i++)
         {
