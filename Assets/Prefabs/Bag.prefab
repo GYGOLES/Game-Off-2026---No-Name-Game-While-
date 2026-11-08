@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4556319727179540367}
   - component: {fileID: 226790122304001142}
   - component: {fileID: 4883153666170203595}
-  - component: {fileID: 3237981601952333551}
+  - component: {fileID: -8164372225079684293}
   m_Layer: 6
   m_Name: Bag
   m_TagString: Untagged
@@ -679,7 +679,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &3237981601952333551
+--- !u!114 &-8164372225079684293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

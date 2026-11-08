@@ -52,7 +52,7 @@ MonoBehaviour:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa04185c2b41b3a429984cb6d590b939
-    m_Address: Start_Text_en
+    m_Address: Start_game_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

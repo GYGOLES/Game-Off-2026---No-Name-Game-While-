@@ -35,22 +35,20 @@ MonoBehaviour:
     m_Key: head_end_4
     m_Metadata:
       m_Items: []
-  - m_Id: 2562264760320
-    m_Key: body_end_1
+  - m_Id: 40611376783360
+    m_Key: stamp_served
     m_Metadata:
       m_Items: []
-  - m_Id: 2564408049664
-    m_Key: 'body_end_2
-
-'
+  - m_Id: 40944144474112
+    m_Key: stamp_not_completed
     m_Metadata:
       m_Items: []
-  - m_Id: 2566089965568
-    m_Key: body_end_3
+  - m_Id: 41060876148736
+    m_Key: stamp_closed
     m_Metadata:
       m_Items: []
-  - m_Id: 2568006762496
-    m_Key: body_end_4
+  - m_Id: 41148058951680
+    m_Key: stamp_released
     m_Metadata:
       m_Items: []
   m_Metadata:

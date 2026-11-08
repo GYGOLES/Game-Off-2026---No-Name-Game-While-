@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981091f30f49fb443b4a4667e538bd0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Test
-  _audio: {fileID: 11400000, guid: 5c062e130b477164a86ecf3a8d035257, type: 2}
+  _audio: {fileID: 11400000, guid: 7805be2adf756534b8e67e499a847081, type: 2}
   _item: {fileID: 11400000, guid: e7b48a7dc0d2dd34e90a1238d1ecaa32, type: 2}
 --- !u!65 &7574274018461698654
 BoxCollider:

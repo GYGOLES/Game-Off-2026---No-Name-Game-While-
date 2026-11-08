@@ -16,4 +16,5 @@ MonoBehaviour:
   arrayClips:
   - {fileID: 8300000, guid: 24feb84b04bc5d1409dc6f91bfb6d71d, type: 3}
   - {fileID: 8300000, guid: 7cb19324c57ed3947b4740cb59209562, type: 3}
+  - {fileID: 8300000, guid: aac68a8e4d8592c4a9b02b68ea441311, type: 3}
   clip: {fileID: 8300000, guid: 6e3ae2ca23a45944d9df87f9b31ea5e2, type: 3}

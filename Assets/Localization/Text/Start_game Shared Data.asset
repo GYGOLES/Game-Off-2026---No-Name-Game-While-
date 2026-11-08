@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Start_Text Shared Data
+  m_Name: Start_game Shared Data
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
-  m_TableCollectionName: Start_Text
+  m_TableCollectionName: Start_game
   m_TableCollectionNameGuidString: 2008bf3232f2f8e4c85594505fdb5bc8
   m_Entries:
   - m_Id: 5757722624
@@ -53,6 +53,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 11092053975040
     m_Key: name_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336969161760768
+    m_Key: notation
     m_Metadata:
       m_Items: []
   m_Metadata:

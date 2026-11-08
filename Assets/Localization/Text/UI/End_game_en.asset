@@ -23,29 +23,36 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 612580294656
-    m_Localized: Your corrective labor is over.
+    m_Localized: Correctional labor completed in full. No complaints.
     m_Metadata:
       m_Items: []
-  - m_Id: 2562264760320
-    m_Localized: "Sometimes it\u2019s better not to know anything and just live your
-      life."
+  - m_Id: 41060876148736
+    m_Localized: CLOSED
     m_Metadata:
       m_Items: []
-  - m_Id: 2564408049664
-    m_Localized: "You can\u2019t be fixed; you\u2019re not ready to live in society!"
+  - m_Id: 40944144474112
+    m_Localized: NOT COMPLETED
     m_Metadata:
       m_Items: []
-  - m_Id: 2566089965568
-    m_Localized: "You couldn\u2019t cope with such intense stress."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2568006762496
-    m_Localized: You found a solution and a way out of a difficult situation.
+  - m_Id: 40611376783360
+    m_Localized: SERVED
     m_Metadata:
       m_Items: []
   - m_Id: 702980128768
-    m_Localized: "You have no desire to serve your punishment. You\u2019ve been taken
-      off shift."
+    m_Localized: Required volume of work not completed. Sentence converted to imprisonment.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 710970277888
+    m_Localized: 'Convict deceased. Cause of death: acute heart failure. Case closed.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 717496614912
+    m_Localized: Correctional labor completed ahead of schedule. Station recognized
+      as exemplary.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41148058951680
+    m_Localized: RELEASED
     m_Metadata:
       m_Items: []
   references:

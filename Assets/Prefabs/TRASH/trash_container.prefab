@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5185122320750028592}
   - component: {fileID: 7586221772684173443}
   - component: {fileID: 9124557633129478299}
-  - component: {fileID: -5220323365706582501}
+  - component: {fileID: 4031930703685704714}
   m_Layer: 6
   m_Name: trash_container
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4822867781367065429}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.6451921, y: 0.11336899, z: -6.2059164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2544
+  m_VersionIndex: 2586
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -597,7 +597,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.999999, y: 2.0175815, z: 3}
   m_Center: {x: 0, y: 0.008790731, z: 0}
---- !u!114 &-5220323365706582501
+--- !u!114 &4031930703685704714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4822867781367065429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981091f30f49fb443b4a4667e538bd0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 12364bad62c69b84dbafc3d66df91d6d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Test
-  _audio: {fileID: 11400000, guid: 534d0a739ea9f64479b61bffe53fa4f6, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Garbage_Container
+  _audio: {fileID: 11400000, guid: 8dc85bd9cd2ccf04cb31ad9aabd88f8d, type: 2}
