@@ -9,6 +9,9 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject _options;
     [SerializeField] GameObject _pause;
 
+    [Header("Timer")]
+    [SerializeField] TimerCounter _timerCounter;
+
     private IPlayerInput _pl;
     private IUInput _ui;
     private IInputModeSwitch _mode;
@@ -25,11 +28,15 @@ public class Menu : MonoBehaviour
     {
         _pl.Pause += EnableMenu;
         _ui.Pause += DisableMenu;
+
+        _timerCounter.TimerDeath += SetUi;
     }
     void OnDisable()
     {
         _pl.Pause -= EnableMenu;
         _ui.Pause -= DisableMenu;
+
+        _timerCounter.TimerDeath -= SetUi;
     }
 
     private void EnableMenu()
@@ -46,8 +53,7 @@ public class Menu : MonoBehaviour
         {
             _gameplay[i].SetActive(false);
         }
-        Time.timeScale = 0f;
-        _mode.SetUI();
+        SetUi();
     }
     public void DisableMenu()
     {
@@ -63,7 +69,17 @@ public class Menu : MonoBehaviour
         {
             _gameplay[i].SetActive(true);
         }
-        Time.timeScale = 1f;
+        SetGameplay();
+    }
+
+    private void SetUi()
+    {
+        _mode.SetUI();
+        Time.timeScale = 0f;
+    }
+    public void SetGameplay()
+    {
         _mode.SetGameplay();
+        Time.timeScale = 1f;
     }
 }

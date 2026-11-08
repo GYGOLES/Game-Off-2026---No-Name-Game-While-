@@ -1,8 +1,11 @@
 
+using System;
 using UnityEngine;
 public class ItemsCollect : AudioAbs, IInteract
 {
     [SerializeField] ItemWeight _item;
+
+    public event Action<ItemsCollect> Collected;
     public void Interact(PlayerCarry carry, PlayerHand hand)
     {
         if(_item != null)
@@ -13,7 +16,8 @@ public class ItemsCollect : AudioAbs, IInteract
                 {
                     PlayDefaultClips();
                     gameObject.SetActive(false);
-                    enabled = true;
+                    Collected?.Invoke(this);
+                    enabled = false;
                 }
                 else
                 {
