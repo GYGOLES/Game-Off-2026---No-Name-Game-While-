@@ -1,5 +1,6 @@
 using System;
 using Assets.Scripts.Inputmanager;
+using UnityEditor.Rendering;
 using UnityEngine;
 namespace Assets.Scripts.Player.Hub
 {
@@ -14,6 +15,7 @@ namespace Assets.Scripts.Player.Hub
         private bool _sprint;
         private bool _losedStamina;
         private int _speedDecreased;
+        private float _deceleration = 1;
 
         private float _currentSpeed;
         public PlayerMovement(IPlayerInput input, PlayerConfig config, PlayerStates states, PlayerCarry carry)
@@ -48,9 +50,12 @@ namespace Assets.Scripts.Player.Hub
 
             bool sprinting = _sprint&&_move.sqrMagnitude > 0.0001f&&!_losedStamina;
             float baseSpeed = sprinting? _config.SprintSpeed  : _config.WalkSpeed ;
+            float targetSpeed = _speedDecreased >= _config.MaxBagStorage? _config.MaxDeceleration : _speedDecreased >= _config.MaxBagStorage*0.5 ? _config.MiddleDeceleration : _speedDecreased >= _config.MaxBagStorage * 0.2? _config.MinDeleceleration : 1;
 
-            float target = _speedDecreased > _config.MaxBagStorage*0.5? _config.SpeedDecreased : 1;
-            _currentSpeed = baseSpeed * target;
+
+            _deceleration = Mathf.Lerp(_deceleration, targetSpeed, Time.deltaTime * 12);
+            _currentSpeed = baseSpeed * _deceleration;
+            Debug.Log(_deceleration);
            
             Vector3 wishDir = (_move.x*right + _move.y*forward)*_currentSpeed;
             ctx.velocity.x = wishDir.x;
