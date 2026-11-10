@@ -49,7 +49,7 @@ namespace Assets.Scripts.Player.Hub
             bool sprinting = _sprint&&_move.sqrMagnitude > 0.0001f&&!_losedStamina;
             float baseSpeed = sprinting? _config.SprintSpeed  : _config.WalkSpeed ;
 
-            float target = _speedDecreased > _config.MaxBagStorage*0.5? 0.5f : 1;
+            float target = _speedDecreased > _config.MaxBagStorage*0.5? _config.SpeedDecreased : 1;
             _currentSpeed = baseSpeed * target;
            
             Vector3 wishDir = (_move.x*right + _move.y*forward)*_currentSpeed;

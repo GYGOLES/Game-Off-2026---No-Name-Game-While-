@@ -74,9 +74,11 @@ public sealed class PlayerConfig
     [Header("Weight States")]
     [SerializeField] float _maxWeight = 20f;
     [SerializeField] int _maxBagStorage = 10;
+    [SerializeField] float _speedDecreased = 0.7f;
 
     public float MaxWeight => _maxWeight;
     public int MaxBagStorage => _maxBagStorage;
+    public float SpeedDecreased => _speedDecreased;
 
     public void SetSensitivity(float value) => _sensitivity = Mathf.Clamp(value, MinSensitivity, MaxSensitivity);
     public void SetInvertY(bool b) => _invertY = b;
