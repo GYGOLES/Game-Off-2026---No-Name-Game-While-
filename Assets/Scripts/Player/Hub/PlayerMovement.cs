@@ -13,7 +13,7 @@ namespace Assets.Scripts.Player.Hub
         private Vector2 _move;
         private bool _sprint;
         private bool _losedStamina;
-        private float _speedDecreased;
+        private int _speedDecreased;
 
         private float _currentSpeed;
         public PlayerMovement(IPlayerInput input, PlayerConfig config, PlayerStates states, PlayerCarry carry)
@@ -26,14 +26,15 @@ namespace Assets.Scripts.Player.Hub
             _input.Move += OnMove;
             _input.Sprint += OnSprint;
             _states.StaminaDepleted += LosedStamina;
-            _carry.WeightChanged += SpeedDecreased;
-    
+            _carry.BagIntChange += SpeedDecreased;
+
+            _speedDecreased = 0;
         }
 
         private void OnMove(Vector2 v) => _move = v;
         private void OnSprint(bool v) => _sprint = v;
         private void LosedStamina(bool v) => _losedStamina = v;
-        private void SpeedDecreased(float t) => _speedDecreased = t;
+        private void SpeedDecreased(int t) => _speedDecreased = t;
 
         public void MoveTick(PlayerContext ctx , Transform body)
         {
@@ -46,8 +47,10 @@ namespace Assets.Scripts.Player.Hub
             right.Normalize();
 
             bool sprinting = _sprint&&_move.sqrMagnitude > 0.0001f&&!_losedStamina;
+            float baseSpeed = sprinting? _config.SprintSpeed  : _config.WalkSpeed ;
 
-            _currentSpeed = sprinting? _config.SprintSpeed  : _config.WalkSpeed ;
+            float target = _speedDecreased > _config.MaxBagStorage*0.5? 0.5f : 1;
+            _currentSpeed = baseSpeed * target;
            
             Vector3 wishDir = (_move.x*right + _move.y*forward)*_currentSpeed;
             ctx.velocity.x = wishDir.x;
@@ -74,7 +77,7 @@ namespace Assets.Scripts.Player.Hub
             _input.Move -= OnMove;
             _input.Sprint -= OnSprint;
             _states.StaminaDepleted -= LosedStamina;
-            _carry.WeightChanged -= SpeedDecreased;
+            _carry.BagIntChange -= SpeedDecreased;
         }
     }
 }

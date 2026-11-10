@@ -16,6 +16,7 @@ public class ItemsCollect : AudioAbs, IInteract
                 {
                     PlayDefaultClips();
                     gameObject.SetActive(false);
+
                     Collected?.Invoke(this);
                     enabled = false;
                 }
@@ -34,7 +35,7 @@ public class ItemsCollect : AudioAbs, IInteract
         {
             Debug.LogWarning("ITEM NULL");
         }
-
-        
     }
+
+    
 }

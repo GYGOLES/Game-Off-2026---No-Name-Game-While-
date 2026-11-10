@@ -15,6 +15,7 @@ public class HeadBobingEffect : MonoBehaviour
 
     [Header("Links")]
     [SerializeField] Transform _head;
+    [SerializeField] Transform _hand;
 
     [Header("Walk / Sprint")]
     [SerializeField] BobSettings _walk;
@@ -31,6 +32,9 @@ public class HeadBobingEffect : MonoBehaviour
     private Vector3 _startPos;
     private Quaternion _startRot;
 
+    private Vector3 _startPosHand;
+    private Quaternion _startRotHand;
+
     private float _walkTimer;
     private float _idleTime;
     private float _weight, _weightVel;
@@ -40,6 +44,9 @@ public class HeadBobingEffect : MonoBehaviour
     {
         _startPos = _head.localPosition;
         _startRot = _head.localRotation;
+
+        _startPosHand = _hand.localPosition;
+        _startRotHand = _hand.localRotation;
 
         _seedX = Random.value * 100f;
         _seedY = Random.value * 100f;
@@ -77,5 +84,8 @@ public class HeadBobingEffect : MonoBehaviour
 
         _head.localPosition = _startPos + finalPos;
         _head.localRotation = _startRot * Quaternion.Euler(0f, 0f, finalRotation);
+
+        _hand.localPosition = _startPosHand + finalPos;
+        _hand.localRotation = _startRotHand * Quaternion.Euler(0f, 0f, finalRotation);
     }
 }
