@@ -46,7 +46,7 @@ namespace Assets.Scripts.Player.Hub
             }
         }
 
-        bool OnInteract(out RaycastHit hit)
+        public bool OnInteract(out RaycastHit hit)
         {
             Ray ray = _config.Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             return Physics.Raycast(ray, out  hit, _config.InteractRay, _config.InteractLayer, QueryTriggerInteraction.Ignore);

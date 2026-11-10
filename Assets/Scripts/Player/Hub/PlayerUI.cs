@@ -1,3 +1,4 @@
+using Assets.Scripts.Player.Hub;
 using TMPro;
 using UnityEngine;
 using VContainer;
@@ -7,9 +8,13 @@ public class PlayerUI : MonoBehaviour
     private PlayerStates _states;
     private PlayerCarry _carry;
     private PlayerConfig _config;
+    private PlayerInteract _interact;
 
+
+    [Header("UI")]
     [SerializeField] TextMeshProUGUI _bagStorage;
     [SerializeField] TextMeshProUGUI _stamina;
+    [SerializeField] TextMeshProUGUI _interaction;
 
     [Header("Timer")]
     [SerializeField] TimerCounter _timerCounter;
@@ -24,11 +29,12 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] GarbageLocator _locator;
 
     [Inject]
-    public void C(PlayerStates states, PlayerCarry carry, PlayerConfig config)
+    public void C(PlayerStates states, PlayerCarry carry, PlayerConfig config, PlayerInteract interact)
     {
         _states = states;
         _carry = carry;
         _config = config;
+        _interact = interact;
 
         _carry.BagIntChange   += BagText;
         _carry.TotalBagChange += TotalCollected;
@@ -87,8 +93,21 @@ public class PlayerUI : MonoBehaviour
         _Items.text = remain.ToString("F0") + "/" + total.ToString("F0");
     }
 
+    void ShowInteractText()
+    {
+        if(!_interact.OnInteract(out RaycastHit hit))
+        {
+            if(_interaction.gameObject.activeInHierarchy)
+                _interaction.gameObject.SetActive(false);
+            
+            return;
+        }
+        if (!_interaction.gameObject.activeInHierarchy)
+                _interaction.gameObject.SetActive(true);
+    }
+
     void Update()
     {
-        Stamina(); Timer(); 
+        Stamina(); Timer(); ShowInteractText();
     }
 }
