@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 334271447040
-    m_Localized: The bag is full.
+    m_Localized: The bag is full
     m_Metadata:
       m_Items: []
   - m_Id: 464533946368
@@ -31,7 +31,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1082837270528
-    m_Localized: "Press \xABE\xBB to read."
+    m_Localized: "Press \xABE\xBB to read"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1486921527189504
+    m_Localized: "Press \xABE\xBB to pick up a trash bag"
     m_Metadata:
       m_Items: []
   references:

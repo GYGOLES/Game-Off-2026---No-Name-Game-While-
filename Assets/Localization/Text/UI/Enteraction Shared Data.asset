@@ -31,6 +31,12 @@ MonoBehaviour:
     m_Key: read
     m_Metadata:
       m_Items: []
+  - m_Id: 1486921527189504
+    m_Key: 'grab_bag
+
+'
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

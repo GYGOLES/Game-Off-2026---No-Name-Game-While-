@@ -93,6 +93,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Test
   _audio: {fileID: 11400000, guid: 534d0a739ea9f64479b61bffe53fa4f6, type: 2}
   _item: {fileID: 11400000, guid: c3e62c8a0f20c8c4f824f99f02c615eb, type: 2}
+  _string:
+    m_TableReference:
+      m_TableCollectionName: GUID:3083b163c3b6a6f4da9643d801a371cc
+    m_TableEntryReference:
+      m_KeyId: 4649484288
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _outline: {fileID: 3284421393339237250}
+  references:
+    version: 2
+    RefIds: []
 --- !u!65 &8328275680103505839
 BoxCollider:
   m_ObjectHideFlags: 0
