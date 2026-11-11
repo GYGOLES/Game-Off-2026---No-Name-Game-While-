@@ -42,5 +42,12 @@ namespace Assets.Scripts.Player.Hub
         {
             _effect.Tick(ctx, dt);
         }
+
+        public void Teleport(Transform targetPosition)
+        {
+            _controller.enabled = false;
+            _movement.TeleportInPosition(_controller.transform, targetPosition);
+            _controller.enabled = true;
+        }
     }
 }

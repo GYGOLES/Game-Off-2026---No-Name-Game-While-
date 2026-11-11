@@ -1,6 +1,5 @@
 using System;
 using Assets.Scripts.Inputmanager;
-using UnityEditor.Rendering;
 using UnityEngine;
 namespace Assets.Scripts.Player.Hub
 {
@@ -10,6 +9,7 @@ namespace Assets.Scripts.Player.Hub
         private readonly PlayerConfig _config;
         private readonly PlayerStates _states;
         private readonly PlayerCarry _carry;
+
 
         private Vector2 _move;
         private bool _sprint;
@@ -82,6 +82,16 @@ namespace Assets.Scripts.Player.Hub
             _input.Sprint -= OnSprint;
             _states.StaminaDepleted -= LosedStamina;
             _carry.BagIntChange -= SpeedDecreased;
+        }
+
+        public void TeleportInPosition(Transform body, Transform target)
+        {
+            _move = Vector2.zero;
+            _sprint = false;
+            _currentSpeed = 0;
+            _losedStamina = false;
+            body.position = target.position;
+            body.rotation = target.rotation;
         }
     }
 }

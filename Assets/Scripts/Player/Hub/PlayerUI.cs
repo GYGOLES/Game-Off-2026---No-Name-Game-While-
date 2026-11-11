@@ -10,6 +10,7 @@ public class PlayerUI : MonoBehaviour
     private PlayerCarry _carry;
     private PlayerConfig _config;
     private PlayerInteract _interact;
+    private PlayerMotor _motor;
 
 
     [Header("UI")]
@@ -24,27 +25,41 @@ public class PlayerUI : MonoBehaviour
     [Header("EndShift")]
     [SerializeField] GameObject _EndShift;
     [SerializeField] TextMeshProUGUI _scoreTotalCollected;
+    [SerializeField] TextMeshProUGUI _shiftDay;
 
     [Header("ItemInShift")]
     [SerializeField] TextMeshProUGUI _Items;
-    [SerializeField] GarbageLocator _locator;
+    [SerializeField] GarbageLocator[] _locators;
+    [SerializeField] Transform _spawnLocation;
 
     private IInteract _currentInteract;
     private LocalizedString _currentLocalized;
     private Outline _currentOutline;
+    private int _day = 1;
+    private GarbageLocator _locator;
 
     [Inject]
-    public void Construct(PlayerStates states, PlayerCarry carry, PlayerConfig config, PlayerInteract interact)
+    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerConfig config, PlayerInteract interact)
     {
         _states = states;
         _carry = carry;
         _config = config;
         _interact = interact;   
+        _motor = motor;
 
         _carry.BagIntChange   += BagText;
         _carry.TotalBagChange += TotalCollected;
-        _locator.Changed      += GarbageText;
-        _timerCounter.TimerDeath += ShowScore;    
+
+        if (_locator != null)
+        {
+            _locator.Changed      += GarbageText;
+            _locator.AllCollected += ShowScore; 
+        }
+
+        _motor.Teleport(_spawnLocation);
+
+        _timerCounter.TimerDeath += ShowScore;   
+        
     }
     void OnDestroy()
     {
@@ -53,15 +68,18 @@ public class PlayerUI : MonoBehaviour
             _carry.BagIntChange   -= BagText;
             _carry.TotalBagChange -= TotalCollected;
         }
-        if (_locator != null) _locator.Changed -= GarbageText;
+        if (_locator != null)
+        {
+            _locator.Changed -= GarbageText;
+            _locator.AllCollected -= ShowScore; 
+        }
         if (_timerCounter != null) _timerCounter.TimerDeath -= ShowScore;
         if(_currentInteract != null) ClearPrompt();
     }
     void Start()
     {
         BagText(_carry.CurrentBagCollected is var b ? (int)b : 0);
-        TotalCollected(0);
-        GarbageText(_locator.Total, _locator.Total);
+        SetLocator(_day - 1);
     }
     public void BagText(int f)
     {
@@ -97,6 +115,7 @@ public class PlayerUI : MonoBehaviour
     public void GarbageText(int remain, int total)
     {
         _Items.text = remain.ToString("F0") + "/" + total.ToString("F0");
+        _scoreTotalCollected.text = remain.ToString("F0") + "/" + _locator.Total.ToString("F0");
     }
 
     void ShowInteractText()
@@ -149,6 +168,36 @@ public class PlayerUI : MonoBehaviour
 
         if (_interaction != null && _interaction.gameObject.activeSelf)
             _interaction.gameObject.SetActive(false);
+    }
+
+    public void SetNextShift(int i)
+    {
+
+        _day += i;
+        _shiftDay.text = _day.ToString();
+        _timerCounter.SetTimerBack();
+
+        _motor.Teleport(_spawnLocation);
+
+        SetLocator(_day - 1);
+
+        _EndShift.gameObject.SetActive(false);
+        
+    }
+    private void SetLocator(int index)
+    {
+        if (_locator != null)
+        {
+            _locator.Changed -= GarbageText;
+            _locator.AllCollected -= ShowScore;
+            _locator.gameObject.SetActive(false);
+        }
+
+        _locator = _locators[index];
+        _locator.gameObject.SetActive(true);
+        _locator.Changed += GarbageText;
+        _locator.AllCollected += ShowScore;
+        GarbageText(_locator.Total, _locator.Total);
     }
 
     private void LocalizedText(string value) => _interaction.text = value;
