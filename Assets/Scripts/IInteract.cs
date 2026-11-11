@@ -3,6 +3,7 @@ using UnityEngine.Localization;
 
 public interface IInteract 
 {
-    public LocalizedString String{get;}
+    public LocalizedString Prompt{get;}
+    public Outline Outline{get;}
     public void Interact(PlayerCarry gameObject, PlayerHand hand);
 }

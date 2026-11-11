@@ -29,7 +29,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _Items;
     [SerializeField] GarbageLocator _locator;
 
+    private IInteract _currentInteract;
     private LocalizedString _currentLocalized;
+    private Outline _currentOutline;
 
     [Inject]
     public void Construct(PlayerStates states, PlayerCarry carry, PlayerConfig config, PlayerInteract interact)
@@ -53,8 +55,9 @@ public class PlayerUI : MonoBehaviour
         }
         if (_locator != null) _locator.Changed -= GarbageText;
         if (_timerCounter != null) _timerCounter.TimerDeath -= ShowScore;
+        if(_currentInteract != null) ClearPrompt();
     }
-    void Awake()
+    void Start()
     {
         BagText(_carry.CurrentBagCollected is var b ? (int)b : 0);
         TotalCollected(0);
@@ -98,30 +101,35 @@ public class PlayerUI : MonoBehaviour
 
     void ShowInteractText()
     {
-        LocalizedString pr = null;
+        IInteract interact = null;
 
         if (_interact.OnInteract(out RaycastHit hit))
-        pr = hit.collider.GetComponentInParent<IInteract>()?.String;
+            interact = hit.collider.GetComponentInParent<IInteract>();
 
-        SetPrompt(pr);
+        SetPrompt(interact);
     }   
 
-    private void SetPrompt(LocalizedString pr)
+    private void SetPrompt(IInteract interact)
     {
-        if (pr == null || pr.IsEmpty)
+        if (ReferenceEquals(interact, _currentInteract)) return;
+
+        ClearPrompt();
+        
+        _currentInteract = interact;
+        if(interact == null)return;
+
+        LocalizedString text = interact.Prompt;
+
+        if (text != null && !text.IsEmpty)
         {
-            ClearPrompt();
-            return;
+            _currentLocalized = text;
+            _currentLocalized.StringChanged += LocalizedText;
+            _interaction.gameObject.SetActive(true);
         }
 
-        if (ReferenceEquals(pr, _currentLocalized)) return;
-
-        if(_currentLocalized != null)
-            _currentLocalized.StringChanged -= LocalizedText;
-
-        _currentLocalized = pr;
-        _currentLocalized.StringChanged += LocalizedText;
-        _interaction.gameObject.SetActive(true);
+       _currentOutline = interact.Outline;
+        if (_currentOutline != null)
+            _currentOutline.enabled = true;
     }
 
     private void ClearPrompt()
@@ -131,7 +139,15 @@ public class PlayerUI : MonoBehaviour
             _currentLocalized.StringChanged -= LocalizedText;
             _currentLocalized = null;
         }
-        if(_interaction.gameObject.activeSelf)
+        if(_currentOutline != null)
+        {
+            _currentOutline.enabled = false;
+            _currentOutline = null;
+        }
+
+        _currentInteract= null;
+
+        if (_interaction != null && _interaction.gameObject.activeSelf)
             _interaction.gameObject.SetActive(false);
     }
 

@@ -7,7 +7,11 @@ public class ItemsCollect : AudioAbs, IInteract
     [SerializeField] ItemWeight _item;
     [SerializeField] LocalizedString _string;
 
-    public LocalizedString String => _string;
+    [SerializeField] Outline _outline;
+
+    public LocalizedString Prompt => _string;
+
+    public Outline Outline => _outline;
 
     public event Action<ItemsCollect> Collected;
     public void Interact(PlayerCarry carry, PlayerHand hand)

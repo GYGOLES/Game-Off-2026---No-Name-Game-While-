@@ -6,14 +6,21 @@ public class GarbageLocator : MonoBehaviour
 {
     ItemsCollect[] _items;
     int _remaining;
+    bool _inited;
 
     public int Total => _items.Length;
     public event Action<int, int> Changed; 
     public event Action AllCollected;
 
-    void Awake()
+    void Awake() => Init();
+
+
+    void Init()
     {
-        _items = GetComponentsInChildren<ItemsCollect>();
+        if(!_inited)
+            _inited = true;
+
+        _items = GetComponentsInChildren<ItemsCollect>(true);
         _remaining = _items.Length;
 
         foreach (var item in _items)
