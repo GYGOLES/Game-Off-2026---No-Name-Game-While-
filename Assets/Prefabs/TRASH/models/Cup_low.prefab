@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2d994f3fa9514554dbcc01b7bf6fd5ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.9965
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d994f3fa9514554dbcc01b7bf6fd5ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7006
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d994f3fa9514554dbcc01b7bf6fd5ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.8495
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d994f3fa9514554dbcc01b7bf6fd5ce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -93,6 +93,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Test
   _audio: {fileID: 11400000, guid: 534d0a739ea9f64479b61bffe53fa4f6, type: 2}
   _item: {fileID: 11400000, guid: 45a8dd30c65df1746a04a0ff4e8bfd3a, type: 2}
+  _string:
+    m_TableReference:
+      m_TableCollectionName: GUID:3083b163c3b6a6f4da9643d801a371cc
+    m_TableEntryReference:
+      m_KeyId: 4649484288
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _outline: {fileID: -2931542360344764037}
+  references:
+    version: 2
+    RefIds: []
 --- !u!65 &4989474661396500028
 BoxCollider:
   m_ObjectHideFlags: 0
