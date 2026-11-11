@@ -47,6 +47,7 @@ namespace Assets.Scripts.Player.Hub
         {
             _controller.enabled = false;
             _movement.TeleportInPosition(_controller.transform, targetPosition);
+            _camera.Teleport(_controller.transform, _orientation, targetPosition);
             _controller.enabled = true;
         }
     }

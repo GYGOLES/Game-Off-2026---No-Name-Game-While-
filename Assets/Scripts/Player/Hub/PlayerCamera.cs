@@ -37,5 +37,13 @@ namespace Assets.Scripts.Player.Hub
 
             _input.Look -= OnLook;
         }
+        public void Teleport(Transform body, Transform orientation, Transform target)
+        {
+            _look = Vector2.zero;
+            _pitch = 0;
+            _yaw = 0;
+            body.rotation = target.rotation;
+            orientation.rotation = target.rotation;
+        }
     }
 }

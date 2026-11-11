@@ -91,7 +91,6 @@ namespace Assets.Scripts.Player.Hub
             _currentSpeed = 0;
             _losedStamina = false;
             body.position = target.position;
-            body.rotation = target.rotation;
         }
     }
 }
