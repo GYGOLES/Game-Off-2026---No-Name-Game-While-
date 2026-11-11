@@ -1,6 +1,7 @@
 using Assets.Scripts.Player.Hub;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using VContainer;
 
 public class PlayerUI : MonoBehaviour
@@ -28,18 +29,20 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _Items;
     [SerializeField] GarbageLocator _locator;
 
+    private LocalizedString _currentLocalized;
+
     [Inject]
-    public void C(PlayerStates states, PlayerCarry carry, PlayerConfig config, PlayerInteract interact)
+    public void Construct(PlayerStates states, PlayerCarry carry, PlayerConfig config, PlayerInteract interact)
     {
         _states = states;
         _carry = carry;
         _config = config;
-        _interact = interact;
+        _interact = interact;   
 
         _carry.BagIntChange   += BagText;
         _carry.TotalBagChange += TotalCollected;
         _locator.Changed      += GarbageText;
-        _timerCounter.TimerDeath += ShowScore;        
+        _timerCounter.TimerDeath += ShowScore;    
     }
     void OnDestroy()
     {
@@ -95,16 +98,44 @@ public class PlayerUI : MonoBehaviour
 
     void ShowInteractText()
     {
-        if(!_interact.OnInteract(out RaycastHit hit))
+        LocalizedString pr = null;
+
+        if (_interact.OnInteract(out RaycastHit hit))
+        pr = hit.collider.GetComponentInParent<IInteract>()?.String;
+
+        SetPrompt(pr);
+    }   
+
+    private void SetPrompt(LocalizedString pr)
+    {
+        if (pr == null || pr.IsEmpty)
         {
-            if(_interaction.gameObject.activeInHierarchy)
-                _interaction.gameObject.SetActive(false);
-            
+            ClearPrompt();
             return;
         }
-        if (!_interaction.gameObject.activeInHierarchy)
-                _interaction.gameObject.SetActive(true);
+
+        if (ReferenceEquals(pr, _currentLocalized)) return;
+
+        if(_currentLocalized != null)
+            _currentLocalized.StringChanged -= LocalizedText;
+
+        _currentLocalized = pr;
+        _currentLocalized.StringChanged += LocalizedText;
+        _interaction.gameObject.SetActive(true);
     }
+
+    private void ClearPrompt()
+    {
+        if(_currentLocalized != null)
+        {
+            _currentLocalized.StringChanged -= LocalizedText;
+            _currentLocalized = null;
+        }
+        if(_interaction.gameObject.activeSelf)
+            _interaction.gameObject.SetActive(false);
+    }
+
+    private void LocalizedText(string value) => _interaction.text = value;
 
     void Update()
     {

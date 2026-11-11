@@ -1,9 +1,13 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.Localization;
 public class ItemsCollect : AudioAbs, IInteract
 {
     [SerializeField] ItemWeight _item;
+    [SerializeField] LocalizedString _string;
+
+    public LocalizedString String => _string;
 
     public event Action<ItemsCollect> Collected;
     public void Interact(PlayerCarry carry, PlayerHand hand)
