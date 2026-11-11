@@ -6,8 +6,11 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] GameObject[] _menu;
     [SerializeField] GameObject[] _gameplay;
+
     [SerializeField] GameObject _options;
     [SerializeField] GameObject _pause;
+
+    [SerializeField] GameObject endShift;
 
     [Header("Timer")]
     [SerializeField] TimerCounter _timerCounter;
@@ -41,6 +44,8 @@ public class Menu : MonoBehaviour
 
     private void EnableMenu()
     {
+        if(endShift.activeSelf)return;
+
         for (int i = 0; i < _menu.Length; i++)
         {
             _menu[i].SetActive(true);
@@ -57,6 +62,8 @@ public class Menu : MonoBehaviour
     }
     public void DisableMenu()
     {
+        if(endShift.activeSelf)return;
+
         for (int i = 0; i < _menu.Length; i++)
         {
             _menu[i].SetActive(false);
