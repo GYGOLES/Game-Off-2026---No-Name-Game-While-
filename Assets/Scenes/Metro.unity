@@ -28330,7 +28330,6 @@ Transform:
   - {fileID: 1058712762}
   - {fileID: 832575519}
   - {fileID: 1401499175}
-  - {fileID: 914069413}
   - {fileID: 911276184}
   - {fileID: 923913927}
   - {fileID: 1211517762}
@@ -80005,37 +80004,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2129791222777358251, guid: 779a275833d33b84daaee1621260a357, type: 3}
   m_PrefabInstance: {fileID: 913792334}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &914069412
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 914069413}
-  m_Layer: 0
-  m_Name: REFLECTIONS
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &914069413
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914069412}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 283355331}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &917056247
 Mesh:
   m_ObjectHideFlags: 0
@@ -122712,6 +122680,7 @@ MonoBehaviour:
   - {fileID: 843605555}
   - {fileID: 1456725889}
   - {fileID: 1792363260}
+  - {fileID: 1240395209}
   _options: {fileID: 958854522}
   _pause: {fileID: 1273291271}
   _timerCounter: {fileID: 1211517761}
