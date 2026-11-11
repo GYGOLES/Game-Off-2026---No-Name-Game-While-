@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9038064249003313555}
   - component: {fileID: 1385295038250897690}
   - component: {fileID: 7574274018461698654}
+  - component: {fileID: -8722646320198739921}
   m_Layer: 6
   m_Name: newspaper_2
   m_TagString: Untagged
@@ -913,3 +914,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5860971, y: 0.037925966, z: 0.4755262}
   m_Center: {x: 0.050281994, y: -0.00072538946, z: -0.072254665}
+--- !u!114 &-8722646320198739921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7421762863344289731}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

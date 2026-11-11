@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7586221772684173443}
   - component: {fileID: 9124557633129478299}
   - component: {fileID: 4031930703685704714}
+  - component: {fileID: 3052234853240236024}
   m_Layer: 6
   m_Name: trash_container
   m_TagString: Untagged
@@ -610,3 +611,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Garbage_Container
   _audio: {fileID: 11400000, guid: 8dc85bd9cd2ccf04cb31ad9aabd88f8d, type: 2}
+--- !u!114 &3052234853240236024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822867781367065429}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

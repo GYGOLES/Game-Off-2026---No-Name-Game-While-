@@ -98,13 +98,13 @@ MonoBehaviour:
     m_Value: 1
   ScreenBend:
     m_OverrideState: 1
-    m_Value: 18.3
+    m_Value: 100
   EnableVignette:
     m_OverrideState: 1
     m_Value: 1
   ScreenRoundness:
     m_OverrideState: 1
-    m_Value: 0.567
+    m_Value: 0.185
   VignetteOpacity:
     m_OverrideState: 1
     m_Value: 1

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1081910345302823641}
   - component: {fileID: 1838384891733036512}
   - component: {fileID: 3647212265779954219}
+  - component: {fileID: 5237166441542559531}
   m_Layer: 6
   m_Name: flyer_2
   m_TagString: Untagged
@@ -372,3 +373,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.17636347, y: 0.00274158, z: 0.10742529}
   m_Center: {x: 0.06718135, y: -0.00362921, z: -0.024013124}
+--- !u!114 &5237166441542559531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142582281562215750}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

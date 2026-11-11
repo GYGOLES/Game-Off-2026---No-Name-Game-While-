@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5494877095321826635}
   - component: {fileID: 4476937567284943716}
   - component: {fileID: -157472633510834070}
+  - component: {fileID: -2944106643880975960}
   m_Layer: 6
   m_Name: can
   m_TagString: Untagged
@@ -692,3 +693,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Test
   _audio: {fileID: 11400000, guid: 534d0a739ea9f64479b61bffe53fa4f6, type: 2}
   _item: {fileID: 11400000, guid: e400cc5132b970847b1e659012930e4c, type: 2}
+--- !u!114 &-2944106643880975960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3162852426287345251}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

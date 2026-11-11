@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1173201511803301135}
   - component: {fileID: 4340781727017794088}
   - component: {fileID: -306897944320231819}
+  - component: {fileID: 7061383392041696660}
   m_Layer: 6
   m_Name: cup
   m_TagString: Untagged
@@ -1052,3 +1053,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Test
   _audio: {fileID: 11400000, guid: 534d0a739ea9f64479b61bffe53fa4f6, type: 2}
   _item: {fileID: 11400000, guid: 45a8dd30c65df1746a04a0ff4e8bfd3a, type: 2}
+--- !u!114 &7061383392041696660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560321272936591325}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
