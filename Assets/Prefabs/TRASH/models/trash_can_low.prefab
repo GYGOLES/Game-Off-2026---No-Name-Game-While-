@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: trash_can_low
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8d6d70e954943234b99fe834fb97eb05, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
