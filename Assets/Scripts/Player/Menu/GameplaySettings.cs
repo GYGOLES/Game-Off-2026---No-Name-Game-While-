@@ -16,7 +16,7 @@ public class GameplaySettings : MonoBehaviour
     private string _locale = "apply_locale";
 
     
-    async void Awake()
+    void Awake()
     {
         int vsync = PlayerPrefs.GetInt(_vsyncKey, 1);
         int set = PlayerPrefs.GetInt(_windScreenKey, 1);

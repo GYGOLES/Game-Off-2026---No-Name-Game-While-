@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 public sealed class PlayerCarry
 {
@@ -16,6 +15,8 @@ public sealed class PlayerCarry
 
     public event Action<float> WeightChanged;
     public event Action<int> BagIntChange;
+
+    public event Action OnDrop;
 
     public event Action<int> TotalBagChange;
     public event Action<float> TotalWeightChange;
@@ -39,16 +40,7 @@ public sealed class PlayerCarry
         BagIntChange?.Invoke(_currentBagCollected);
 
         return true;
-    }
-
-    public void Remove(ItemWeight item)
-    {
-        _currentWeight = Mathf.Max(0f, _currentWeight - item.Weight);
-        _currentBagCollected --;
-        WeightChanged?.Invoke(_currentWeight);
-        BagIntChange?.Invoke(_currentBagCollected);
-    }   
-
+    } 
     public bool FullDrop()
     {
         if(_currentBagCollected <= 0)return false;
@@ -57,6 +49,7 @@ public sealed class PlayerCarry
         _currentWeight = 0f;
         WeightChanged?.Invoke(_currentWeight);
         BagIntChange?.Invoke(_currentBagCollected);
+        OnDrop?.Invoke();
         
         return true;
     }

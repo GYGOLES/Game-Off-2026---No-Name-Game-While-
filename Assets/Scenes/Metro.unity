@@ -32155,9 +32155,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 5.982
       objectReference: {fileID: 0}
+    - target: {fileID: -5434856598229122048, guid: e8368d8e5b241db4d83cfdb79ca362b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8368d8e5b241db4d83cfdb79ca362b2, type: 3}
       propertyPath: m_Name
       value: bag_low
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8368d8e5b241db4d83cfdb79ca362b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557360301098004831, guid: e8368d8e5b241db4d83cfdb79ca362b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557360301098004831, guid: e8368d8e5b241db4d83cfdb79ca362b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557360301098004831, guid: e8368d8e5b241db4d83cfdb79ca362b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -70176,6 +70196,17 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!114 &784365846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1013923413582684322, guid: 33f0e12d8430c02429bb00fc498bceb3, type: 3}
+  m_PrefabInstance: {fileID: 1646645040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Toggle
 --- !u!43 &790406410
 Mesh:
   m_ObjectHideFlags: 0
@@ -106855,6 +106886,17 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!114 &1189099123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6156008981279972741, guid: 33f0e12d8430c02429bb00fc498bceb3, type: 3}
+  m_PrefabInstance: {fileID: 1646645040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &1189178998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112026,6 +112068,17 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!114 &1249381079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7487667426141403786, guid: 33f0e12d8430c02429bb00fc498bceb3, type: 3}
+  m_PrefabInstance: {fileID: 1646645040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_Dropdown
 --- !u!43 &1249694974
 Mesh:
   m_ObjectHideFlags: 0
@@ -112204,6 +112257,17 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!114 &1249738626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4400679940727250002, guid: 33f0e12d8430c02429bb00fc498bceb3, type: 3}
+  m_PrefabInstance: {fileID: 1646645040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Toggle
 --- !u!4 &1253061603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4638919203189144857, guid: 66aedbcb9353f7b4e860040c1cb2b2cd, type: 3}
@@ -124823,10 +124887,9 @@ MonoBehaviour:
   - {fileID: 1456725889}
   - {fileID: 1792363260}
   - {fileID: 1240395209}
-  _options: {fileID: 958854522}
   _pause: {fileID: 1273291271}
   endShift: {fileID: 317272730}
-  _timerCounter: {fileID: 1211517761}
+  _options: {fileID: 958854522}
 --- !u!114 &1401499177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124839,6 +124902,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ef59684d801194d9675f50162c0e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameplaySettings
+  _windowScreen: {fileID: 1249738626}
+  _vsync: {fileID: 784365846}
+  _musicSlider: {fileID: 1189099123}
+  _language: {fileID: 1249381079}
 --- !u!1 &1402899038
 GameObject:
   m_ObjectHideFlags: 0
@@ -171422,6 +171489,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4681791811023528438, guid: bb6b32702c1c92c4fa732612dbaff485, type: 3}
   m_PrefabInstance: {fileID: 1874917568}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1876785393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5434856598229122048, guid: e8368d8e5b241db4d83cfdb79ca362b2, type: 3}
+  m_PrefabInstance: {fileID: 321198909}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1878589451
 GameObject:
   m_ObjectHideFlags: 0
@@ -212723,6 +212795,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4513040765833849840, guid: 07e5e365f0285634382b5dc85fafa873, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4528516761323132083, guid: 07e5e365f0285634382b5dc85fafa873, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -229611,6 +229687,10 @@ PrefabInstance:
       propertyPath: _spawnLocation
       value: 
       objectReference: {fileID: 733390731}
+    - target: {fileID: 8886712730751444045, guid: 07e5e365f0285634382b5dc85fafa873, type: 3}
+      propertyPath: _garbageTexture
+      value: 
+      objectReference: {fileID: 1876785393}
     - target: {fileID: 8886712730751444045, guid: 07e5e365f0285634382b5dc85fafa873, type: 3}
       propertyPath: _locators.Array.size
       value: 3

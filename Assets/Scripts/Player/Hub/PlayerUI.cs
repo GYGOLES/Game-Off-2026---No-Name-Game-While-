@@ -1,3 +1,4 @@
+using Assets.Scripts.Inputmanager;
 using Assets.Scripts.Player.Hub;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class PlayerUI : MonoBehaviour
     private PlayerConfig _config;
     private PlayerInteract _interact;
     private PlayerMotor _motor;
+    private IInputModeSwitch _mode;
 
 
     [Header("UI")]
@@ -32,28 +34,37 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] GarbageLocator[] _locators;
     [SerializeField] Transform _spawnLocation;
 
+    [Header("Visual")]
+    [SerializeField] GameObject _garbageTexture;
+    private Vector3 _lowerPosition;
+
     private IInteract _currentInteract;
     private LocalizedString _currentLocalized;
     private Outline _currentOutline;
     private int _day = 1;
     private GarbageLocator _locator;
 
+    bool _allCollected;
+
+
     [Inject]
-    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerConfig config, PlayerInteract interact)
+    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerConfig config, PlayerInteract interact, IInputModeSwitch inputMode)
     {
         _states = states;
         _carry = carry;
         _config = config;
         _interact = interact;   
         _motor = motor;
+        _mode = inputMode;
 
         _carry.BagIntChange   += BagText;
         _carry.TotalBagChange += TotalCollected;
+        _carry.OnDrop += DropBag;
 
         if (_locator != null)
         {
             _locator.Changed      += GarbageText;
-            _locator.AllCollected += ShowScore; 
+            _locator.AllCollected += OnCollected; 
         }
 
         _motor.Teleport(_spawnLocation);
@@ -67,17 +78,19 @@ public class PlayerUI : MonoBehaviour
         {
             _carry.BagIntChange   -= BagText;
             _carry.TotalBagChange -= TotalCollected;
+            _carry.OnDrop -= DropBag;
         }
         if (_locator != null)
         {
             _locator.Changed -= GarbageText;
-            _locator.AllCollected -= ShowScore; 
+            _locator.AllCollected -= OnCollected; 
         }
         if (_timerCounter != null) _timerCounter.TimerDeath -= ShowScore;
         if(_currentInteract != null) ClearPrompt();
     }
     void Start()
     {
+        _lowerPosition = _garbageTexture.transform.localPosition;
         BagText(_carry.CurrentBagCollected is var b ? (int)b : 0);
         SetLocator(_day - 1);
     }
@@ -86,11 +99,41 @@ public class PlayerUI : MonoBehaviour
         if(_bagStorage == null)return;
 
         _bagStorage.text = f.ToString() + "/" + _config.MaxBagStorage.ToString();
+
+        ChangePosition(f);
+    }
+
+    private void ChangePosition(int f)
+    {
+        float t = Mathf.Clamp01((float)f/_config.MaxBagStorage);
+        float pos = Mathf.Lerp(_lowerPosition.y, 0.05f, t);
+        
+        Vector3 p = _garbageTexture.transform.localPosition;
+        p.y = pos;
+        _garbageTexture.transform.localPosition = p;
+    }
+
+    private void DropBag()
+    {
+        _garbageTexture.transform.localPosition = _lowerPosition;
+
+        if(_allCollected)
+            ShowScore();
     }
 
     public void ShowScore()
     {
+        if (_EndShift.activeSelf) return;
+        if(_mode == null)return;
+
         _EndShift.SetActive(true);   
+        _mode.SetUI();
+        Time.timeScale = 0f;
+    }
+
+    private void OnCollected()
+    {
+        _allCollected = true;
     }
 
     private void TotalCollected(int g)
@@ -177,18 +220,31 @@ public class PlayerUI : MonoBehaviour
         _timerCounter.SetTimerBack();
 
         _motor.Teleport(_spawnLocation);
+        _carry.FullDrop();
+        
 
         SetLocator(_day - 1);
 
-        _EndShift.gameObject.SetActive(false);
+        ResumeGameplay();
         
+    }
+
+    void ResumeGameplay()
+    {
+        if(_mode == null)return;
+
+        _EndShift.SetActive(false);
+        _mode.SetGameplay();
+        Time.timeScale = 1f;
     }
 
     public void RestartShift()
     {
+        _allCollected = false;
         _shiftDay.text = _day.ToString();
         _timerCounter.SetTimerBack();
         _locator.RestartLocator();
+        _carry.FullDrop();
 
         _motor.Teleport(_spawnLocation);
         SetLocator(_day - 1);
@@ -196,17 +252,19 @@ public class PlayerUI : MonoBehaviour
 
     private void SetLocator(int index)
     {
+        _allCollected = false;
         if (_locator != null)
         {
             _locator.Changed -= GarbageText;
-            _locator.AllCollected -= ShowScore;
+            _locator.AllCollected -= OnCollected;
             _locator.gameObject.SetActive(false);
         }
 
         _locator = _locators[index];
         _locator.gameObject.SetActive(true);
         _locator.Changed += GarbageText;
-        _locator.AllCollected += ShowScore;
+        _locator.AllCollected += OnCollected;
+        
         GarbageText(_locator.Total, _locator.Total);
     }
 

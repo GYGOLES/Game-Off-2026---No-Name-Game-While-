@@ -15,9 +15,6 @@ public class Menu : MonoBehaviour
     [Header("Options")]
     [SerializeField] GameObject _options;
 
-    [Header("Timer")]
-    [SerializeField] TimerCounter _timerCounter;
-
     private IPlayerInput _pl;
     private IUInput _ui;
     private IInputModeSwitch _mode;
@@ -35,14 +32,11 @@ public class Menu : MonoBehaviour
         _pl.Pause += EnableMenu;
         _ui.Pause += DisableMenu;
 
-        _timerCounter.TimerDeath += SetUi;
     }
     void OnDisable()
     {
         _pl.Pause -= EnableMenu;
         _ui.Pause -= DisableMenu;
-
-        _timerCounter.TimerDeath -= SetUi;
     }
 
     private void EnableMenu()
