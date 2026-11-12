@@ -41,4 +41,13 @@ public class GarbageLocator : MonoBehaviour
             AllCollected?.Invoke();
             
     }
+
+    public void RestartLocator()
+    {
+        _items = GetComponentsInChildren<ItemsCollect>(true);
+        _remaining = _items.Length;
+        
+        foreach (var item in _items)
+            item.gameObject.SetActive(true);
+    }
 }

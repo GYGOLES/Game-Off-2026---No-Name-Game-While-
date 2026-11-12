@@ -7,10 +7,13 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject[] _menu;
     [SerializeField] GameObject[] _gameplay;
 
-    [SerializeField] GameObject _options;
+    
     [SerializeField] GameObject _pause;
 
     [SerializeField] GameObject endShift;
+
+    [Header("Options")]
+    [SerializeField] GameObject _options;
 
     [Header("Timer")]
     [SerializeField] TimerCounter _timerCounter;
@@ -88,5 +91,10 @@ public class Menu : MonoBehaviour
     {
         _mode.SetGameplay();
         Time.timeScale = 1f;
+    }
+
+    public void LeaveGame()
+    {
+        Application.Quit();
     }
 }

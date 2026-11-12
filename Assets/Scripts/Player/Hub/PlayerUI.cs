@@ -114,7 +114,7 @@ public class PlayerUI : MonoBehaviour
 
     public void GarbageText(int remain, int total)
     {
-        _Items.text = remain.ToString("F0") + "/" + total.ToString("F0");
+        _Items.text = remain.ToString("F0");
         _scoreTotalCollected.text = remain.ToString("F0") + "/" + _locator.Total.ToString("F0");
     }
 
@@ -172,7 +172,6 @@ public class PlayerUI : MonoBehaviour
 
     public void SetNextShift(int i)
     {
-
         _day += i;
         _shiftDay.text = _day.ToString();
         _timerCounter.SetTimerBack();
@@ -184,6 +183,17 @@ public class PlayerUI : MonoBehaviour
         _EndShift.gameObject.SetActive(false);
         
     }
+
+    public void RestartShift()
+    {
+        _shiftDay.text = _day.ToString();
+        _timerCounter.SetTimerBack();
+        _locator.RestartLocator();
+
+        _motor.Teleport(_spawnLocation);
+        SetLocator(_day - 1);
+    }
+
     private void SetLocator(int index)
     {
         if (_locator != null)
