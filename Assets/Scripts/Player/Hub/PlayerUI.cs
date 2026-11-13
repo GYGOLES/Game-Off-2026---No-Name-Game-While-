@@ -46,7 +46,6 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _Items;
     [SerializeField] GarbageLocator[] _locators;
     [SerializeField] Transform _spawnLocation;
-    [SerializeField] GarbageBagSpawner _bagSpawner;
 
     [Header("Visual")]
     [SerializeField] GameObject _garbageTexture;
@@ -234,7 +233,6 @@ public class PlayerUI : MonoBehaviour
         _timerCounter.SetTimerBack();
 
         _motor.Teleport(_spawnLocation);
-        _bagSpawner.RespawnAll();
         _carry.FullDrop();
         _hand.PickUpBag();
         
@@ -256,7 +254,6 @@ public class PlayerUI : MonoBehaviour
 
     public void RestartShift()
     {
-        _bagSpawner.RespawnAll();
         _shiftDay.text = _day.ToString();
         _timerCounter.SetTimerBack();
         _locator.RestartLocator();

@@ -24,13 +24,6 @@ public class Garbage_Bag : AudioAbs, IInteract
 
         hand.PickUpBag();
         PlayDefaultClips();
-        gameObject.SetActive(false);
         return InteractResult.Success; 
-    }
-
-    public void Respawn()
-    {
-        if(!gameObject.activeSelf)
-            gameObject.SetActive(true);
     }
 }
