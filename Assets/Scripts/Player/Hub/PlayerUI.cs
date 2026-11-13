@@ -158,7 +158,7 @@ public class PlayerUI : MonoBehaviour
 
     public void Stamina()
     {
-        if(_staminaImage != null || _states == null)return;
+        if(_staminaImage == null || _states == null)return;
 
         _staminaImage.fillAmount = _states.StaminaNormalized;
     }
