@@ -48,6 +48,9 @@ public class GarbageLocator : MonoBehaviour
         _remaining = _items.Length;
         
         foreach (var item in _items)
+        {
             item.gameObject.SetActive(true);
+            item.enabled = true;
+        }     
     }
 }

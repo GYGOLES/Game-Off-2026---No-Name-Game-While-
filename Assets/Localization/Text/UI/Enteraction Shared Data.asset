@@ -37,6 +37,18 @@ MonoBehaviour:
 '
     m_Metadata:
       m_Items: []
+  - m_Id: 2035528630263808
+    m_Key: empty_bag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2035856624836608
+    m_Key: no_bag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2036319013298176
+    m_Key: have_bag
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

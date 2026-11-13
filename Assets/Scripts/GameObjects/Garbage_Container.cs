@@ -10,12 +10,21 @@ public class Garbage_Container : AudioAbs, IInteract
 
     public Outline Outline => _outline;
 
-    public void Interact(PlayerCarry carry, PlayerHand hand)
+    public InteractResult Check(PlayerCarry carry, PlayerHand hand)
     {
-        if (carry.FullDrop())
-        {
-            hand.HandOccupied();
-            PlayDefaultClips();
-        }
+        if(carry.CurrentBagCollected <= 0)return InteractResult.EmptyBag;
+        return InteractResult.Success;
+    }
+
+    public InteractResult Interact(PlayerCarry carry, PlayerHand hand)
+    {
+        InteractResult r = Check(carry, hand);
+        Debug.Log($"{r} Garbage_Container");
+        if(r != InteractResult.Success)return r;
+
+        carry.FullDrop();
+        hand.HandOccupied();
+        PlayDefaultClips();
+        return InteractResult.Success;
     }
 }

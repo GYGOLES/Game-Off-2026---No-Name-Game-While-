@@ -38,6 +38,18 @@ MonoBehaviour:
     m_Localized: "Press \xABE\xBB to pick up a trash bag"
     m_Metadata:
       m_Items: []
+  - m_Id: 2035528630263808
+    m_Localized: Trash bag is empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2035856624836608
+    m_Localized: No trash bag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2036319013298176
+    m_Localized: Already have a trash bag
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

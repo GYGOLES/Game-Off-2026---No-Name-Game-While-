@@ -10,8 +10,13 @@ public class PapperShow : MonoBehaviour, IInteract
 
     public Outline Outline => _outline;
 
-    public void Interact(PlayerCarry gameObject, PlayerHand hand)
+    public InteractResult Check(PlayerCarry carry, PlayerHand hand)
     {
-        
+        throw new System.NotImplementedException();
+    }
+
+    public InteractResult Interact(PlayerCarry carry, PlayerHand hand)
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -46,6 +46,8 @@ namespace Assets.Scripts.Player.Hub
             }
         }
 
+        public InteractResult Check(IInteract interact) => interact.Check(_carry, _hand);
+
         public bool OnInteract(out RaycastHit hit)
         {
             Ray ray = _config.Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));

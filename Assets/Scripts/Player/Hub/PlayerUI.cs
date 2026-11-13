@@ -7,18 +7,29 @@ using VContainer;
 
 public class PlayerUI : MonoBehaviour
 {
+    [System.Serializable]
+    private struct ResultMessage
+    {
+        public InteractResult result;
+        public LocalizedString text;
+    }
     private PlayerStates _states;
     private PlayerCarry _carry;
     private PlayerConfig _config;
     private PlayerInteract _interact;
     private PlayerMotor _motor;
+    private PlayerHand _hand;
     private IInputModeSwitch _mode;
 
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _bagStorage;
     [SerializeField] TextMeshProUGUI _stamina;
+    
+
+    [Header("Message")]
     [SerializeField] TextMeshProUGUI _interaction;
+    [SerializeField] ResultMessage[] _messages;
 
     [Header("Timer")]
     [SerializeField] TimerCounter _timerCounter;
@@ -33,22 +44,25 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _Items;
     [SerializeField] GarbageLocator[] _locators;
     [SerializeField] Transform _spawnLocation;
+    [SerializeField] GarbageBagSpawner _bagSpawner;
 
     [Header("Visual")]
     [SerializeField] GameObject _garbageTexture;
     private Vector3 _lowerPosition;
 
     private IInteract _currentInteract;
+    private InteractResult _currentResult;
+
     private LocalizedString _currentLocalized;
     private Outline _currentOutline;
     private int _day = 1;
     private GarbageLocator _locator;
 
-    bool _allCollected;
+    private bool _allCollected;
 
 
     [Inject]
-    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerConfig config, PlayerInteract interact, IInputModeSwitch inputMode)
+    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerHand hand, PlayerConfig config, PlayerInteract interact, IInputModeSwitch inputMode)
     {
         _states = states;
         _carry = carry;
@@ -56,9 +70,9 @@ public class PlayerUI : MonoBehaviour
         _interact = interact;   
         _motor = motor;
         _mode = inputMode;
+        _hand = hand;
 
         _carry.BagIntChange   += BagText;
-        _carry.TotalBagChange += TotalCollected;
         _carry.OnDrop += DropBag;
 
         if (_locator != null)
@@ -77,7 +91,6 @@ public class PlayerUI : MonoBehaviour
         if (_carry != null)
         {
             _carry.BagIntChange   -= BagText;
-            _carry.TotalBagChange -= TotalCollected;
             _carry.OnDrop -= DropBag;
         }
         if (_locator != null)
@@ -136,11 +149,6 @@ public class PlayerUI : MonoBehaviour
         _allCollected = true;
     }
 
-    private void TotalCollected(int g)
-    {
-        _scoreTotalCollected.text = g.ToString("F0") + "/" + _locator.Total.ToString("F0");
-    }
-
     public void Stamina()
     {
         if(_stamina == null || _states == null)return;
@@ -158,7 +166,7 @@ public class PlayerUI : MonoBehaviour
     public void GarbageText(int remain, int total)
     {
         _Items.text = remain.ToString("F0");
-        _scoreTotalCollected.text = remain.ToString("F0") + "/" + _locator.Total.ToString("F0");
+        _scoreTotalCollected.text = (total - remain).ToString("F0") + "/" + _locator.Total.ToString("F0");
     }
 
     void ShowInteractText()
@@ -173,15 +181,18 @@ public class PlayerUI : MonoBehaviour
 
     private void SetPrompt(IInteract interact)
     {
-        if (ReferenceEquals(interact, _currentInteract)) return;
+        InteractResult r = interact != null ? _interact.Check(interact) : InteractResult.None;
+
+        if (ReferenceEquals(interact, _currentInteract) && r == _currentResult) return;
 
         ClearPrompt();
         
         _currentInteract = interact;
+        _currentResult = r;
         if(interact == null)return;
 
-        LocalizedString text = interact.Prompt;
-
+        LocalizedString text = _currentResult == InteractResult.Success? interact.Prompt : ShowText(_currentResult);
+ 
         if (text != null && !text.IsEmpty)
         {
             _currentLocalized = text;
@@ -220,7 +231,9 @@ public class PlayerUI : MonoBehaviour
         _timerCounter.SetTimerBack();
 
         _motor.Teleport(_spawnLocation);
+        _bagSpawner.RespawnAll();
         _carry.FullDrop();
+        _hand.PickUpBag();
         
 
         SetLocator(_day - 1);
@@ -240,14 +253,16 @@ public class PlayerUI : MonoBehaviour
 
     public void RestartShift()
     {
-        _allCollected = false;
+        _bagSpawner.RespawnAll();
         _shiftDay.text = _day.ToString();
         _timerCounter.SetTimerBack();
         _locator.RestartLocator();
-        _carry.FullDrop();
-
         _motor.Teleport(_spawnLocation);
         SetLocator(_day - 1);
+        _carry.FullDrop();
+        _hand.PickUpBag();
+        _allCollected = false;
+        ResumeGameplay();
     }
 
     private void SetLocator(int index)
@@ -266,6 +281,14 @@ public class PlayerUI : MonoBehaviour
         _locator.AllCollected += OnCollected;
         
         GarbageText(_locator.Total, _locator.Total);
+    }
+
+    private LocalizedString ShowText(InteractResult r)
+    {
+        for (int i = 0; i < _messages.Length; i++)
+        if (_messages[i].result == r)
+            return _messages[i].text;
+        return null;
     }
 
     private void LocalizedText(string value) => _interaction.text = value;

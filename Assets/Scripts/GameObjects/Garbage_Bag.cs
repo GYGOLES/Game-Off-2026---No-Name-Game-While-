@@ -10,12 +10,27 @@ public class Garbage_Bag : AudioAbs, IInteract
 
     public Outline Outline => _outline;
 
-    public void Interact(PlayerCarry g, PlayerHand hand)
+    public InteractResult Check(PlayerCarry carry, PlayerHand hand)
     {
-        if (hand.PickUpBag())
-        {
-            PlayDefaultClips();
-            gameObject.SetActive(false);
-        }
+        if(hand.Occupied)return InteractResult.InHand;
+        return InteractResult.Success;
+    }
+
+    public InteractResult Interact(PlayerCarry g, PlayerHand hand)
+    {
+        InteractResult r = Check(g, hand);
+        Debug.Log($"{r} Garbage_Bag");
+        if(r != InteractResult.Success)return r;
+
+        hand.PickUpBag();
+        PlayDefaultClips();
+        gameObject.SetActive(false);
+        return InteractResult.Success; 
+    }
+
+    public void Respawn()
+    {
+        if(!gameObject.activeSelf)
+            gameObject.SetActive(true);
     }
 }
