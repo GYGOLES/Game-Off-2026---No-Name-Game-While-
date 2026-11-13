@@ -3,6 +3,7 @@ using Assets.Scripts.Player.Hub;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.UI;
 using VContainer;
 
 public class PlayerUI : MonoBehaviour
@@ -25,6 +26,7 @@ public class PlayerUI : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _bagStorage;
     [SerializeField] TextMeshProUGUI _stamina;
+    [SerializeField] Image _staminaImage;
     
 
     [Header("Message")]
@@ -154,6 +156,7 @@ public class PlayerUI : MonoBehaviour
         if(_stamina == null || _states == null)return;
 
         _stamina.text = _states.Stamina.ToString("F0");
+        _staminaImage.fillAmount = _states.StaminaNormalized;
     }
 
     public void Timer()
