@@ -12,7 +12,8 @@ public class Garbage_Container : AudioAbs, IInteract
 
     public InteractResult Check(PlayerCarry carry, PlayerHand hand)
     {
-        if(carry.CurrentBagCollected <= 0)return InteractResult.EmptyBag;
+        if(!hand.Occupied)return InteractResult.NoBag;
+        if(hand.Occupied && carry.CurrentBagCollected <= 0)return InteractResult.EmptyBag;
         return InteractResult.Success;
     }
 
