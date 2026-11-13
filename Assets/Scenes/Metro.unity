@@ -142739,15 +142739,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 32a5eb52137516a4b83cae7c264c7395, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 0
   m_FillMethod: 4
@@ -167907,7 +167907,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 15, y: 15}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792363262
 MonoBehaviour:
@@ -167922,7 +167922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2784314}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -189171,7 +189171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2028724276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -235503,6 +235503,10 @@ PrefabInstance:
       propertyPath: _interaction
       value: 
       objectReference: {fileID: 2123535241}
+    - target: {fileID: 8886712730751444045, guid: 07e5e365f0285634382b5dc85fafa873, type: 3}
+      propertyPath: _staminaImage
+      value: 
+      objectReference: {fileID: 1542164426}
     - target: {fileID: 8886712730751444045, guid: 07e5e365f0285634382b5dc85fafa873, type: 3}
       propertyPath: _timerCounter
       value: 
