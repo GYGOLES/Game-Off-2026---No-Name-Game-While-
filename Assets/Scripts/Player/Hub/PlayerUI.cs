@@ -265,6 +265,7 @@ public class PlayerUI : MonoBehaviour
         _carry.FullDrop();
         _hand.PickUpBag();
         _allCollected = false;
+        _states.ResetStamina();
         ResumeGameplay();
     }
 

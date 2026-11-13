@@ -72,4 +72,8 @@ public class PlayerStates
 
         StaminaDepleted?.Invoke(b);
     }
+    public void ResetStamina()
+    {
+        _currentStamina = _config.MaxStamina;
+    }
 }
