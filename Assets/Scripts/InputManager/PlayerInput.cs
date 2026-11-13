@@ -6,6 +6,7 @@ namespace Assets.Scripts.Inputmanager
 {
     public interface IPlayerInput
     {
+        public float HoldProgress { get; }
         public event Action<Vector2> Move;
         public event Action<Vector2> Look;
 
@@ -18,6 +19,8 @@ namespace Assets.Scripts.Inputmanager
     {
         private readonly InputBinder _binder = new();
         private readonly InputManager.PlayerActions _p;
+
+        public float HoldProgress => _p.Interact.GetTimeoutCompletionPercentage();
 
         public event Action<Vector2> Move;
         public event Action<Vector2> Look;

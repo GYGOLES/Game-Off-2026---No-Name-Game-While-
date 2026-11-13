@@ -1,3 +1,4 @@
+using Assets.Scripts.Inputmanager;
 using UnityEngine.Localization;
 public enum InteractResult
 {
@@ -5,6 +6,7 @@ public enum InteractResult
 }
 public interface IInteract 
 {
+    public InputPhase Phase {get;}
     public LocalizedString Prompt{get;}
     public Outline Outline{get;}
     public InteractResult Interact(PlayerCarry carry, PlayerHand hand);

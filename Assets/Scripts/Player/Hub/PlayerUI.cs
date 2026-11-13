@@ -25,8 +25,8 @@ public class PlayerUI : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI _bagStorage;
-    [SerializeField] TextMeshProUGUI _stamina;
     [SerializeField] Image _staminaImage;
+    [SerializeField] Image _hold;
     
 
     [Header("Message")]
@@ -53,6 +53,7 @@ public class PlayerUI : MonoBehaviour
 
     private IInteract _currentInteract;
     private InteractResult _currentResult;
+    private IPlayerInput _input; 
 
     private LocalizedString _currentLocalized;
     private Outline _currentOutline;
@@ -60,10 +61,11 @@ public class PlayerUI : MonoBehaviour
     private GarbageLocator _locator;
 
     private bool _allCollected;
+    private bool _interacted;
 
 
     [Inject]
-    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerHand hand, PlayerConfig config, PlayerInteract interact, IInputModeSwitch inputMode)
+    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerHand hand, PlayerConfig config, PlayerInteract interact, IInputModeSwitch inputMode, IPlayerInput input)
     {
         _states = states;
         _carry = carry;
@@ -72,6 +74,9 @@ public class PlayerUI : MonoBehaviour
         _motor = motor;
         _mode = inputMode;
         _hand = hand;
+        _input = input;
+
+        _input.Interact += Interact;
 
         _carry.BagIntChange   += BagText;
         _carry.OnDrop += DropBag;
@@ -99,6 +104,7 @@ public class PlayerUI : MonoBehaviour
             _locator.Changed -= GarbageText;
             _locator.AllCollected -= OnCollected; 
         }
+        if(_input != null) _input.Interact -= Interact;
         if (_timerCounter != null) _timerCounter.TimerDeath -= ShowScore;
         if(_currentInteract != null) ClearPrompt();
     }
@@ -152,9 +158,8 @@ public class PlayerUI : MonoBehaviour
 
     public void Stamina()
     {
-        if(_stamina == null || _states == null)return;
+        if(_staminaImage != null || _states == null)return;
 
-        _stamina.text = _states.Stamina.ToString("F0");
         _staminaImage.fillAmount = _states.StaminaNormalized;
     }
 
@@ -171,7 +176,7 @@ public class PlayerUI : MonoBehaviour
         _scoreTotalCollected.text = (total - remain).ToString("F0") + "/" + _locator.Total.ToString("F0");
     }
 
-    void ShowInteractText()
+    private void ShowInteractText()
     {
         IInteract interact = null;
 
@@ -180,6 +185,19 @@ public class PlayerUI : MonoBehaviour
 
         SetPrompt(interact);
     }   
+
+    private void Interact(InputPhase phase)
+    {
+        _interacted = phase == InputPhase.started;
+        if(!_interacted) _hold.fillAmount = 1f;
+    }
+
+    private void ShowInteractionDuration()
+    {
+        bool show = _currentInteract != null && _currentInteract.Phase == InputPhase.performed && _currentResult == InteractResult.Success;
+
+        _hold.fillAmount = show? 1f - _input.HoldProgress : 1f;
+    }
 
     private void SetPrompt(IInteract interact)
     {
@@ -296,6 +314,6 @@ public class PlayerUI : MonoBehaviour
 
     void Update()
     {
-        Stamina(); Timer(); ShowInteractText();
+        Stamina(); Timer(); ShowInteractText(); if(_interacted)ShowInteractionDuration();
     }
 }

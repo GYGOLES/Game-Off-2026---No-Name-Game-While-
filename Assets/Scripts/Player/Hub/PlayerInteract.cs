@@ -31,16 +31,17 @@ namespace Assets.Scripts.Player.Hub
         {
             switch (input)
             {
-                case InputPhase.started : Use(); break;
+                case InputPhase.started:
+                case InputPhase.performed:  Use(input); break;
             }
         }
 
-        private void Use()
+        private void Use(InputPhase phase)
         {
             if(OnInteract(out RaycastHit hit))
             {
                 IInteract interact = hit.transform.GetComponentInParent<IInteract>();
-                if(interact == null)return;
+                if (interact == null || interact.Phase != phase) return;
 
                 interact.Interact(_carry, _hand);
             }

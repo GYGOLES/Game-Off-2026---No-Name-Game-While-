@@ -1,3 +1,4 @@
+using Assets.Scripts.Inputmanager;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -7,6 +8,7 @@ public class Garbage_Container : AudioAbs, IInteract
     [SerializeField] Outline _outline;
 
     public LocalizedString Prompt => _string;
+    public InputPhase Phase => InputPhase.performed;
 
     public Outline Outline => _outline;
 

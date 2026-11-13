@@ -1,3 +1,4 @@
+using Assets.Scripts.Inputmanager;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -9,6 +10,8 @@ public class Garbage_Bag : AudioAbs, IInteract
     public LocalizedString Prompt => _string;
 
     public Outline Outline => _outline;
+
+    public InputPhase Phase => InputPhase.started;
 
     public InteractResult Check(PlayerCarry carry, PlayerHand hand)
     {

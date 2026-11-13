@@ -1,5 +1,6 @@
 
 using System;
+using Assets.Scripts.Inputmanager;
 using UnityEngine;
 using UnityEngine.Localization;
 public class ItemsCollect : AudioAbs, IInteract
@@ -10,6 +11,7 @@ public class ItemsCollect : AudioAbs, IInteract
     [SerializeField] Outline _outline;
 
     public LocalizedString Prompt => _string;
+    public InputPhase Phase => InputPhase.started;
 
     public Outline Outline => _outline;
 
