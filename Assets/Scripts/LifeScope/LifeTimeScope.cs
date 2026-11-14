@@ -30,6 +30,7 @@ public class LifeTimeScope : LifetimeScope
         builder.Register<PlayerStates>(Lifetime.Singleton);
         builder.Register<PlayerCarry>(Lifetime.Singleton);
         builder.Register<PlayerHand>(Lifetime.Singleton);
+        builder.Register<PlayerFear>(Lifetime.Singleton);
 
         builder.RegisterComponentInHierarchy<HeadBobingEffect>();
         builder.RegisterComponentInHierarchy<PlayerUI>();
