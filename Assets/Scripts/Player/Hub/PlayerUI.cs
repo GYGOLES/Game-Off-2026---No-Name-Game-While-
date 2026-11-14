@@ -189,14 +189,14 @@ public class PlayerUI : MonoBehaviour
     private void Interact(InputPhase phase)
     {
         _interacted = phase == InputPhase.started;
-        if(!_interacted) _hold.fillAmount = 1f;
+        if(!_interacted) _hold.fillAmount = 0f;
     }
 
     private void ShowInteractionDuration()
     {
         bool show = _currentInteract != null && _currentInteract.Phase == InputPhase.performed && _currentResult == InteractResult.Success;
 
-        _hold.fillAmount = show? 1f - _input.HoldProgress : 1f;
+        _hold.fillAmount = show? _input.HoldProgress : 0f;
     }
 
     private void SetPrompt(IInteract interact)
