@@ -20,6 +20,7 @@ public class PlayerUI : MonoBehaviour
     private PlayerInteract _interact;
     private PlayerMotor _motor;
     private PlayerHand _hand;
+    private PlayerFear _fear;
     private IInputModeSwitch _mode;
 
 
@@ -65,7 +66,7 @@ public class PlayerUI : MonoBehaviour
 
 
     [Inject]
-    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerHand hand, PlayerConfig config, PlayerInteract interact, IInputModeSwitch inputMode, IPlayerInput input)
+    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerHand hand, PlayerConfig config, PlayerInteract interact, PlayerFear fear, IInputModeSwitch inputMode, IPlayerInput input)
     {
         _states = states;
         _carry = carry;
@@ -75,6 +76,7 @@ public class PlayerUI : MonoBehaviour
         _mode = inputMode;
         _hand = hand;
         _input = input;
+        _fear = fear;
 
         _input.Interact += Interact;
 
@@ -322,5 +324,6 @@ public class PlayerUI : MonoBehaviour
         if(_EndShift.activeSelf)return;
         
         ShowInteractText(); if(_interacted)ShowInteractionDuration();
+
     }
 }

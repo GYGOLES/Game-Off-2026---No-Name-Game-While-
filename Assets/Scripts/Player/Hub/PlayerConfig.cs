@@ -73,6 +73,11 @@ public sealed class PlayerConfig
     public float StaminaRecover => _staminaRecover;
     public float StaminaDrain => _staminaDrain;
 
+    [Header("Fear")]
+    [SerializeField] float _maxFear = 100f;
+    
+    public float MaxFear => _maxFear;
+
     [Header("Weight States")]
     [SerializeField] float _maxWeight = 20f;
     [SerializeField] int _maxBagStorage = 10;
