@@ -25259,6 +25259,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: large_trash_container_low (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8466502847302562944, guid: 96ae58db3889a914c9ab0fa1131fe0f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466502847302562944, guid: 96ae58db3889a914c9ab0fa1131fe0f7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 123
+      objectReference: {fileID: 0}
     - target: {fileID: 9094139666205847098, guid: 96ae58db3889a914c9ab0fa1131fe0f7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.094296046
@@ -106700,8 +106708,12 @@ PrefabInstance:
       value: Box_bag_low (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1381937661439481676, guid: 86fa88bdf48af1147960bbe2f1f5e08f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381937661439481676, guid: 86fa88bdf48af1147960bbe2f1f5e08f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     - target: {fileID: 1758216226341244406, guid: 86fa88bdf48af1147960bbe2f1f5e08f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -106745,7 +106757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852190996544992528, guid: 86fa88bdf48af1147960bbe2f1f5e08f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     - target: {fileID: 6142087478693154872, guid: 86fa88bdf48af1147960bbe2f1f5e08f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -179456,6 +179468,14 @@ PrefabInstance:
     - target: {fileID: 8466502847302562944, guid: 96ae58db3889a914c9ab0fa1131fe0f7, type: 3}
       propertyPath: m_Name
       value: large_trash_container_low (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466502847302562944, guid: 96ae58db3889a914c9ab0fa1131fe0f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466502847302562944, guid: 96ae58db3889a914c9ab0fa1131fe0f7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 123
       objectReference: {fileID: 0}
     - target: {fileID: 9094139666205847098, guid: 96ae58db3889a914c9ab0fa1131fe0f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -356327,6 +356347,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: large_trash_container_low
       objectReference: {fileID: 0}
+    - target: {fileID: 8466502847302562944, guid: 96ae58db3889a914c9ab0fa1131fe0f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466502847302562944, guid: 96ae58db3889a914c9ab0fa1131fe0f7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 123
+      objectReference: {fileID: 0}
     - target: {fileID: 9094139666205847098, guid: 96ae58db3889a914c9ab0fa1131fe0f7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.094296046
@@ -359284,8 +359312,12 @@ PrefabInstance:
       value: Box_bag_low
       objectReference: {fileID: 0}
     - target: {fileID: 1381937661439481676, guid: 86fa88bdf48af1147960bbe2f1f5e08f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381937661439481676, guid: 86fa88bdf48af1147960bbe2f1f5e08f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     - target: {fileID: 1758216226341244406, guid: 86fa88bdf48af1147960bbe2f1f5e08f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -359329,7 +359361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852190996544992528, guid: 86fa88bdf48af1147960bbe2f1f5e08f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
