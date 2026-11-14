@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2457783434796510237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.542, y: -0.32800996, z: 0.7587004}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1412,7 +1412,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Test
   _audio: {fileID: 11400000, guid: 671089d012130634fb1ae6859085eced, type: 2}
+  _collider: {fileID: 0}
   _item: {fileID: 11400000, guid: eba3af8979a22a640838f34f13a1ba20, type: 2}
+  _string:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _outline: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &2959352763041945844
 MonoBehaviour:
   m_ObjectHideFlags: 0

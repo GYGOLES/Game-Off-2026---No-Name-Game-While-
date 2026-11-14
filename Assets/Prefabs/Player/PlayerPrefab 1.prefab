@@ -168,7 +168,7 @@ Transform:
   m_GameObject: {fileID: 3751665930493063228}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.446, y: 13.159, z: -5.14}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -226,8 +226,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeadBobingEffect
   _head: {fileID: 680232840104833835}
-  _frequency: 0.015
-  _acceleration: 15
+  _hand: {fileID: 0}
+  _walk:
+    Frequency: 8
+    VerticalAmplitude: 0.02
+    SideAmplitude: 0.01
+    TiltMove: 0.6
+  _sprint:
+    Frequency: 8
+    VerticalAmplitude: 0.02
+    SideAmplitude: 0.01
+    TiltMove: 0.6
+  _idleSpeed: 0.4
+  _idleAmplitude: 0.01
+  _idleRoll: 0.4
+  _blendTime: 0.25
 --- !u!114 &3875492394327165186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +274,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUI
   _bagStorage: {fileID: 0}
-  _stamina: {fileID: 0}
+  _staminaImage: {fileID: 0}
+  _hold: {fileID: 0}
+  _interaction: {fileID: 0}
+  _messages: []
+  _timerCounter: {fileID: 0}
+  _timerText: {fileID: 0}
+  _EndShift: {fileID: 0}
+  _scoreTotalCollected: {fileID: 0}
+  _shiftDay: {fileID: 0}
+  _Items: {fileID: 0}
+  _locators: []
+  _spawnLocation: {fileID: 0}
+  _garbageTexture: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &3942308986257868584
 GameObject:
   m_ObjectHideFlags: 0
