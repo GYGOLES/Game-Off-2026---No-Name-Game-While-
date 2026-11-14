@@ -12,24 +12,24 @@ public abstract class AudioAbs : MonoBehaviour
     {
         this.service = service;
     }
-    protected void PlayAtPosition(AudioClip clip,Vector3 pos, float volume = 0.1f)
+    protected void PlayAtPosition(AudioClip clip,Vector3 pos, float volume = 0.2f, float pitch = 1)
     {
         if(clip == null)return;
-        service.PlaySound(clip ,pos, volume);
+        service.PlaySound(clip , pos, volume, pitch);
     }
-    protected void PlaySingleClip(AudioClip clip,Vector3 pos, bool atPosition)
+    protected void PlaySingleClip(AudioClip clip,Vector3 pos, bool atPosition, float volume = 0.2f, float pitch = 1)
     {
-        service.PlaySound(clip,atPosition? pos : transform.position);
+        service.PlaySound(clip,atPosition? pos : transform.position, volume, pitch);
     }
-    protected void PlayRandomClips(AudioClip[] clip, Vector3 pos, bool atPosition)
+    protected void PlayRandomClips(AudioClip[] clip, Vector3 pos, bool atPosition, float volume = 0.2f, float pitch = 1)
     {
-        service.PlaySound(GetRandomClip(clip), atPosition? pos : transform.position);
+        service.PlaySound(GetRandomClip(clip), atPosition? pos : transform.position, volume, pitch);
     }
     protected void PlayDefaultClips()
     {
         if(_audio == null || _audio.ArraClips.Length <= 0)return;
 
-        PlayRandomClips(_audio.ArraClips, transform.position, false);
+        PlayRandomClips(_audio.ArraClips, transform.position, false, _audio.Volume, _audio.Pitch);
     }
     protected AudioClip GetRandomClip(AudioClip[] clips)    
     {

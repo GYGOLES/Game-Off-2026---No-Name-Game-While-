@@ -7,7 +7,7 @@ using VContainer;
 using VContainer.Unity;
 public interface IAudioService
 {
-    public void PlaySound(AudioClip clip, Vector3 position, float volume = 0.2f);
+    public void PlaySound(AudioClip clip, Vector3 position, float volume = 0.2f, float pitch = 1);
 }
 public class AudioService : IAudioService, IStartable, IDisposable
 {
@@ -30,7 +30,7 @@ public class AudioService : IAudioService, IStartable, IDisposable
         if (root) UnityEngine.Object.Destroy(root.gameObject);
     }
 
-    public void PlaySound(AudioClip clip, Vector3 position, float volume = 0.2F)
+    public void PlaySound(AudioClip clip, Vector3 position, float volume = 0.2F, float pitch = 1)
     {
         if(clip == null||freeSources.Count == 0)return;
 
@@ -38,9 +38,10 @@ public class AudioService : IAudioService, IStartable, IDisposable
         source.transform.position = position;
         source.clip = clip;
         source.volume = volume;
+        source.pitch = pitch;
         source.gameObject.SetActive(true);
         source.Play();
-        RealeaseAfter(source, clip.length, ctx.Token).Forget();
+        RealeaseAfter(source, clip.length / pitch, ctx.Token).Forget();
     }
 
     public void Start()
