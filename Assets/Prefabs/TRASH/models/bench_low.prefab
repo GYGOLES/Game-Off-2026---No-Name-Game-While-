@@ -1,5 +1,125 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8686736026174452352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4140037664986934506}
+  - component: {fileID: 6428210738800938319}
+  m_Layer: 0
+  m_Name: Decal_Dirt_2 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &4140037664986934506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8686736026174452352}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.49674976, y: 0.5032279, z: -0.50322896, w: -0.4967515}
+  m_LocalPosition: {x: 1.33, y: 0.06, z: 0.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2218091110355472516}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: -809.258}
+--- !u!114 &6428210738800938319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8686736026174452352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
+  m_Material: {fileID: 2100000, guid: 801a97cce1c6d9944b190c83b2cd3cff, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 1
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_RenderingLayerMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ScaleMode: 0
+  m_Offset: {x: 0, y: 0, z: 0.07}
+  m_Size: {x: 2.18, y: 2.63, z: 0.14}
+  m_FadeFactor: 0.225
+  version: 1
+  m_DecalLayerMask: 1
+--- !u!1 &8957576967346978277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3336710559368151695}
+  - component: {fileID: 4037204988980284092}
+  m_Layer: 0
+  m_Name: Decal_Dirt_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &3336710559368151695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957576967346978277}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.49674976, y: 0.5032279, z: -0.50322896, w: -0.4967515}
+  m_LocalPosition: {x: -1.28, y: 0.06, z: -0.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2218091110355472516}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: -809.258}
+--- !u!114 &4037204988980284092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957576967346978277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
+  m_Material: {fileID: 2100000, guid: 801a97cce1c6d9944b190c83b2cd3cff, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 1
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_RenderingLayerMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ScaleMode: 0
+  m_Offset: {x: 0, y: 0, z: 0.07}
+  m_Size: {x: 2.18, y: 2.63, z: 0.14}
+  m_FadeFactor: 0.225
+  version: 1
+  m_DecalLayerMask: 1
 --- !u!1001 &1820166052618565487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,7 +178,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 89b7a41a6d37d9b4fb90f34d7d12ad7d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3336710559368151695}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 89b7a41a6d37d9b4fb90f34d7d12ad7d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4140037664986934506}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 89b7a41a6d37d9b4fb90f34d7d12ad7d, type: 3}
       insertIndex: -1
@@ -90,3 +216,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.5, y: 0.88719505, z: 0.50191015}
   m_Center: {x: 0, y: 0.44359747, z: -0.000000029802322}
+--- !u!4 &2218091110355472516 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 89b7a41a6d37d9b4fb90f34d7d12ad7d, type: 3}
+  m_PrefabInstance: {fileID: 1820166052618565487}
+  m_PrefabAsset: {fileID: 0}

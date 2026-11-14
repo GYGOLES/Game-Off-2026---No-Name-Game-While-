@@ -207,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 954107051856264378, guid: d0651b2e02444b34cad74330a7c7bd27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: -1.131
       objectReference: {fileID: 0}
     - target: {fileID: 954107051856264378, guid: d0651b2e02444b34cad74330a7c7bd27, type: 3}
       propertyPath: m_LocalPosition.z
@@ -247,19 +247,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1934445989007485035, guid: d0651b2e02444b34cad74330a7c7bd27, type: 3}
       propertyPath: m_Color.b
-      value: 0.7210323
+      value: 0.91886795
       objectReference: {fileID: 0}
     - target: {fileID: 1934445989007485035, guid: d0651b2e02444b34cad74330a7c7bd27, type: 3}
       propertyPath: m_Color.g
-      value: 0.89191645
+      value: 0.9725399
       objectReference: {fileID: 0}
     - target: {fileID: 1934445989007485035, guid: d0651b2e02444b34cad74330a7c7bd27, type: 3}
       propertyPath: m_Color.r
-      value: 0.97735846
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1934445989007485035, guid: d0651b2e02444b34cad74330a7c7bd27, type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1934445989007485035, guid: d0651b2e02444b34cad74330a7c7bd27, type: 3}
       propertyPath: m_BounceIntensity
