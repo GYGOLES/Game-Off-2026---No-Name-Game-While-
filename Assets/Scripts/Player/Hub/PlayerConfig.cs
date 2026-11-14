@@ -43,9 +43,11 @@ public sealed class PlayerConfig
 
     [Header("Transforms")]
     [SerializeField] Transform _hand;
+    [SerializeField] Transform _garbage;
     [SerializeField] Transform _orientation;
     [SerializeField] Transform _headBobing;
 
+    public Transform Garbage => _garbage;
     public Transform Hand => _hand;
     public Transform Orientation => _orientation;
     public Transform HeadBobing => _headBobing;

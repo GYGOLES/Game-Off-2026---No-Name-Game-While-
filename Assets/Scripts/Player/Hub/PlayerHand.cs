@@ -3,10 +3,15 @@ using UnityEngine;
 
 public class PlayerHand 
 {
-    public readonly Transform _hand;
-    public bool Occupied => _hand.GetChild(0).gameObject.activeInHierarchy;
+    public readonly Transform Hand;
+    public readonly Transform Bag;
+    public bool Occupied => Hand.GetChild(0).gameObject.activeInHierarchy;
 
-    public PlayerHand(PlayerConfig config) => _hand = config.Hand;
+    public PlayerHand(PlayerConfig config)
+    {
+        Hand = config.Hand;
+        Bag = config.Garbage;
+    }
 
     public void HandOccupied()
     {
@@ -24,7 +29,7 @@ public class PlayerHand
 
     private void GetBag(bool t)
     {
-        Transform bag = _hand.GetChild(0);
+        Transform bag = Hand.GetChild(0);
         bag.gameObject.SetActive(t);
     }  
 }
