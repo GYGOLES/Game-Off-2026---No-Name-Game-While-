@@ -146,6 +146,9 @@ public class PlayerUI : MonoBehaviour
         if (_EndShift.activeSelf) return;
         if(_mode == null)return;
 
+        ClearPrompt();
+        _interaction.gameObject.SetActive(false);
+
         _EndShift.SetActive(true);   
         _mode.SetUI();
         Time.timeScale = 0f;
@@ -314,6 +317,10 @@ public class PlayerUI : MonoBehaviour
 
     void Update()
     {
-        Stamina(); Timer(); ShowInteractText(); if(_interacted)ShowInteractionDuration();
+        Stamina(); Timer(); 
+        
+        if(_EndShift.activeSelf)return;
+        
+        ShowInteractText(); if(_interacted)ShowInteractionDuration();
     }
 }
