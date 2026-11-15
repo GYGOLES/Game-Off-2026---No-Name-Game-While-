@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public sealed class PlayerCarry
 {
@@ -19,6 +20,7 @@ public sealed class PlayerCarry
     public event Action OnDrop;
 
     public event Action<float> TotalWeightChange;
+    public event Action<LocalizedString, Sprite> OnShowText;
 
     public PlayerCarry(PlayerConfig config) => _config = config;
 
@@ -55,5 +57,16 @@ public sealed class PlayerCarry
         OnDrop?.Invoke();
         
         return true;
+    }
+
+    public void Show(PaperInfo i)
+    {
+        if(i == null)
+        {
+            Debug.Log("Paper null");
+            return;
+        }
+
+        OnShowText?.Invoke(i.Text, i.Sprite);
     }
 }

@@ -6,21 +6,26 @@ public class PapperShow : MonoBehaviour, IInteract
 {
     [SerializeField] LocalizedString _string;
     [SerializeField] Outline _outline;
+    [SerializeField] PaperInfo _info;
 
     public LocalizedString Prompt => _string;
     
-
     public Outline Outline => _outline;
 
     public InputPhase Phase =>  InputPhase.started;
 
     public InteractResult Check(PlayerCarry carry, PlayerHand hand)
     {
-        throw new System.NotImplementedException();
+        if(_info == null)return InteractResult.Failed;
+        return InteractResult.Success;
     }
 
     public InteractResult Interact(PlayerCarry carry, PlayerHand hand)
     {
-        throw new System.NotImplementedException();
+        var a = Check(carry, hand);
+        if(a != InteractResult.Success)return a;
+
+        carry.Show(_info);
+        return InteractResult.Success;
     }
 }

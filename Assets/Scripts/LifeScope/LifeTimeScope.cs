@@ -9,6 +9,7 @@ public class LifeTimeScope : LifetimeScope
     [SerializeField] AudioPool _pool;
 
     [SerializeField] PlayerConfig _playerConfig;
+    [SerializeField] UIConfig _uiConfig;
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterEntryPoint<InputHub>().As<IInputModeSwitch>().AsSelf();
@@ -19,6 +20,7 @@ public class LifeTimeScope : LifetimeScope
 
         _playerConfig.Load();
         builder.RegisterInstance(_playerConfig);
+        builder.RegisterInstance(_uiConfig);
         builder.RegisterInstance(_pool);
 
         builder.Register<PlayerCamera>(Lifetime.Singleton);

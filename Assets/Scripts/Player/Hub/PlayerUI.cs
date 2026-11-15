@@ -44,9 +44,16 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _shiftDay;
 
     [Header("ItemInShift")]
-    [SerializeField] TextMeshProUGUI _Items;
+    [SerializeField] TextMeshProUGUI _items;
     [SerializeField] GarbageLocator[] _locators;
     [SerializeField] Transform _spawnLocation;
+
+    [Header("PaperContext")]
+    [SerializeField] GameObject _paperObj;
+    [SerializeField] Image _paperSprite;
+    [SerializeField] TextMeshProUGUI _paperText;
+    private LocalizedString _currentPaperText;
+
 
     [Header("Visual")]
     [SerializeField] GameObject _garbageTexture;
@@ -82,6 +89,7 @@ public class PlayerUI : MonoBehaviour
 
         _carry.BagIntChange   += BagText;
         _carry.OnDrop += DropBag;
+        _carry.OnShowText += ShowPapperText;
 
         if (_locator != null)
         {
@@ -100,6 +108,7 @@ public class PlayerUI : MonoBehaviour
         {
             _carry.BagIntChange   -= BagText;
             _carry.OnDrop -= DropBag;
+            _carry.OnShowText -= ShowPapperText;
         }
         if (_locator != null)
         {
@@ -177,7 +186,7 @@ public class PlayerUI : MonoBehaviour
 
     public void GarbageText(int remain, int total)
     {
-        _Items.text = remain.ToString("F0");
+        _items.text = remain.ToString("F0");
         _scoreTotalCollected.text = (total - remain).ToString("F0") + "/" + _locator.Total.ToString("F0");
     }
 
@@ -221,7 +230,7 @@ public class PlayerUI : MonoBehaviour
         if (text != null && !text.IsEmpty)
         {
             _currentLocalized = text;
-            _currentLocalized.StringChanged += LocalizedText;
+            _currentLocalized.StringChanged += LocalizedInteractionText;
             _interaction.gameObject.SetActive(true);
         }
 
@@ -234,7 +243,7 @@ public class PlayerUI : MonoBehaviour
     {
         if(_currentLocalized != null)
         {
-            _currentLocalized.StringChanged -= LocalizedText;
+            _currentLocalized.StringChanged -= LocalizedInteractionText;
             _currentLocalized = null;
         }
         if(_currentOutline != null)
@@ -247,6 +256,15 @@ public class PlayerUI : MonoBehaviour
 
         if (_interaction != null && _interaction.gameObject.activeSelf)
             _interaction.gameObject.SetActive(false);
+    }
+
+    private void ClearPaperText()
+    {
+        if(_currentPaperText != null)
+        {
+            _currentPaperText.StringChanged -= LocalizedPapperText;
+            _currentPaperText = null;
+        }
     }
 
     public void SetNextShift(int i)
@@ -315,7 +333,23 @@ public class PlayerUI : MonoBehaviour
         return null;
     }
 
-    private void LocalizedText(string value) => _interaction.text = value;
+    private void ShowPapperText(LocalizedString p, Sprite s)
+    {
+        ClearPaperText();
+        
+        if(p != null || !p.IsEmpty)
+        {
+            _paperObj.SetActive(true);
+            _currentPaperText = p;
+            _currentPaperText.StringChanged += LocalizedPapperText;
+            _mode.SetUI();
+            Time.timeScale = 0f;
+        }
+        
+    }
+
+    private void LocalizedInteractionText(string value) => _interaction.text = value;
+    private void LocalizedPapperText(string v) => _paperText.text = v;
 
     void Update()
     {
