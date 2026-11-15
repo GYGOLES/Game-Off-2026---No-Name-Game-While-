@@ -4,75 +4,76 @@ using VContainer;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] GameObject[] _menu;
-    [SerializeField] GameObject[] _gameplay;
-
-    
-    [SerializeField] GameObject _pause;
-
-    [SerializeField] GameObject endShift;
-
-    [Header("Options")]
-    [SerializeField] GameObject _options;
-
     private IPlayerInput _pl;
     private IUInput _ui;
     private IInputModeSwitch _mode;
+    private UIConfig _uiConfig;
 
     [Inject]
-    public void Construct(IPlayerInput input, IUInput ui, IInputModeSwitch modeSwitch)
+    public void Construct(IPlayerInput input, IUInput ui, IInputModeSwitch modeSwitch, UIConfig uiConfig)
     {
         _pl = input;
         _ui = ui;
         _mode = modeSwitch;
+        _uiConfig = uiConfig;
     }
 
     void OnEnable()
     {
         _pl.Pause += EnableMenu;
         _ui.Pause += DisableMenu;
+        _ui.Pause += DisablePaper;
 
     }
     void OnDisable()
     {
         _pl.Pause -= EnableMenu;
         _ui.Pause -= DisableMenu;
+        _ui.Pause -= DisablePaper;
     }
 
     private void EnableMenu()
     {
-        if(endShift.activeSelf)return;
+        if(_uiConfig.Scores.ScoreTotal.activeSelf)return;
 
-        for (int i = 0; i < _menu.Length; i++)
+        for (int i = 0; i < _uiConfig.Menu.MenuComponents.Length; i++)
         {
-            _menu[i].SetActive(true);
+            _uiConfig.Menu.MenuComponents[i].SetActive(true);
         }
 
-        _pause.SetActive(true);
-        _options.SetActive(false);
+        _uiConfig.Menu.Pause.SetActive(true);
+        _uiConfig.Menu.Options.SetActive(false);
 
-        for (int i = 0; i < _gameplay.Length; i++)
+        for (int i = 0; i < _uiConfig.Menu.GameplayComponents.Length; i++)
         {
-            _gameplay[i].SetActive(false);
+            _uiConfig.Menu.GameplayComponents[i].SetActive(false);
         }
         SetUi();
     }
     public void DisableMenu()
     {
-        if(endShift.activeSelf)return;
+        if(_uiConfig.Scores.ScoreTotal.activeSelf)return;
 
-        for (int i = 0; i < _menu.Length; i++)
+        for (int i = 0; i < _uiConfig.Menu.MenuComponents.Length; i++)
         {
-            _menu[i].SetActive(false);
+            _uiConfig.Menu.MenuComponents[i].SetActive(false);
         }
 
-        _pause.SetActive(false);
-        _options.SetActive(false);
+        _uiConfig.Menu.Pause.SetActive(false);
+        _uiConfig.Menu.Options.SetActive(false);
 
-        for (int i = 0; i < _gameplay.Length; i++)
+        for (int i = 0; i < _uiConfig.Menu.GameplayComponents.Length; i++)
         {
-            _gameplay[i].SetActive(true);
+            _uiConfig.Menu.GameplayComponents[i].SetActive(true);
         }
+        SetGameplay();
+    }
+
+    public void DisablePaper()
+    {
+        if(!_uiConfig.Paper.Panel.activeSelf)return;
+
+        _uiConfig.Paper.Panel.SetActive(false);
         SetGameplay();
     }
 

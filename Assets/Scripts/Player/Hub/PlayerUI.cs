@@ -17,6 +17,7 @@ public class PlayerUI : MonoBehaviour
     private PlayerStates _states;
     private PlayerCarry _carry;
     private PlayerConfig _config;
+    private MessageRefs _message;
     private PlayerInteract _interact;
     private PlayerMotor _motor;
     private PlayerHand _hand;
@@ -24,39 +25,35 @@ public class PlayerUI : MonoBehaviour
     private IInputModeSwitch _mode;
 
 
-    [Header("UI")]
-    [SerializeField] TextMeshProUGUI _bagStorage;
-    [SerializeField] Image _staminaImage;
-    [SerializeField] Image _hold;
+    
+    TextMeshProUGUI _bagStorage;
+    Image _staminaImage;
+    Image _hold;
     
 
-    [Header("Message")]
-    [SerializeField] TextMeshProUGUI _interaction;
-    [SerializeField] ResultMessage[] _messages;
+    
+    TextMeshProUGUI _interaction;
+    ResultMessage[] _messages;
 
-    [Header("Timer")]
-    [SerializeField] TimerCounter _timerCounter;
-    [SerializeField] TextMeshProUGUI _timerText;
+    
+    
+    GameObject _scoreTotal;
+    TextMeshProUGUI _scoreTotalCollected;
+    TextMeshProUGUI _scoreDay;
 
-    [Header("EndShift")]
-    [SerializeField] GameObject _EndShift;
-    [SerializeField] TextMeshProUGUI _scoreTotalCollected;
-    [SerializeField] TextMeshProUGUI _shiftDay;
-
-    [Header("ItemInShift")]
-    [SerializeField] TextMeshProUGUI _items;
+    
+    TextMeshProUGUI _items;
     [SerializeField] GarbageLocator[] _locators;
-    [SerializeField] Transform _spawnLocation;
+    Transform _spawnLocation;
 
-    [Header("PaperContext")]
-    [SerializeField] GameObject _paperObj;
-    [SerializeField] Image _paperSprite;
-    [SerializeField] TextMeshProUGUI _paperText;
+    
+    GameObject _paperObj;
+    Image _paperSprite;
+    TextMeshProUGUI _paperText;
     private LocalizedString _currentPaperText;
 
 
-    [Header("Visual")]
-    [SerializeField] GameObject _garbageTexture;
+    GameObject _garbageTexture;
     private Vector3 _lowerPosition;
 
     private IInteract _currentInteract;
@@ -68,12 +65,15 @@ public class PlayerUI : MonoBehaviour
     private int _day = 1;
     private GarbageLocator _locator;
 
+    private TimerCounter _timerCounter;
+    private TextMeshProUGUI _timerText;
+
     private bool _allCollected;
     private bool _interacted;
 
 
     [Inject]
-    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerHand hand, PlayerConfig config, PlayerInteract interact, PlayerFear fear, IInputModeSwitch inputMode, IPlayerInput input)
+    public void Construct(PlayerStates states, PlayerMotor motor, PlayerCarry carry, PlayerHand hand, PlayerConfig config, UIConfig ui, PlayerInteract interact, PlayerFear fear, IInputModeSwitch inputMode, IPlayerInput input)
     {
         _states = states;
         _carry = carry;
@@ -84,6 +84,13 @@ public class PlayerUI : MonoBehaviour
         _hand = hand;
         _input = input;
         _fear = fear;
+
+        _timerCounter = ui.Timer.Counter; _timerText = ui.Timer.Text;
+        _paperObj = ui.Paper.Panel; _paperSprite = ui.Paper.Image; _paperText = ui.Paper.Text;
+        _interaction = ui.Messages.MessageObject; _bagStorage = ui.Messages.BagStorage; _hold = ui.Messages.Hold; _message = ui.Messages;
+        _staminaImage = ui.Player.Stamina;
+        _scoreTotal = ui.Scores.ScoreTotal; _scoreDay = ui.Scores.ScoreDay; _scoreTotalCollected = ui.Scores.ScoreTotalCollected;
+        _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture;
 
         _input.Interact += Interact;
 
@@ -154,13 +161,13 @@ public class PlayerUI : MonoBehaviour
 
     public void ShowScore()
     {
-        if (_EndShift.activeSelf) return;
+        if (_scoreTotal.activeSelf) return;
         if(_mode == null)return;
 
         ClearPrompt();
         _interaction.gameObject.SetActive(false);
 
-        _EndShift.SetActive(true);   
+        _scoreTotal.SetActive(true);   
         _mode.SetUI();
         Time.timeScale = 0f;
     }
@@ -225,7 +232,7 @@ public class PlayerUI : MonoBehaviour
         _currentResult = r;
         if(interact == null)return;
 
-        LocalizedString text = _currentResult == InteractResult.Success? interact.Prompt : ShowText(_currentResult);
+        LocalizedString text = _currentResult == InteractResult.Success? interact.Prompt : _message.Get(_currentResult);
  
         if (text != null && !text.IsEmpty)
         {
@@ -270,7 +277,7 @@ public class PlayerUI : MonoBehaviour
     public void SetNextShift(int i)
     {
         _day += i;
-        _shiftDay.text = _day.ToString();
+        _scoreDay.text = _day.ToString();
         _timerCounter.SetTimerBack();
 
         _motor.Teleport(_spawnLocation);
@@ -288,14 +295,14 @@ public class PlayerUI : MonoBehaviour
     {
         if(_mode == null)return;
 
-        _EndShift.SetActive(false);
+        _scoreTotal.SetActive(false);
         _mode.SetGameplay();
         Time.timeScale = 1f;
     }
 
     public void RestartShift()
     {
-        _shiftDay.text = _day.ToString();
+        _scoreDay.text = _day.ToString();
         _timerCounter.SetTimerBack();
         _locator.RestartLocator();
         _motor.Teleport(_spawnLocation);
@@ -325,14 +332,6 @@ public class PlayerUI : MonoBehaviour
         GarbageText(_locator.Total, _locator.Total);
     }
 
-    private LocalizedString ShowText(InteractResult r)
-    {
-        for (int i = 0; i < _messages.Length; i++)
-        if (_messages[i].result == r)
-            return _messages[i].text;
-        return null;
-    }
-
     private void ShowPapperText(LocalizedString p, Sprite s)
     {
         ClearPaperText();
@@ -345,6 +344,11 @@ public class PlayerUI : MonoBehaviour
             _mode.SetUI();
             Time.timeScale = 0f;
         }
+
+        if(s != null)
+        {
+            _paperSprite.sprite = s;
+        }
         
     }
 
@@ -355,7 +359,7 @@ public class PlayerUI : MonoBehaviour
     {
         Stamina(); Timer(); 
         
-        if(_EndShift.activeSelf)return;
+        if(_scoreTotal.activeSelf)return;
         
         ShowInteractText(); if(_interacted)ShowInteractionDuration();
 

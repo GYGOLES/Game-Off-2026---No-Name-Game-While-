@@ -11,11 +11,17 @@ public sealed class UIConfig
     [SerializeField] MessageRefs _messages;
     [SerializeField] TimerRefs _timer;
     [SerializeField] PaperRefs _paper;
+    [SerializeField] MenuRefs _menu;
+    [SerializeField] ScoreRefs _scores;
+    [SerializeField] MapRefs _mapRefs;
 
     public PlayerStateRefs Player => _player;
     public MessageRefs Messages => _messages;
     public TimerRefs Timer => _timer;
     public PaperRefs Paper => _paper;
+    public MenuRefs Menu => _menu;
+    public ScoreRefs Scores => _scores;
+    public MapRefs Map => _mapRefs;
 }
 
 [Serializable]
@@ -37,11 +43,13 @@ public sealed class MessageRefs
     }
 
     [SerializeField] Image _hold;
-    [SerializeField] GameObject _messageObject;
+    [SerializeField] TextMeshProUGUI _messageObject; 
+    [SerializeField] TextMeshProUGUI _bagStorage;
     [SerializeField] ResultMessage[] _results;
 
     public Image Hold => _hold;
-    public GameObject MessageObject => _messageObject;
+    public TextMeshProUGUI MessageObject => _messageObject;
+    public TextMeshProUGUI BagStorage => _bagStorage;
 
     public LocalizedString Get(InteractResult result)
     {
@@ -54,7 +62,7 @@ public sealed class MessageRefs
 }
 
 [Serializable]
-public sealed class TimerRefs
+public sealed class TimerRefs //Done
 {
     [SerializeField] TimerCounter _counter;
     [SerializeField] TextMeshProUGUI _text;
@@ -73,4 +81,39 @@ public sealed class PaperRefs
     public GameObject Panel => _panel;
     public Image Image => _image;
     public TextMeshProUGUI Text => _text;
+}
+[Serializable]
+public sealed class MenuRefs
+{
+    [SerializeField] GameObject[] _menu;
+    [SerializeField] GameObject[] _gameplay;
+    [SerializeField] GameObject _pause;
+    [SerializeField] GameObject _options;
+
+    public GameObject[] MenuComponents => _menu;
+    public GameObject[] GameplayComponents => _gameplay;
+    public GameObject Pause => _pause;
+    public GameObject Options => _options;
+}
+[Serializable]
+public sealed class ScoreRefs
+{
+    [SerializeField] GameObject _scoreTotal;
+    [SerializeField] TextMeshProUGUI _scoreTotalCollected;
+    [SerializeField] TextMeshProUGUI _scoreDay;
+
+    public GameObject ScoreTotal => _scoreTotal;
+    public TextMeshProUGUI ScoreTotalCollected => _scoreTotalCollected;
+    public TextMeshProUGUI ScoreDay => _scoreDay;
+}
+[Serializable]
+public sealed class MapRefs
+{
+    [SerializeField] TextMeshProUGUI _totalItems;
+    [SerializeField] Transform _spawn;
+    [SerializeField] GameObject _garbageTexture;
+
+    public TextMeshProUGUI TotalItems => _totalItems;
+    public Transform Spawn => _spawn;
+    public GameObject GarbageTexture => _garbageTexture;
 }
