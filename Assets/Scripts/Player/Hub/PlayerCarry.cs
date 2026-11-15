@@ -21,6 +21,7 @@ public sealed class PlayerCarry
 
     public event Action<float> TotalWeightChange;
     public event Action<LocalizedString, Sprite> OnShowText;
+    public event Action OnCollect;
 
     public PlayerCarry(PlayerConfig config) => _config = config;
 
@@ -68,5 +69,6 @@ public sealed class PlayerCarry
         }
 
         OnShowText?.Invoke(i.Text, i.Sprite);
+        OnCollect?.Invoke();
     }
 }

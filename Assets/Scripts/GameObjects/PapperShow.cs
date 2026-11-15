@@ -2,7 +2,7 @@ using Assets.Scripts.Inputmanager;
 using UnityEngine;
 using UnityEngine.Localization;
 
-public class PapperShow : MonoBehaviour, IInteract
+public class PapperShow : AudioAbs, IInteract
 {
     [SerializeField] LocalizedString _string;
     [SerializeField] Outline _outline;
@@ -23,9 +23,12 @@ public class PapperShow : MonoBehaviour, IInteract
     public InteractResult Interact(PlayerCarry carry, PlayerHand hand)
     {
         var a = Check(carry, hand);
+        Debug.Log($"{a} paper");
         if(a != InteractResult.Success)return a;
 
+        PlayDefaultClips();
         carry.Show(_info);
+        gameObject.SetActive(false);
         return InteractResult.Success;
     }
 }

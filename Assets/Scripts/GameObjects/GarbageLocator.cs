@@ -5,6 +5,7 @@ using UnityEngine;
 public class GarbageLocator : MonoBehaviour
 {
     ItemsCollect[] _items;
+    PapperShow[] _info;
     int _remaining;
     bool _inited;
 
@@ -21,6 +22,7 @@ public class GarbageLocator : MonoBehaviour
             _inited = true;
 
         _items = GetComponentsInChildren<ItemsCollect>(true);
+        _info = GetComponentsInChildren<PapperShow>(true);
         _remaining = _items.Length;
 
         foreach (var item in _items)
@@ -45,6 +47,8 @@ public class GarbageLocator : MonoBehaviour
     public void RestartLocator()
     {
         _items = GetComponentsInChildren<ItemsCollect>(true);
+        _info = GetComponentsInChildren<PapperShow>(true);
+        
         _remaining = _items.Length;
         
         foreach (var item in _items)
@@ -52,5 +56,10 @@ public class GarbageLocator : MonoBehaviour
             item.gameObject.SetActive(true);
             item.enabled = true;
         }     
+        foreach (var item in _info)
+        {
+            item.gameObject.SetActive(true);
+            item.enabled = true;
+        }
     }
 }
