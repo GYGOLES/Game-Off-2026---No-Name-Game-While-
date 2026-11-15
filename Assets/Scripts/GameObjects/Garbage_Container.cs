@@ -26,7 +26,7 @@ public class Garbage_Container : AudioAbs, IInteract
         if(r != InteractResult.Success)return r;
 
         carry.FullDrop();
-        hand.HandOccupied();
+        hand.DropBag();
         PlayDefaultClips();
         return InteractResult.Success;
     }

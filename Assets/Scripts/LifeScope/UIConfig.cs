@@ -14,6 +14,7 @@ public sealed class UIConfig
     [SerializeField] MenuRefs _menu;
     [SerializeField] ScoreRefs _scores;
     [SerializeField] MapRefs _mapRefs;
+    [SerializeField] Tutorial _tutorial;
 
     public PlayerStateRefs Player => _player;
     public MessageRefs Messages => _messages;
@@ -22,6 +23,7 @@ public sealed class UIConfig
     public MenuRefs Menu => _menu;
     public ScoreRefs Scores => _scores;
     public MapRefs Map => _mapRefs;
+    public Tutorial Tutorial => _tutorial;
 }
 
 [Serializable]
@@ -116,4 +118,17 @@ public sealed class MapRefs
     public TextMeshProUGUI TotalItems => _totalItems;
     public Transform Spawn => _spawn;
     public GameObject GarbageTexture => _garbageTexture;
+}
+[Serializable]
+public sealed class Tutorial
+{
+    [SerializeField] bool _enabled;
+    [SerializeField] GameObject _panel;
+    [SerializeField] TextMeshProUGUI _text;
+    [SerializeField] LocalizedString[] _prompts;
+
+    public bool Enabled => _enabled;
+    public GameObject Panel => _panel;
+    public TextMeshProUGUI Text => _text;
+    public LocalizedString[] Prompts => _prompts;
 }

@@ -8,12 +8,6 @@ using VContainer;
 
 public class PlayerUI : MonoBehaviour
 {
-    [System.Serializable]
-    private struct ResultMessage
-    {
-        public InteractResult result;
-        public LocalizedString text;
-    }
     private PlayerStates _states;
     private PlayerCarry _carry;
     private PlayerConfig _config;
@@ -33,7 +27,6 @@ public class PlayerUI : MonoBehaviour
 
     
     TextMeshProUGUI _interaction;
-    ResultMessage[] _messages;
 
     
     
@@ -51,6 +44,11 @@ public class PlayerUI : MonoBehaviour
     Image _paperSprite;
     TextMeshProUGUI _paperText;
     private LocalizedString _currentPaperText;
+
+    GameObject _tutorialPanel;
+    LocalizedString[] _tutorials;
+    TextMeshProUGUI _tutorial;
+    bool _acceptedTutorial;
 
 
     GameObject _garbageTexture;
@@ -91,12 +89,24 @@ public class PlayerUI : MonoBehaviour
         _staminaImage = ui.Player.Stamina;
         _scoreTotal = ui.Scores.ScoreTotal; _scoreDay = ui.Scores.ScoreDay; _scoreTotalCollected = ui.Scores.ScoreTotalCollected;
         _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture;
+        _tutorial = ui.Tutorial.Text; _tutorials = ui.Tutorial.Prompts; _tutorialPanel = ui.Tutorial.Panel; _acceptedTutorial = ui.Tutorial.Enabled;
+
+        int i = PlayerPrefs.GetInt("AcceptedTutorial", 0);
+        _acceptedTutorial = (i == 1);
+        if (_acceptedTutorial)
+        {
+            _tutorialPanel.gameObject.SetActive(false);
+        }
 
         _input.Interact += Interact;
 
         _carry.BagIntChange   += BagText;
         _carry.OnDrop += DropBag;
         _carry.OnShowText += ShowPapperText;
+        _carry.OnFirstCollected += ShowTutorialText;
+        _carry.OnFirstDropped += ShowTutorialText;
+
+        _hand.OnFirstTimeCollected += ShowTutorialText;
 
         if (_locator != null)
         {
@@ -116,12 +126,16 @@ public class PlayerUI : MonoBehaviour
             _carry.BagIntChange   -= BagText;
             _carry.OnDrop -= DropBag;
             _carry.OnShowText -= ShowPapperText;
+
+            _carry.OnFirstCollected -= ShowTutorialText;
+            _carry.OnFirstDropped -= ShowTutorialText;
         }
         if (_locator != null)
         {
             _locator.Changed -= GarbageText;
             _locator.AllCollected -= OnCollected; 
         }
+        if(_hand != null) _hand.OnFirstTimeCollected -= ShowTutorialText;
         if(_input != null) _input.Interact -= Interact;
         if (_timerCounter != null) _timerCounter.TimerDeath -= ShowScore;
         if(_currentInteract != null) ClearPrompt();
@@ -351,9 +365,29 @@ public class PlayerUI : MonoBehaviour
         }
         
     }
+    private void ShowTutorialText(int index)
+    {
+        if(_acceptedTutorial)return;
+
+        if(index == 2)
+        {
+            _acceptedTutorial = true;
+            _tutorialPanel.SetActive(false);
+            PlayerPrefs.SetInt("AcceptedTutorial", _acceptedTutorial ? 1 : 0);
+            PlayerPrefs.Save();
+            return;
+        }
+
+        if(_tutorials != null || _tutorials.Length > 0)
+        {
+            _tutorials[index].StringChanged += LocalizedTutorialText;
+            _tutorial.gameObject.SetActive(true);
+        }
+    }
 
     private void LocalizedInteractionText(string value) => _interaction.text = value;
     private void LocalizedPapperText(string v) => _paperText.text = v;
+    private void LocalizedTutorialText(string v) => _tutorial.text = v;
 
     void Update()
     {

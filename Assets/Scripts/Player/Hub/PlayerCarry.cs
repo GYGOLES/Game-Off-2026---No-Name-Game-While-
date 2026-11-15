@@ -23,6 +23,11 @@ public sealed class PlayerCarry
     public event Action<LocalizedString, Sprite> OnShowText;
     public event Action OnCollect;
 
+    public event Action<int> OnFirstDropped;
+    public event Action<int> OnFirstCollected;
+    private bool _firstTimeCollected;
+    private bool _firstTimeDropped;
+
     public PlayerCarry(PlayerConfig config) => _config = config;
 
     public InteractResult Check(ItemWeight weight)
@@ -34,6 +39,12 @@ public sealed class PlayerCarry
     {
         InteractResult result = Check(weight);
         if(result != InteractResult.Success)return result;
+
+        if (!_firstTimeCollected)
+        {
+            OnFirstCollected?.Invoke(1);
+            _firstTimeCollected = true;
+        }
 
         _currentWeight += weight.Weight;
         _currentBagCollected ++;
@@ -50,6 +61,12 @@ public sealed class PlayerCarry
     public bool FullDrop()
     {
         if(_currentBagCollected <= 0)return false;
+
+        if (!_firstTimeDropped)
+        {
+            OnFirstDropped?.Invoke(2);
+            _firstTimeDropped = true;
+        }
 
         _currentBagCollected = 0;
         _currentWeight = 0f;
