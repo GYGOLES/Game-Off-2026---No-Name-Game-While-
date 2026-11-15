@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
@@ -7,20 +8,24 @@ public class GameplaySettings : MonoBehaviour
 {
     [SerializeField] Toggle _windowScreen;
     [SerializeField] Toggle _vsync;
-    [SerializeField] Slider _musicSlider;
     [SerializeField] TMPro.TMP_Dropdown _language;
 
+
+    [Header("Volume")]
+    [SerializeField] AudioMixer _mixer;
+    [SerializeField] Slider _musicSlider;
 
     private string _windScreenKey = "apply_window_Screen";
     private string _vsyncKey = "apply_Vsync";
     private string _locale = "apply_locale";
+    private string _volume = "apply_volume";
 
     
     void Awake()
     {
         int vsync = PlayerPrefs.GetInt(_vsyncKey, 1);
         int set = PlayerPrefs.GetInt(_windScreenKey, 1);
-
+        
         
         _windowScreen.isOn = (set == 1);
         _vsync.isOn = (vsync == 1);
@@ -28,6 +33,13 @@ public class GameplaySettings : MonoBehaviour
         Screen.fullScreen = (set == 1);
 
         StartCoroutine(Coroutine());
+    }
+
+    void Start()
+    {
+        float v = PlayerPrefs.GetFloat(_volume, 0.75f);
+        _musicSlider.value = v;
+        SetVolume(_musicSlider.value);
     }
 
     private IEnumerator Coroutine()
@@ -68,5 +80,12 @@ public class GameplaySettings : MonoBehaviour
             PlayerPrefs.SetInt(_locale, index);
             PlayerPrefs.Save();
         }
+    }
+    public void SetVolume(float f)
+    {
+        float db = Mathf.Log10(Mathf.Clamp(f, 0.0001f, 1f))*20;
+        _mixer.SetFloat("Volume", db);
+        PlayerPrefs.SetFloat(_volume, f);
+        PlayerPrefs.Save();
     }
 }
