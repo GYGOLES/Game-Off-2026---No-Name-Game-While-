@@ -54,6 +54,8 @@ public class Menu : MonoBehaviour
     {
         if(_uiConfig.Scores.ScoreTotal.activeSelf)return;
 
+        _uiConfig.Menu.GameplaySettings.SaveSettings();
+
         for (int i = 0; i < _uiConfig.Menu.MenuComponents.Length; i++)
         {
             _uiConfig.Menu.MenuComponents[i].SetActive(false);
