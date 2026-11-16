@@ -5,6 +5,7 @@ using UnityEngine.Localization;
 public sealed class PlayerCarry
 {
     private readonly PlayerConfig _config;
+    private readonly PlayerFear _fear;
 
     private float _currentWeight;
     private int _currentBagCollected;
@@ -28,7 +29,11 @@ public sealed class PlayerCarry
     private bool _firstTimeCollected;
     private bool _firstTimeDropped;
 
-    public PlayerCarry(PlayerConfig config) => _config = config;
+    public PlayerCarry(PlayerConfig config, PlayerFear fear)
+    {
+        _config = config;
+        _fear = fear;
+    }
 
     public InteractResult Check(ItemWeight weight)
     {
@@ -45,6 +50,8 @@ public sealed class PlayerCarry
             OnFirstCollected?.Invoke(1);
             _firstTimeCollected = true;
         }
+
+        _fear.DrainFear(weight.Weight);
 
         _currentWeight += weight.Weight;
         _currentBagCollected ++;
@@ -84,7 +91,12 @@ public sealed class PlayerCarry
             Debug.Log("Paper null");
             return;
         }
-
+        if(_fear == null)
+        {
+            Debug.Log("Fear");
+            return;
+        }
+        _fear.GetFear(i.Fear);
         OnShowText?.Invoke(i.Text, i.Sprite);
         OnCollect?.Invoke();
     }

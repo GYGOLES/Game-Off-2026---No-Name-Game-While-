@@ -3,12 +3,14 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
+using VContainer;
 
 public class GameplaySettings : MonoBehaviour
 {
     [SerializeField] Toggle _windowScreen;
     [SerializeField] Toggle _vsync;
     [SerializeField] TMPro.TMP_Dropdown _language;
+    [SerializeField] Slider _sensivity;
 
 
     [Header("Volume")]
@@ -20,29 +22,26 @@ public class GameplaySettings : MonoBehaviour
     private string _locale = "apply_locale";
     private string _volume = "apply_volume";
 
-    
-    void Awake()
-    {
-        int vsync = PlayerPrefs.GetInt(_vsyncKey, 1);
-        int set = PlayerPrefs.GetInt(_windScreenKey, 1);
-        
-        
-        _windowScreen.isOn = (set == 1);
-        _vsync.isOn = (vsync == 1);
-        QualitySettings.vSyncCount = vsync;
-        Screen.fullScreen = (set == 1);
+    private PlayerConfig _config;
 
-        StartCoroutine(Coroutine());
-    }
+    [Inject]
+    public void Construct(PlayerConfig config) => _config = config; 
 
     void Start()
     {
-        float v = PlayerPrefs.GetFloat(_volume, 0.75f);
-        _musicSlider.value = v;
-        SetVolume(_musicSlider.value);
+        _windowScreen.SetIsOnWithoutNotify(PlayerPrefs.GetInt(_windScreenKey, 1) == 1);
+        _vsync.SetIsOnWithoutNotify(PlayerPrefs.GetInt(_vsyncKey, 1) == 1);
+        _sensivity.SetValueWithoutNotify(ToSlider(_config.Sensitivity));
+        _musicSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat(_volume, 0.75f));
+
+        ApplyVsync(_vsync.isOn);
+        ApplyWindowScreen(_windowScreen.isOn);
+        ApplyVolume(_musicSlider.value);
+
+        StartCoroutine(Language());
     }
 
-    private IEnumerator Coroutine()
+    private IEnumerator Language()
     {
         yield return LocalizationSettings.InitializationOperation;
         int current = PlayerPrefs.GetInt(_locale, 1);
@@ -57,17 +56,14 @@ public class GameplaySettings : MonoBehaviour
 
     public void SetWindowScreen()
     {
-        Screen.fullScreen = _windowScreen.isOn;
+        ApplyWindowScreen(_windowScreen.isOn);
         PlayerPrefs.SetInt(_windScreenKey, _windowScreen.isOn? 1 : 0);
-        PlayerPrefs.Save();
     }
 
     public void SetVsync()
     {
-        int value = _vsync.isOn? 1 : 0;
-        QualitySettings.vSyncCount = value;
-        PlayerPrefs.SetInt(_vsyncKey, value);
-        PlayerPrefs.Save();
+        ApplyVsync(_vsync.isOn);
+        PlayerPrefs.SetInt(_vsyncKey, _vsync.isOn? 1 : 0);
     }
 
     public void SetLanguage(int index)
@@ -78,14 +74,22 @@ public class GameplaySettings : MonoBehaviour
             _language.SetValueWithoutNotify(index);
             LocalizationSettings.SelectedLocale = locales[index];
             PlayerPrefs.SetInt(_locale, index);
-            PlayerPrefs.Save();
         }
     }
     public void SetVolume(float f)
     {
-        float db = Mathf.Log10(Mathf.Clamp(f, 0.0001f, 1f))*20;
-        _mixer.SetFloat("Volume", db);
+        ApplyVolume(f);
         PlayerPrefs.SetFloat(_volume, f);
-        PlayerPrefs.Save();
     }
+
+    public void SetSensivtiy(float s) => _config.SetSensitivity(FromSlider(s));  
+
+    private void ApplyVolume(float f) => _mixer.SetFloat("Volume", Mathf.Log10(Mathf.Clamp(f, 0.0001f, 1f))*20);
+    private void ApplyWindowScreen(bool on) => Screen.fullScreenMode = on? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+    private void ApplyVsync(bool on) => QualitySettings.vSyncCount = on? 1 : 0;
+    
+    static float ToSlider(float sens) => Mathf.Log(sens / PlayerConfig.MinSensitivity) / Mathf.Log(PlayerConfig.MaxSensitivity / PlayerConfig.MinSensitivity);
+    static float FromSlider(float t) => PlayerConfig.MinSensitivity * Mathf.Pow(PlayerConfig.MaxSensitivity / PlayerConfig.MinSensitivity, t);
+    public void SaveSettings() => _config.Save();
+    void OnDisable() => SaveSettings();
 }

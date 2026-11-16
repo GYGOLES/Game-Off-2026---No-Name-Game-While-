@@ -313,13 +313,15 @@ public class PlayerUI : MonoBehaviour
 
     public void RestartShift()
     {
+        ShowTutorialText(0);
+
         _scoreDay.text = _day.ToString();
         _timerCounter.SetTimerBack();
         _locator.RestartLocator();
         _motor.Teleport(_spawnLocation);
         SetLocator(_day - 1);
         _carry.FullDrop();
-        _hand.PickUpBag();
+        _hand.DropBag();
         _allCollected = false;
         _states.ResetStamina();
         ResumeGameplay();

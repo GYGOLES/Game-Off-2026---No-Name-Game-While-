@@ -91,11 +91,13 @@ public sealed class MenuRefs
     [SerializeField] GameObject[] _gameplay;
     [SerializeField] GameObject _pause;
     [SerializeField] GameObject _options;
+    [SerializeField] GameplaySettings _gameplaySettings;
 
     public GameObject[] MenuComponents => _menu;
     public GameObject[] GameplayComponents => _gameplay;
     public GameObject Pause => _pause;
     public GameObject Options => _options;
+    public GameplaySettings GameplaySettings => _gameplaySettings;
 }
 [Serializable]
 public sealed class ScoreRefs
