@@ -75,6 +75,10 @@ MonoBehaviour:
     m_Key: new_game
     m_Metadata:
       m_Items: []
+  - m_Id: 3160282439344128
+    m_Key: mouse_sensitivity
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

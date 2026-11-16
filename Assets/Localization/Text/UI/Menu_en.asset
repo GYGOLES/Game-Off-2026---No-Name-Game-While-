@@ -78,6 +78,10 @@ MonoBehaviour:
     m_Localized: Start game
     m_Metadata:
       m_Items: []
+  - m_Id: 3160282439344128
+    m_Localized: Mouse sensitivity
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
