@@ -12,13 +12,12 @@ public class PlayerFear
 
 
     public event Action OnGetInsane;
-    public event Action Ambience;
-    public event Action Effects;
+    public event Action<float> Ambience;
     public PlayerFear(PlayerConfig config)
     {
         _config = config;
 
-        _currentFear = _config.MaxFear;
+        _currentFear = 0f;
     }
 
     public void DrainFear(float f)
@@ -27,34 +26,17 @@ public class PlayerFear
         if(_currentFear <= 0)
             _currentFear = 0f;
 
-        ActionRegister();
+        Ambience?.Invoke(_currentFear);
     }
 
     public void GetFear(float f)
     {
         _currentFear += f;
-        if(_currentFear >= 100f)
+        if(_currentFear >= _config.MaxFear)
         {
-            _currentFear = 100f;
+            _currentFear = _config.MaxFear;
             OnGetInsane?.Invoke();
         }
-        ActionRegister();
-    }
-
-
-    private void ActionRegister()
-    {
-        if(_currentFear <= 26 && _currentFear <= 50)
-        {
-            Ambience?.Invoke();
-        }
-        else if (_currentFear <= 51 && _currentFear <= 75)
-        {
-            Ambience?.Invoke();
-        }
-        else if(_currentFear <= 76 && _currentFear <= 99)
-        {
-            Effects?.Invoke();
-        }
+        Ambience?.Invoke(_currentFear);
     }
 }
