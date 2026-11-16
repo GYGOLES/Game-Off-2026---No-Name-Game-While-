@@ -20,38 +20,38 @@ public class PlayerUI : MonoBehaviour
 
 
     
-    TextMeshProUGUI _bagStorage;
-    Image _staminaImage;
-    Image _hold;
+    private TextMeshProUGUI _bagStorage;
+    private Image _staminaImage;
+    private Image _hold;
     
 
     
-    TextMeshProUGUI _interaction;
+    private TextMeshProUGUI _interaction;
 
     
     
-    GameObject _scoreTotal;
-    TextMeshProUGUI _scoreTotalCollected;
-    TextMeshProUGUI _scoreDay;
+    private GameObject _scoreTotal;
+    private TextMeshProUGUI _scoreTotalCollected;
+    private TextMeshProUGUI _scoreDay;
 
     
-    TextMeshProUGUI _items;
+    private TextMeshProUGUI _items;
     [SerializeField] GarbageLocator[] _locators;
-    Transform _spawnLocation;
+    private Transform _spawnLocation;
 
     
-    GameObject _paperObj;
-    Image _paperSprite;
-    TextMeshProUGUI _paperText;
+    private GameObject _paperObj;
+    private Image _paperSprite;
+    private TextMeshProUGUI _paperText;
     private LocalizedString _currentPaperText;
 
-    GameObject _tutorialPanel;
-    LocalizedString[] _tutorials;
-    TextMeshProUGUI _tutorial;
-    bool _acceptedTutorial;
+    private GameObject _tutorialPanel;
+    private LocalizedString[] _tutorials;
+    private TextMeshProUGUI _tutorial;
+    private bool _acceptedTutorial;
 
 
-    GameObject _garbageTexture;
+    private GameObject _garbageTexture;
     private Vector3 _lowerPosition;
 
     private IInteract _currentInteract;
@@ -93,14 +93,11 @@ public class PlayerUI : MonoBehaviour
 
         int i = PlayerPrefs.GetInt("AcceptedTutorial", 0);
         _acceptedTutorial = (i == 1);
-        if (_acceptedTutorial)
-        {
-            _tutorialPanel.gameObject.SetActive(false);
-        }
+        ShowTutorialText(0);
 
         _input.Interact += Interact;
 
-        _carry.BagIntChange   += BagText;
+        _carry.BagIntChange += BagText;
         _carry.OnDrop += DropBag;
         _carry.OnShowText += ShowPapperText;
         _carry.OnFirstCollected += ShowTutorialText;
@@ -110,7 +107,7 @@ public class PlayerUI : MonoBehaviour
 
         if (_locator != null)
         {
-            _locator.Changed      += GarbageText;
+            _locator.Changed  += GarbageText;
             _locator.AllCollected += OnCollected; 
         }
 
@@ -367,7 +364,11 @@ public class PlayerUI : MonoBehaviour
     }
     private void ShowTutorialText(int index)
     {
-        if(_acceptedTutorial)return;
+        if (_acceptedTutorial)
+        {
+            _tutorialPanel.SetActive(false);
+            return;
+        }
 
         if(index == 2)
         {
@@ -393,7 +394,7 @@ public class PlayerUI : MonoBehaviour
     {
         Stamina(); Timer(); 
         
-        if(_scoreTotal.activeSelf)return;
+        if(_scoreTotal.activeSelf || _paperObj.activeSelf)return;
         
         ShowInteractText(); if(_interacted)ShowInteractionDuration();
 
