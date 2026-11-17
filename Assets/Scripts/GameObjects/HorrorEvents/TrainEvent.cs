@@ -4,11 +4,19 @@ using VContainer;
 
 public class TrainEvent : MonoBehaviour
 {
+    [Header("AUDIO")]
+    [SerializeField] AudioSource _source;
+    [SerializeField] float _volume;
+
+    [Header("Transform")]
     [SerializeField] Transform _trainTransform;
     [SerializeField] Transform _targetDistance;
     [SerializeField] float _duration = 7f;
 
     private Tween _train;
+    private Tween _volumeTween;
+
+
     private Vector3 _startPosition;
 
     private PlayerFear _fear;
@@ -28,10 +36,19 @@ public class TrainEvent : MonoBehaviour
     private void OnMovePosition(float f)
     {
         _train.Stop();
+        _source.Stop();
+
+
+        _source.volume = _volume;    
+        _source.Play();
+
         _train = Tween.Position(_trainTransform, _trainTransform.position, _targetDistance.position, _duration).OnComplete(() => 
         {
+            _source.Stop( );
             _trainTransform.position = _startPosition;
         });
+
+        _volumeTween = Tween.AudioVolume(_source, 0f, 1.5f, startDelay: _duration - 1.5f).OnComplete(() => {_source.Stop(); _source.volume = _volume;});
     }
     void OnDisable()
     {   
@@ -40,5 +57,6 @@ public class TrainEvent : MonoBehaviour
         _trainTransform.position = _startPosition;
 
         _train.Stop();
+        _volumeTween.Stop();
     }
 }

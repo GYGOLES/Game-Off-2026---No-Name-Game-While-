@@ -35,6 +35,7 @@ namespace Assets.Scripts.Inputmanager
             CurrentMode = mode;
             Cursor.lockState = gameplay ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = !gameplay;
+            AudioListener.pause = !gameplay;
         }
     }
 }

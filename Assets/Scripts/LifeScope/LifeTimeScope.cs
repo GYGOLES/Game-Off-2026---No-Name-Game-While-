@@ -10,6 +10,7 @@ public class LifeTimeScope : LifetimeScope
 
     [SerializeField] PlayerConfig _playerConfig;
     [SerializeField] UIConfig _uiConfig;
+    [SerializeField] BackgroundSounds _backgroundSounds;
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterEntryPoint<InputHub>().As<IInputModeSwitch>().AsSelf();
@@ -22,6 +23,8 @@ public class LifeTimeScope : LifetimeScope
         builder.RegisterInstance(_playerConfig);
         builder.RegisterInstance(_uiConfig);
         builder.RegisterInstance(_pool);
+        builder.RegisterInstance(_backgroundSounds);
+        _backgroundSounds.SetIgnore();
 
         builder.Register<PlayerCamera>(Lifetime.Singleton);
         builder.Register<PlayerMovement>(Lifetime.Singleton);
