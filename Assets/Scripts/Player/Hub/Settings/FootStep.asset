@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: FootStep
   m_EditorClassIdentifier: Assembly-CSharp::AudioScriptableObj
   volume: 0.1
+  pitch: 1.24
+  _minPitch: 0.73
+  _randomPitch: 1
   arrayClips:
   - {fileID: 8300000, guid: 6e3ae2ca23a45944d9df87f9b31ea5e2, type: 3}
   - {fileID: 8300000, guid: 24631bce86ccb9f41aebf585c944e02a, type: 3}
