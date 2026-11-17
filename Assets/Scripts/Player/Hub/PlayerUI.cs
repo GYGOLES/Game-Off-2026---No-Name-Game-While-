@@ -289,12 +289,8 @@ public class PlayerUI : MonoBehaviour
     {
         _day += i;
         _scoreDay.text = _day.ToString();
-        _timerCounter.SetTimerBack();
 
-        _motor.Teleport(_spawnLocation);
-        _carry.FullDrop();
-        _hand.PickUpBag();
-        
+        Reset();
 
         SetLocator(_day - 1);
 
@@ -314,17 +310,21 @@ public class PlayerUI : MonoBehaviour
     public void RestartShift()
     {
         ShowTutorialText(0);
-
         _scoreDay.text = _day.ToString();
-        _timerCounter.SetTimerBack();
+        
         _locator.RestartLocator();
-        _motor.Teleport(_spawnLocation);
         SetLocator(_day - 1);
-        _carry.FullDrop();
-        _hand.DropBag();
-        _allCollected = false;
+        Reset();
         _states.ResetStamina();
         ResumeGameplay();
+    }
+
+    private void Reset()
+    {
+        _timerCounter.SetTimerBack();
+        _motor.Teleport(_spawnLocation);
+        _carry.FullDrop();
+        _hand.DropBag();
     }
 
     private void SetLocator(int index)
