@@ -46,4 +46,8 @@ public abstract class AudioAbs : MonoBehaviour
         lastClip = clip;
         return clip;
     }
+    protected float RandomPitch(bool random = false, float minPitch = 1, float maxPitch = 1)
+    {
+        return random? Random.Range(minPitch , maxPitch) : maxPitch;
+    }
 }

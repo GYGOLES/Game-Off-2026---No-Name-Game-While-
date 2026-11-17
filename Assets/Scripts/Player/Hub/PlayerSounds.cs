@@ -126,7 +126,9 @@ public class PlayerSounds : AudioAbs
     {
         if(audio == null || audio.ArraClips.Length <= 0)return;
         AudioClip clip = GetRandomClip(audio.ArraClips);
-        PlayAtPosition(clip, pos, audio.Volume);
+        float pitch = RandomPitch(audio.RandomPitch, audio.MinPitch, audio.Pitch);
+
+        PlayAtPosition(clip, pos, audio.Volume, pitch);
     }
     public void PlayAction(PlayerActions actions)
     {
