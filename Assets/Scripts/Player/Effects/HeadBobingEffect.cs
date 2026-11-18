@@ -88,4 +88,16 @@ public class HeadBobingEffect : MonoBehaviour
         _hand.localPosition = _startPosHand + finalPos;
         _hand.localRotation = _startRotHand * Quaternion.Euler(0f, 0f, finalRotation);
     }
+
+    public void ResetBob()
+    {
+        _head.localPosition = _startPos;
+        _head.localRotation = _startRot;
+
+        _hand.localPosition = _startPosHand;
+        _hand.localRotation = _startRotHand;
+
+        _walkTimer = 0;
+        _weight = 0;
+    }
 }

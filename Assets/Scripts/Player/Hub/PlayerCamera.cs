@@ -42,6 +42,8 @@ namespace Assets.Scripts.Player.Hub
             _look = Vector2.zero;
             _pitch = 0;
             _yaw = 0;
+            body.rotation = Quaternion.identity;
+            
             body.rotation = target.rotation;
             orientation.rotation = target.rotation;
         }
