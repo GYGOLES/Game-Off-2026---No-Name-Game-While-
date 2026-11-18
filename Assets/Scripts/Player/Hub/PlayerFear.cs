@@ -13,6 +13,7 @@ public class PlayerFear
 
     public event Action OnGetInsane;
     public event Action<float> Ambience;
+    public event Action FearDrained;
     public PlayerFear(PlayerConfig config)
     {
         _config = config;
@@ -26,7 +27,7 @@ public class PlayerFear
         if(_currentFear <= 0)
             _currentFear = 0f;
 
-        Ambience?.Invoke(_currentFear);
+        FearDrained?.Invoke();
     }
 
     public void GetFear(float f)

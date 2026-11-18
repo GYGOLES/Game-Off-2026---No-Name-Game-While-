@@ -28,7 +28,7 @@ public class PlayerUI : MonoBehaviour
     
     private TextMeshProUGUI _interaction;
 
-    
+    private AudioSource _heartBeating;
     
     private GameObject _scoreTotal;
     private TextMeshProUGUI _scoreTotalCollected;
@@ -88,7 +88,7 @@ public class PlayerUI : MonoBehaviour
         _interaction = ui.Messages.MessageObject; _bagStorage = ui.Messages.BagStorage; _hold = ui.Messages.Hold; _message = ui.Messages;
         _staminaImage = ui.Player.Stamina;
         _scoreTotal = ui.Scores.ScoreTotal; _scoreDay = ui.Scores.ScoreDay; _scoreTotalCollected = ui.Scores.ScoreTotalCollected;
-        _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture;
+        _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture; _heartBeating = ui.Map.HeartBeating;
         _tutorial = ui.Tutorial.Text; _tutorials = ui.Tutorial.Prompts; _tutorialPanel = ui.Tutorial.Panel; _acceptedTutorial = ui.Tutorial.Enabled;
 
         int i = PlayerPrefs.GetInt("AcceptedTutorial", 0);
@@ -104,6 +104,8 @@ public class PlayerUI : MonoBehaviour
         _carry.OnFirstDropped += ShowTutorialText;
 
         _hand.OnFirstTimeCollected += ShowTutorialText;
+
+        _fear.Ambience += PitchHeart;
 
         if (_locator != null)
         {
@@ -136,6 +138,8 @@ public class PlayerUI : MonoBehaviour
         if(_input != null) _input.Interact -= Interact;
         if (_timerCounter != null) _timerCounter.TimerDeath -= ShowScore;
         if(_currentInteract != null) ClearPrompt();
+        if(_fear != null)_fear.Ambience -= PitchHeart; 
+
     }
     void Start()
     {
@@ -391,6 +395,16 @@ public class PlayerUI : MonoBehaviour
     private void LocalizedInteractionText(string value) => _interaction.text = value;
     private void LocalizedPapperText(string v) => _paperText.text = v;
     private void LocalizedTutorialText(string v) => _tutorial.text = v;
+
+
+    private void PitchHeart(float h)
+    {
+        if(!_heartBeating.isPlaying)
+            _heartBeating.Play();
+
+        _heartBeating.pitch = Mathf.Min(1.2f ,_fear.FearNormalized + 0.4f );
+        _heartBeating.volume = _fear.FearNormalized;
+    }
 
     void Update()
     {

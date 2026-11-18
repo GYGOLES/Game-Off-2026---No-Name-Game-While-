@@ -113,10 +113,12 @@ public sealed class ScoreRefs
 [Serializable]
 public sealed class MapRefs
 {
+    [SerializeField] AudioSource _heartBeating;
     [SerializeField] TextMeshProUGUI _totalItems;
     [SerializeField] Transform _spawn;
     [SerializeField] GameObject _garbageTexture;
 
+    public AudioSource HeartBeating => _heartBeating;
     public TextMeshProUGUI TotalItems => _totalItems;
     public Transform Spawn => _spawn;
     public GameObject GarbageTexture => _garbageTexture;
