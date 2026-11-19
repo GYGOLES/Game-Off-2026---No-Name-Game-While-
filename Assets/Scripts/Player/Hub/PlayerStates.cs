@@ -44,7 +44,7 @@ public class PlayerStates
         }
         else
         {
-            StaminaRegenerate(dt);
+            StaminaRegenerate(dt, ctx.IsMoving);
         }
     }
 
@@ -58,10 +58,7 @@ public class PlayerStates
             SetExhausted(true);
         }
     }
-    private void StaminaRegenerate(float dt)
-    {
-        _currentStamina = Mathf.Min(_currentStamina + _config.StaminaRecover * dt, _config.MaxStamina);
-    }
+    private void StaminaRegenerate(float dt, bool stand) => _currentStamina = Mathf.Min(_currentStamina + SetTargetRegeneration(stand, _config.StaminaRecover * _config.StaminaRecoverMultipier, _config.StaminaRecover) * dt, _config.MaxStamina);
     private void SetExhausted(bool b)
     {
         if(_staminaOut == b)return;
@@ -73,4 +70,5 @@ public class PlayerStates
         StaminaDepleted?.Invoke(b);
     }
     public void ResetStamina() => _currentStamina = _config.MaxStamina;
+    private static float SetTargetRegeneration(bool s, float a, float b) => !s? a : b;
 }

@@ -68,10 +68,12 @@ public sealed class PlayerConfig
     [SerializeField] float _maxStamina = 100f;
     [SerializeField] float _staminaRecover = 5f;
     [SerializeField] float _staminaDrain = 10f;
+    [SerializeField] float _staminaRecoverMultiplier = 2.5f;
     
     public float MaxStamina => _maxStamina;
     public float StaminaRecover => _staminaRecover;
     public float StaminaDrain => _staminaDrain;
+    public float StaminaRecoverMultipier => _staminaRecoverMultiplier;
 
     [Header("Fear")]
     [SerializeField] float _maxFear = 100f;
