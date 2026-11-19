@@ -164,7 +164,7 @@ public class PlayerUI : MonoBehaviour
     private void ChangePosition(int f)
     {
         float t = Mathf.Clamp01((float)f/_config.MaxBagStorage);
-        float pos = Mathf.Lerp(_lowerPosition.y, 0.05f, t);
+        float pos = Mathf.Lerp(_lowerPosition.y, 0.35f, t);
         
         Vector3 p = _garbageTexture.transform.localPosition;
         p.y = pos;
@@ -405,6 +405,8 @@ public class PlayerUI : MonoBehaviour
     private void SetVolume() => _heartBeating.volume = _fear.FearNormalized;
     private void GainHeart(float h)
     {   
+        if(_heartBeating == null || _fear == null)return;
+
         if(!_heartBeating.isPlaying)
             _heartBeating.Play();
 
@@ -414,6 +416,12 @@ public class PlayerUI : MonoBehaviour
 
     private void DrainHeart()
     {
+        if(_heartBeating == null || _fear == null)
+        {
+            Debug.LogError("Heartbeating - empty");
+            return;
+        }
+
         SetPitch();
         SetVolume();
         

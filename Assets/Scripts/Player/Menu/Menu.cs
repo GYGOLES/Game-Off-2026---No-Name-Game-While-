@@ -52,7 +52,7 @@ public class Menu : MonoBehaviour
     }
     public void DisableMenu()
     {
-        if(_uiConfig.Scores.ScoreTotal.activeSelf)return;
+        if(_uiConfig.Scores.ScoreTotal.activeSelf || _uiConfig.Paper.Panel.activeSelf)return;
 
         _uiConfig.Menu.GameplaySettings.SaveSettings();
 
