@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Item_note
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeight
   ItemName: note
-  Weight: 1
+  Weight: 5

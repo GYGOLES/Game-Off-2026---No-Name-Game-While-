@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Item_flyer
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeight
   ItemName: flyer
-  Weight: 1
+  Weight: 5

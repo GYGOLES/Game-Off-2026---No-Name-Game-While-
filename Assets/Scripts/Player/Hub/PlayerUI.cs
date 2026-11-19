@@ -105,7 +105,8 @@ public class PlayerUI : MonoBehaviour
 
         _hand.OnFirstTimeCollected += ShowTutorialText;
 
-        _fear.Ambience += PitchHeart;
+        _fear.Ambience += GainHeart;
+        _fear.FearDrained += DrainHeart;
 
         if (_locator != null)
         {
@@ -138,7 +139,11 @@ public class PlayerUI : MonoBehaviour
         if(_input != null) _input.Interact -= Interact;
         if (_timerCounter != null) _timerCounter.TimerDeath -= ShowScore;
         if(_currentInteract != null) ClearPrompt();
-        if(_fear != null)_fear.Ambience -= PitchHeart; 
+        if(_fear != null)
+        {
+            _fear.Ambience -= GainHeart; 
+            _fear.FearDrained -= DrainHeart;
+        }
 
     }
     void Start()
@@ -396,14 +401,24 @@ public class PlayerUI : MonoBehaviour
     private void LocalizedPapperText(string v) => _paperText.text = v;
     private void LocalizedTutorialText(string v) => _tutorial.text = v;
 
-
-    private void PitchHeart(float h)
-    {
+    private void SetPitch() => _heartBeating.pitch = _fear.FearNormalized >= 0.8f? 1.2f : _fear.FearNormalized >= 0.3f? 1f : 0.8f;
+    private void SetVolume() => _heartBeating.volume = _fear.FearNormalized;
+    private void GainHeart(float h)
+    {   
         if(!_heartBeating.isPlaying)
             _heartBeating.Play();
 
-        _heartBeating.pitch = Mathf.Min(1.2f ,_fear.FearNormalized + 0.4f );
-        _heartBeating.volume = _fear.FearNormalized;
+        SetPitch();
+        SetVolume();
+    }
+
+    private void DrainHeart()
+    {
+        SetPitch();
+        SetVolume();
+        
+        if(_heartBeating.volume <= 0)
+            _heartBeating.Stop();
     }
 
     void Update()

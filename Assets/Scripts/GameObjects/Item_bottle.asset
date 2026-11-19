@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Item_bottle
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeight
   ItemName: bottle
-  Weight: 3
+  Weight: 5

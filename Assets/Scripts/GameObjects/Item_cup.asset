@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Item_cup
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeight
   ItemName: cup
-  Weight: 1
+  Weight: 5
