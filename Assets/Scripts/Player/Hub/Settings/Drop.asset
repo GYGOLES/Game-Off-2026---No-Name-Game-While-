@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafbb34848f3d1046864890edd69b9d4, type: 3}
   m_Name: Drop
   m_EditorClassIdentifier: Assembly-CSharp::AudioScriptableObj
-  volume: 0.1
+  volume: 0.05
+  pitch: 1
+  _minPitch: 0.8
+  _randomPitch: 0
   arrayClips:
-  - {fileID: 8300000, guid: 0d1187172c9bb204e8ad91e4cded8ad6, type: 3}
-  - {fileID: 8300000, guid: 24cf5abd598124a438979480a2236054, type: 3}
-  - {fileID: 8300000, guid: d8f509ce22aac6a45a8b6d54e9b5770c, type: 3}
+  - {fileID: 8300000, guid: 3fcfe06e1c8c3554d8d2b6ab3ce9714a, type: 3}
+  - {fileID: 8300000, guid: fc95a7c26d75fc949878e7aff2278675, type: 3}
+  - {fileID: 8300000, guid: 6e811e4a324c0ad40a43b0be5f70ae47, type: 3}
+  - {fileID: 8300000, guid: 5fe1345bb003ec34681df486170802bc, type: 3}
   clip: {fileID: 8300000, guid: 6e3ae2ca23a45944d9df87f9b31ea5e2, type: 3}

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafbb34848f3d1046864890edd69b9d4, type: 3}
   m_Name: Pickups
   m_EditorClassIdentifier: Assembly-CSharp::AudioScriptableObj
-  volume: 1
+  volume: 0.05
   pitch: 1
   _minPitch: 0.8
   _randomPitch: 0
   arrayClips:
-  - {fileID: 8300000, guid: 476eb280852dbf94aa7e3e40eee3252d, type: 3}
-  - {fileID: 8300000, guid: d7463b5a0ba3c364388f5040289af06f, type: 3}
+  - {fileID: 8300000, guid: 95173a1c044fe784091d5b7580073745, type: 3}
+  - {fileID: 8300000, guid: 316b9c1404f48274a8b7527c47eb7e0b, type: 3}
   clip: {fileID: 8300000, guid: 6e3ae2ca23a45944d9df87f9b31ea5e2, type: 3}

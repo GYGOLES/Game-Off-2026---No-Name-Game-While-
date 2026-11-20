@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafbb34848f3d1046864890edd69b9d4, type: 3}
   m_Name: FootStep
   m_EditorClassIdentifier: Assembly-CSharp::AudioScriptableObj
-  volume: 0.1
+  volume: 0.05
   pitch: 1
   _minPitch: 0.73
   _randomPitch: 1
   arrayClips:
-  - {fileID: 8300000, guid: 6e3ae2ca23a45944d9df87f9b31ea5e2, type: 3}
-  - {fileID: 8300000, guid: 24631bce86ccb9f41aebf585c944e02a, type: 3}
-  - {fileID: 8300000, guid: 7c0ef156de5cc314c8ab123814faaf6f, type: 3}
-  - {fileID: 8300000, guid: 863e93a5e4ebcb0478c79e27dee8fc50, type: 3}
-  - {fileID: 8300000, guid: d2c6fc6faae11ab4992dad600f28d40a, type: 3}
-  - {fileID: 8300000, guid: c7f43a0afa8ed5442b52d4c46bb4c0d5, type: 3}
-  - {fileID: 8300000, guid: eb9f7b88d47569449804304bbd2d5ed5, type: 3}
+  - {fileID: 8300000, guid: 780fd69a18b8e0644a7b708dabd3e531, type: 3}
+  - {fileID: 8300000, guid: 382c91a1748a24048a4deb5b330785c5, type: 3}
+  - {fileID: 8300000, guid: 22c0d32597b6e4145ba7a4dd4b0664d1, type: 3}
+  - {fileID: 8300000, guid: 0740d22b82f366e4a953fe1c1935f8b0, type: 3}
+  - {fileID: 8300000, guid: e1e75586775007540b1aed45ceae8fb7, type: 3}
+  - {fileID: 8300000, guid: 9e3cf1004f6feb24a8b9c9f865b62b67, type: 3}
+  - {fileID: 8300000, guid: 0deb5dc8a4bb4bc41a72efd45fd7ab86, type: 3}
   clip: {fileID: 8300000, guid: 6e3ae2ca23a45944d9df87f9b31ea5e2, type: 3}
