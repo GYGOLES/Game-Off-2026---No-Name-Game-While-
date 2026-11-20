@@ -1,34 +1,47 @@
-using NUnit.Framework.Constraints;
-using PrimeTween;
 using UnityEngine;
-using VContainer;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] Animator _enemy;
     [SerializeField] Transform _target;
-    [SerializeField] float _duration = 5;
+    [SerializeField] NavMeshAgent _agent;
+    
 
-    private Vector3 _startPosition;
-    private Tween _walkTween;
-
-    void OnEnable()
+    private bool _applyWalk = false;
+    private bool _setMovement = false;
+    private void ApplyMovement(bool t)
     {
-        _startPosition = transform.position;
-    }
-    void OnDisable()
-    {
-        transform.position = _startPosition;
-        _walkTween.Stop();
+        _enemy.SetBool("isWalk", t);
+        _applyWalk = t;
+        _agent.isStopped = !t;
     }
 
-    public void Walk()
-    {
-        _enemy.SetBool("isWalk", true);
+    public void SetMovement() => _setMovement = true;
 
-        _walkTween = Tween.Position(transform, transform.position, Velocity(_target.position, _startPosition), _duration).OnComplete(() => gameObject.SetActive(false));
+    private void Distanation()
+    {
+        float dist = (_agent.transform.position - _target.transform.position).magnitude;
+
+    
+
+        if(dist <= 5 && _applyWalk)
+        {
+            ApplyMovement(false);
+        }
+
+        if(dist > 5 && !_applyWalk)
+        {
+            ApplyMovement(true);
+        }
+        if(_applyWalk)
+        _agent.SetDestination(_target.position);
     }
 
-    private static Vector3 Velocity(Vector3 v, Vector3 s) => new Vector3(v.x, s.y , v.z);
+    void Update()
+    {
+        if(!_setMovement)return;
+        Distanation();
+    }
 }
