@@ -40,9 +40,8 @@ namespace Assets.Scripts.Player.Hub
         public void Teleport(Transform body, Transform orientation, Transform target)
         {
             _look = Vector2.zero;
-            _pitch = 0;
-            _yaw = 0;
-            body.rotation = Quaternion.identity;
+            _pitch = target.eulerAngles.x;
+            _yaw = target.eulerAngles.y;
             
             body.rotation = target.rotation;
             orientation.rotation = target.rotation;

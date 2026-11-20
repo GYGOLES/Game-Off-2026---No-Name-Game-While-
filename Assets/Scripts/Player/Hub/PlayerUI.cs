@@ -208,13 +208,13 @@ public class PlayerUI : MonoBehaviour
     {
         if(_timerCounter == null)return;
 
-        _timerText.text = _timerCounter.CurrentTimer.ToString("F0");
+        _timerText.text = Mathf.CeilToInt(_timerCounter.CurrentTimer).ToString();
     }
 
     public void GarbageText(int remain, int total)
     {
-        _items.text = remain.ToString("F0");
-        _scoreTotalCollected.text = (total - remain).ToString("F0") + "/" + _locator.Total.ToString("F0");
+        _items.text = remain.ToString();
+        _scoreTotalCollected.text = (total - remain).ToString() + "/" + _locator.Total.ToString();
     }
 
     private void ShowInteractText()
@@ -403,7 +403,7 @@ public class PlayerUI : MonoBehaviour
 
     private void SetPitch() => _heartBeating.pitch = _fear.FearNormalized >= 0.8f? 1.2f : _fear.FearNormalized >= 0.3f? 1f : 0.8f;
     private void SetVolume() => _heartBeating.volume = _fear.FearNormalized;
-    private void GainHeart(float h)
+    private void GainHeart()
     {   
         if(_heartBeating == null || _fear == null)return;
 

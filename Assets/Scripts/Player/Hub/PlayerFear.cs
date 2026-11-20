@@ -12,7 +12,7 @@ public class PlayerFear
 
 
     public event Action OnGetInsane;
-    public event Action<float> Ambience;
+    public event Action Ambience;
     public event Action FearDrained;
     public PlayerFear(PlayerConfig config)
     {
@@ -38,6 +38,6 @@ public class PlayerFear
             _currentFear = _config.MaxFear;
             OnGetInsane?.Invoke();
         }
-        Ambience?.Invoke(_currentFear);
+        Ambience?.Invoke();
     }
 }

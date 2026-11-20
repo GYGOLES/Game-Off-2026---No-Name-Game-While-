@@ -69,6 +69,12 @@ public class PlayerStates
 
         StaminaDepleted?.Invoke(b);
     }
-    public void ResetStamina() => _currentStamina = _config.MaxStamina;
+    public void ResetStamina()
+    {
+        _currentStamina = _config.MaxStamina;
+        _staminaOut = false;
+        _staminaTimer = 0f;
+        SetExhausted(false);
+    }
     private static float SetTargetRegeneration(bool s, float a, float b) => !s? a : b;
 }

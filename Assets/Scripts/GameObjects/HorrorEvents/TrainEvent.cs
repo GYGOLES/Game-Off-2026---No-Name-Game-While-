@@ -33,7 +33,7 @@ public class TrainEvent : MonoBehaviour
         _fear.Ambience += OnMovePosition;
     }
 
-    private void OnMovePosition(float f)
+    private void OnMovePosition()
     {
         _train.Stop();
         _source.Stop();
