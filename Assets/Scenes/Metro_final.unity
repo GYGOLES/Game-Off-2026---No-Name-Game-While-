@@ -291389,9 +291389,9 @@ MonoBehaviour:
   _audio: {fileID: 11400000, guid: 7805be2adf756534b8e67e499a847081, type: 2}
   _string:
     m_TableReference:
-      m_TableCollectionName: GUID:618129ca0c63c034993e09e51c102cb3
+      m_TableCollectionName: GUID:3083b163c3b6a6f4da9643d801a371cc
     m_TableEntryReference:
-      m_KeyId: 268590338048
+      m_KeyId: 1082837270528
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -390023,7 +390023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5070809048870312380, guid: 0da5dc7d814cab844a4d426dbd0ddab4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3887
+      value: -0.38
       objectReference: {fileID: 0}
     - target: {fileID: 5070809048870312380, guid: 0da5dc7d814cab844a4d426dbd0ddab4, type: 3}
       propertyPath: m_LocalPosition.z
