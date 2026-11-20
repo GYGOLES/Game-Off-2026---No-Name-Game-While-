@@ -54,7 +54,6 @@ namespace Assets.Scripts.Player.Hub
 
 
             _deceleration = Mathf.Lerp(_deceleration, targetSpeed, 1 - Mathf.Exp(-10 * dt));
-            Debug.Log(_deceleration);
             _currentSpeed = baseSpeed * _deceleration;
            
             Vector3 wishDir = (_move.x*right + _move.y*forward)*_currentSpeed;
