@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99d72edf0798ee498b271a5cd9fb397, type: 3}
+  m_Name: Newspaper_1
+  m_EditorClassIdentifier: Assembly-CSharp::PaperInfo
+  _spirte: {fileID: 21300000, guid: 23291568f0db40940923886d9b385538, type: 3}
+  _text:
+    m_TableReference:
+      m_TableCollectionName: GUID:cd5eac7a093acfa4eb1838f4a42248ec
+    m_TableEntryReference:
+      m_KeyId: 329678249254912
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _fear: 0
+  references:
+    version: 2
+    RefIds: []
