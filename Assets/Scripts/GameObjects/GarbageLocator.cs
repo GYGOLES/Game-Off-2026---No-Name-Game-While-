@@ -66,6 +66,9 @@ public class GarbageLocator : MonoBehaviour
         _info = GetComponentsInChildren<PapperShow>(true);
         
         _remaining = _items.Length;
+        _quota = _items.Length/2;
+
+        _quotaCollected = false;
         
         foreach (var item in _items)
         {
