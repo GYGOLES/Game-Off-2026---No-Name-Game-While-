@@ -67,6 +67,7 @@ public class PlayerUI : MonoBehaviour
     private TextMeshProUGUI _timerText;
 
     private bool _allCollected;
+    private bool _quotaCollected;
     private bool _interacted;
 
 
@@ -112,6 +113,7 @@ public class PlayerUI : MonoBehaviour
         {
             _locator.Changed  += GarbageText;
             _locator.AllCollected += OnCollected; 
+            _locator.QuotaCollected += QuotaService;
         }
 
         _motor.Teleport(_spawnLocation);
@@ -133,6 +135,7 @@ public class PlayerUI : MonoBehaviour
         if (_locator != null)
         {
             _locator.Changed -= GarbageText;
+            _locator.QuotaCollected -= QuotaService;
             _locator.AllCollected -= OnCollected; 
         }
         if(_hand != null) _hand.OnFirstTimeCollected -= ShowTutorialText;
@@ -175,7 +178,7 @@ public class PlayerUI : MonoBehaviour
     {
         _garbageTexture.transform.localPosition = _lowerPosition;
 
-        if(_allCollected)
+        if(_allCollected && _quotaCollected)
             ShowScore();
     }
 
@@ -296,6 +299,12 @@ public class PlayerUI : MonoBehaviour
 
     public void SetNextShift(int i)
     {
+        if (!_quotaCollected)
+        {
+            Debug.Log("SHOW ENDING");
+            return;
+        }
+
         _day += i;
         _scoreDay.text = _day.ToString();
 
@@ -305,6 +314,36 @@ public class PlayerUI : MonoBehaviour
 
         ResumeGameplay();
         
+    }
+
+    private void QuotaService(bool b)
+    {
+        if(_day <= 1)
+        {
+            if (b)
+            {
+                Debug.Log("WELL DONE, YOU COLLECTED QUOTA");
+                _quotaCollected = true;
+            }
+            else
+            {
+                Debug.Log("IF YOU WONT PICK UP A GARBAGE - YOU WILL DIE");
+                _quotaCollected = true;
+            }
+        }
+        else
+        {
+            if (b)
+            {
+                Debug.Log("WELL DONE YOU COLLECTED");
+                _quotaCollected = true;
+            }
+            else
+            {
+                Debug.Log("SHOW BAD ENDING");
+                _quotaCollected = false;
+            }
+        }
     }
 
     void ResumeGameplay()
@@ -343,6 +382,8 @@ public class PlayerUI : MonoBehaviour
         {
             _locator.Changed -= GarbageText;
             _locator.AllCollected -= OnCollected;
+            _locator.QuotaCollected -= QuotaService;
+
             _locator.gameObject.SetActive(false);
         }
 
@@ -350,6 +391,7 @@ public class PlayerUI : MonoBehaviour
         _locator.gameObject.SetActive(true);
         _locator.Changed += GarbageText;
         _locator.AllCollected += OnCollected;
+        _locator.QuotaCollected += QuotaService;
         
         GarbageText(_locator.Total, _locator.Total);
     }
