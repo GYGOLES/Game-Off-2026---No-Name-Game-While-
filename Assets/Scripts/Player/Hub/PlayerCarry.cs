@@ -7,20 +7,15 @@ public sealed class PlayerCarry
     private readonly PlayerConfig _config;
     private readonly PlayerFear _fear;
 
-    private float _currentWeight;
     private int _currentBagCollected;
 
-    private float _totalWeight;
 
-    public float CurrentWeight => _currentWeight;
     public int CurrentBagCollected => _currentBagCollected;
 
-    public event Action<float> WeightChanged;
     public event Action<int> BagIntChange;
 
     public event Action OnDrop;
 
-    public event Action<float> TotalWeightChange;
     public event Action<LocalizedString, Sprite> OnShowText;
     public event Action OnCollect;
 
@@ -37,7 +32,7 @@ public sealed class PlayerCarry
 
     public InteractResult Check(ItemWeight weight)
     {
-        if(_currentWeight + weight.Weight > _config.MaxWeight || _currentBagCollected >= _config.MaxBagStorage)return InteractResult.FullBag;
+        if(_currentBagCollected >= _config.MaxBagStorage)return InteractResult.FullBag;
         return InteractResult.Success;
     }
     public InteractResult TryAdd(ItemWeight weight)
@@ -53,14 +48,8 @@ public sealed class PlayerCarry
 
         _fear.DrainFear(weight.Weight);
 
-        _currentWeight += weight.Weight;
         _currentBagCollected ++;
 
-        _totalWeight += weight.Weight;
-
-        TotalWeightChange?.Invoke(_totalWeight);
-
-        WeightChanged?.Invoke(_currentWeight);
         BagIntChange?.Invoke(_currentBagCollected);
 
         return InteractResult.Success;
@@ -76,8 +65,7 @@ public sealed class PlayerCarry
         }
 
         _currentBagCollected = 0;
-        _currentWeight = 0f;
-        WeightChanged?.Invoke(_currentWeight);
+
         BagIntChange?.Invoke(_currentBagCollected);
         OnDrop?.Invoke();
         

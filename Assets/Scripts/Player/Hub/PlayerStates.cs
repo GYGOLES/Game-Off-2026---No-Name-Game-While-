@@ -58,7 +58,8 @@ public class PlayerStates
             SetExhausted(true);
         }
     }
-    private void StaminaRegenerate(float dt, bool stand) => _currentStamina = Mathf.Min(_currentStamina + SetTargetRegeneration(stand, _config.StaminaRecover * _config.StaminaRecoverMultipier, _config.StaminaRecover) * dt, _config.MaxStamina);
+    private void StaminaRegenerate(float dt, bool stand) => 
+    _currentStamina = Mathf.Min(_currentStamina + SetTargetRegeneration(stand, _config.StaminaRecover * _config.StaminaRecoverMultipier, _config.StaminaRecover) * dt, _config.MaxStamina);
     private void SetExhausted(bool b)
     {
         if(_staminaOut == b)return;

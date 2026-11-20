@@ -38,7 +38,7 @@ namespace Assets.Scripts.Player.Hub
         private void LosedStamina(bool v) => _losedStamina = v;
         private void SpeedDecreased(int t) => _speedDecreased = t;
 
-        public void MoveTick(PlayerContext ctx , Transform body)
+        public void MoveTick(PlayerContext ctx , Transform body, float dt)
         {
             Vector3 forward = body.transform.TransformDirection(Vector3.forward);
             forward.y = 0f;
@@ -53,7 +53,8 @@ namespace Assets.Scripts.Player.Hub
             float targetSpeed = _speedDecreased >= _config.MaxBagStorage? _config.MaxDeceleration : _speedDecreased >= _config.MaxBagStorage*0.5 ? _config.MiddleDeceleration : _speedDecreased >= _config.MaxBagStorage * 0.2? _config.MinDeleceleration : 1;
 
 
-            _deceleration = Mathf.Lerp(_deceleration, targetSpeed, Time.deltaTime * 12);
+            _deceleration = Mathf.Lerp(_deceleration, targetSpeed, 1 - Mathf.Exp(-10 * dt));
+            Debug.Log(_deceleration);
             _currentSpeed = baseSpeed * _deceleration;
            
             Vector3 wishDir = (_move.x*right + _move.y*forward)*_currentSpeed;

@@ -31,7 +31,7 @@ namespace Assets.Scripts.Player.Hub
             _hit.Tick(ctx);
         
             _movement.GravityTick(ctx, _controller.isGrounded, dt);
-            _movement.MoveTick(ctx, _controller.transform);
+            _movement.MoveTick(ctx, _controller.transform, dt);
 
             _states.Tick(ctx, dt);
 

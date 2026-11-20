@@ -164,7 +164,7 @@ public class PlayerUI : MonoBehaviour
     private void ChangePosition(int f)
     {
         float t = Mathf.Clamp01((float)f/_config.MaxBagStorage);
-        float pos = Mathf.Lerp(_lowerPosition.y, 0.35f, t);
+        float pos = Mathf.Lerp(_lowerPosition.y, 0.05f, t);
         
         Vector3 p = _garbageTexture.transform.localPosition;
         p.y = pos;
