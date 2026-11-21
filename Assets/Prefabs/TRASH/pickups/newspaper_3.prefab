@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2209809227427875448}
   - component: {fileID: 1624221770263368821}
   - component: {fileID: 9038064249003313555}
-  - component: {fileID: 1385295038250897690}
   - component: {fileID: 999562383721295466}
   - component: {fileID: 9135650439336660045}
+  - component: {fileID: 3613509855494772351}
   m_Layer: 6
   m_Name: newspaper_3
   m_TagString: Untagged
@@ -846,8 +846,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 46b70e49209b1974bbe4d54bc3c70e5b, type: 2}
-  - {fileID: 2100000, guid: 29ab820d3ff6e7a47bb14da2ed5918bf, type: 2}
-  - {fileID: 2100000, guid: 29ab820d3ff6e7a47bb14da2ed5918bf, type: 2}
+  - {fileID: 2100000, guid: 46b70e49209b1974bbe4d54bc3c70e5b, type: 2}
+  - {fileID: 2100000, guid: 46b70e49209b1974bbe4d54bc3c70e5b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -879,34 +879,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7421762863344289731}
   m_Mesh: {fileID: 0}
---- !u!114 &1385295038250897690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7421762863344289731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981091f30f49fb443b4a4667e538bd0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Test
-  _audio: {fileID: 11400000, guid: 7805be2adf756534b8e67e499a847081, type: 2}
-  _collider: {fileID: 999562383721295466}
-  _item: {fileID: 11400000, guid: e7b48a7dc0d2dd34e90a1238d1ecaa32, type: 2}
-  _string:
-    m_TableReference:
-      m_TableCollectionName: GUID:3083b163c3b6a6f4da9643d801a371cc
-    m_TableEntryReference:
-      m_KeyId: 1082837270528
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  _outline: {fileID: 9135650439336660045}
-  references:
-    version: 2
-    RefIds: []
 --- !u!65 &999562383721295466
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -946,3 +918,30 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &3613509855494772351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7421762863344289731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e98c59c1d59fb34680d26789de83620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PapperShow
+  _audio: {fileID: 11400000, guid: 7805be2adf756534b8e67e499a847081, type: 2}
+  _string:
+    m_TableReference:
+      m_TableCollectionName: GUID:3083b163c3b6a6f4da9643d801a371cc
+    m_TableEntryReference:
+      m_KeyId: 1082837270528
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _outline: {fileID: 9135650439336660045}
+  _info: {fileID: 11400000, guid: bb23a718f705a51448f82b526a032017, type: 2}
+  references:
+    version: 2
+    RefIds: []

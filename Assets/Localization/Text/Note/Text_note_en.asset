@@ -19,13 +19,15 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 268590338048
-    m_Localized: "I\u2019m on my way home after class. Some guy in a gray raincoat
-      was standing on the platform, staring at me. I moved to another car."
+    m_Localized: Was going home yesterday, some guy in a leather jacket and camo
+      was standing on the platform staring at me the whole time. It was getting really
+      uncomfortable. When the train came, he just stayed there. I switched cars.
     m_Metadata:
       m_Items: []
   - m_Id: 435724963840
-    m_Localized: Him again. Raincoat, platform, same as before. Maybe I just imagined
-      it?
+    m_Localized: Saw that guy again today. Same station. Thought he might be following
+      me but it's probably just a coincidence. People take the same train to work
+      all the time. Still, he looks really weird.
     m_Metadata:
       m_Items: []
   - m_Id: 446806315008
@@ -33,31 +35,70 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 471959556096
-    m_Localized: "I\u2019ve seen this guy somewhere before, but I can\u2019t remember
-      where\u2026"
+    m_Localized: I don't know what's wrong with that guy but I really don't like
+      being around him. He was standing by the stairs today and didn't even turn
+      his head when I walked past. Somehow I still felt like he was watching me.
     m_Metadata:
       m_Items: []
   - m_Id: 485167419392
-    m_Localized: "He stood by the pillar all night. \nThe raincoat is black now,
-      but it\u2019s him. I\u2019m sure of it."
+    m_Localized: Saw him on the train today. Didn't recognize him at first, then
+      realized it was the guy from the platform. There's something weird about his
+      face, can't really explain it. Looks normal enough but I can't remember what
+      he actually looks like.
     m_Metadata:
       m_Items: []
   - m_Id: 496009695232
-    m_Localized: "I saw a man with a bloodied knife in his pocket. \nThe militia
-      took my report. I didn\u2019t see his face."
+    m_Localized: He was standing by the pillar this morning and was there again when
+      I came back tonight. I even checked the time on my phone. No way someone would
+      stand there all day. Maybe it's a different guy, but he's wearing the same
+      clothes.
     m_Metadata:
       m_Items: []
   - m_Id: 518344364032
-    m_Localized: "He followed me all the way from my house to the station. \nHe never
-      looked back. I know it\u2019s him."
+    m_Localized: "he followed me all the way from my house!!! ALL THE WAY FROM MY
+      HOUSE!!! I can\u2019t hear his steps at all, I\u2019m scared to look back,
+      but I can feel him behind me. he went down into the metro with me. it\u2019s
+      him, I know it\u2019s him"
     m_Metadata:
       m_Items: []
   - m_Id: 531308957696
-    m_Localized: "I can\u2019t run, he\u2019s watching me. Got to call the militia."
+    m_Localized: "I remembered where I\u2019ve seen him. In the paper, an article
+      about a missing girl. He was standing in the crowd in the photo. I need to
+      call the militia. If only I can get through."
     m_Metadata:
       m_Items: []
   - m_Id: 89359767298048
-    m_Localized: note_9
+    m_Localized: "Today he got into my car. Sits across from me, hands on his knees,
+      not moving. I\u2019m counting the stops. We\u2019ve been riding for too long,
+      and there\u2019s no station."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5612847139643392
+    m_Localized: Saw a guy with a knife near the station today. It was covered in
+      blood, he put it away when he saw me. Called the police and they said they'd
+      send someone. Been waiting for an hour, nobody showed up.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5612888407400448
+    m_Localized: He was following me, I'm sure of it. First near my apartment, then
+      on the street, then at the metro. I changed directions a few times on purpose
+      and he was still around. When I got to the platform I looked back and saw him
+      at the top of the stairs just looking down at me. Didn't wait for the train,
+      left through another exit.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5612932002996224
+    m_Localized: Found an old newspaper article about a missing girl. That guy was
+      standing in the crowd in one of the photos. Thought I was seeing things at
+      first but zoomed in and he's definitely there. How did nobody notice him? The
+      article says there were no witnesses.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5612966475980800
+    m_Localized: He was on the train today. Didn't see him get on, just looked up
+      and he was sitting across from me. Tried moving to another car but he was there
+      too. Then the train stopped and the doors opened but there wasn't even a station.
+      I should've been home ages ago. My phone has no signal.
     m_Metadata:
       m_Items: []
   references:
