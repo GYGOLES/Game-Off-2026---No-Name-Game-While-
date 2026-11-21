@@ -32,6 +32,7 @@ public class PlayerUI : MonoBehaviour
     private AudioSource _heartBeating;
     
     private GameObject _scoreTotal;
+    private TextMeshProUGUI _scoreTotalPaperCollected;
     private TextMeshProUGUI _scoreTotalCollected;
     private TextMeshProUGUI _scoreDay;
 
@@ -87,7 +88,7 @@ public class PlayerUI : MonoBehaviour
         _timerCounter = ui.Timer.Counter; _timerText = ui.Timer.Text;
         _interaction = ui.Messages.MessageObject; _bagStorage = ui.Messages.BagStorage; _hold = ui.Messages.Hold; _message = ui.Messages;
         _staminaImage = ui.Player.Stamina;
-        _scoreTotal = ui.Scores.ScoreTotal; _scoreDay = ui.Scores.ScoreDay; _scoreTotalCollected = ui.Scores.ScoreTotalCollected;
+        _scoreTotal = ui.Scores.ScoreTotal; _scoreDay = ui.Scores.ScoreDay; _scoreTotalCollected = ui.Scores.ScoreTotalCollected; _scoreTotalPaperCollected = ui.Scores.ScoreTotalPaperCollected;
         _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture; _heartBeating = ui.Map.HeartBeating;
         _tutorial = ui.Tutorial.Text; _tutorials = ui.Tutorial.Prompts; _tutorialPanel = ui.Tutorial.Panel; _acceptedTutorial = ui.Tutorial.Enabled;
         _paper.SetCurrent(0);
@@ -114,6 +115,7 @@ public class PlayerUI : MonoBehaviour
             _locator.Changed  += GarbageText;
             _locator.AllCollected += OnCollected; 
             _locator.QuotaCollected += QuotaService;
+            _locator.InfoChanged += ScorePaperText;
         }
 
         _motor.Teleport(_spawnLocation);
@@ -137,6 +139,7 @@ public class PlayerUI : MonoBehaviour
             _locator.Changed -= GarbageText;
             _locator.QuotaCollected -= QuotaService;
             _locator.AllCollected -= OnCollected; 
+            _locator.InfoChanged -= ScorePaperText;
         }
         if(_hand != null) _hand.OnFirstTimeCollected -= ShowTutorialText;
         if(_input != null) _input.Interact -= Interact;
@@ -218,7 +221,12 @@ public class PlayerUI : MonoBehaviour
     public void GarbageText(int remain, int total)
     {
         _items.text = remain.ToString();
-        _scoreTotalCollected.text = (total - remain).ToString() + "/" + _locator.Total.ToString();
+        _scoreTotalCollected.text = (total - remain).ToString() + "/" + _locator.TotalItem.ToString();
+    }
+
+    public void ScorePaperText(int remain, int total)
+    {
+        _scoreTotalPaperCollected.text = (total - remain).ToString() + "/" + _locator.TotalPaper.ToString();
     }
 
     private void ShowInteractText()
@@ -384,6 +392,7 @@ public class PlayerUI : MonoBehaviour
             _locator.Changed -= GarbageText;
             _locator.AllCollected -= OnCollected;
             _locator.QuotaCollected -= QuotaService;
+            _locator.InfoChanged -= ScorePaperText;
 
             _locator.gameObject.SetActive(false);
         }
@@ -393,8 +402,9 @@ public class PlayerUI : MonoBehaviour
         _locator.Changed += GarbageText;
         _locator.AllCollected += OnCollected;
         _locator.QuotaCollected += QuotaService;
+        _locator.InfoChanged += ScorePaperText;
         
-        GarbageText(_locator.Total, _locator.Total);
+        GarbageText(_locator.TotalItem, _locator.TotalItem);
     }
 
     private void ShowPapperText(LocalizedString p, int s)

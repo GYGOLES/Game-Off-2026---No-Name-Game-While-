@@ -64,7 +64,7 @@ public sealed class MessageRefs
 }
 
 [Serializable]
-public sealed class TimerRefs //Done
+public sealed class TimerRefs 
 {
     [SerializeField] TimerCounter _counter;
     [SerializeField] TextMeshProUGUI _text;
@@ -108,11 +108,14 @@ public sealed class MenuRefs
 public sealed class ScoreRefs
 {
     [SerializeField] GameObject _scoreTotal;
+
+    [SerializeField] TextMeshProUGUI _scoreTotalPaperCollected;
     [SerializeField] TextMeshProUGUI _scoreTotalCollected;
     [SerializeField] TextMeshProUGUI _scoreDay;
 
     public GameObject ScoreTotal => _scoreTotal;
     public TextMeshProUGUI ScoreTotalCollected => _scoreTotalCollected;
+    public TextMeshProUGUI ScoreTotalPaperCollected => _scoreTotalPaperCollected;
     public TextMeshProUGUI ScoreDay => _scoreDay;
 }
 [Serializable]

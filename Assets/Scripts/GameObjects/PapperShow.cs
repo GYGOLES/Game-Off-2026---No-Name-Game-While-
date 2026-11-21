@@ -1,3 +1,4 @@
+using System;
 using Assets.Scripts.Inputmanager;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -14,6 +15,8 @@ public class PapperShow : AudioAbs, IInteract
 
     public InputPhase Phase =>  InputPhase.started;
 
+    public event Action<PapperShow> OnCollected;
+
     public InteractResult Check(PlayerCarry carry, PlayerHand hand)
     {
         if(_info == null)return InteractResult.Failed;
@@ -29,6 +32,7 @@ public class PapperShow : AudioAbs, IInteract
         PlayDefaultClips();
         carry.Show(_info);
         gameObject.SetActive(false);
+        OnCollected?.Invoke(this);
         return InteractResult.Success;
     }
 }

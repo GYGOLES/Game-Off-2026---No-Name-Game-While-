@@ -8,12 +8,18 @@ public class GarbageLocator : MonoBehaviour
     PapperShow[] _info;
 
     private int _quota;
-    int _remaining;
+    int _remainingItem;
+    int _remainingPaper;
+
     bool _inited;
     private bool _quotaCollected;
 
-    public int Total => _items.Length;
+    public int TotalItem => _items.Length;
+    public int TotalPaper => _info.Length;
     public event Action<int, int> Changed; 
+    public event Action<int, int> InfoChanged;
+
+
     public event Action AllCollected;
     public event Action<bool> QuotaCollected;
 
@@ -27,24 +33,33 @@ public class GarbageLocator : MonoBehaviour
 
         _items = GetComponentsInChildren<ItemsCollect>(true);
         _info = GetComponentsInChildren<PapperShow>(true);
-        _remaining = _items.Length;
+        _remainingItem = _items.Length;
+        _remainingPaper = _info.Length;
+
         _quota = _items.Length/2;
 
         foreach (var item in _items)
             item.Collected += OnCollected;
+
+        foreach(var item in _info)
+            item.OnCollected += OnCollectedPaper;
     }
     void OnDestroy()
     {
         if (_items == null) return;
         foreach (var item in _items)
             if (item != null) item.Collected -= OnCollected;
+
+        if(_info == null)return;
+        foreach(var item in _info)
+            item.OnCollected -= OnCollectedPaper;
     }
     private void OnCollected(ItemsCollect _)
     {
-        _remaining--;
-        Changed?.Invoke(_remaining, Total);
+        _remainingItem--;
+        Changed?.Invoke(_remainingItem, TotalItem);
 
-        if(!_quotaCollected &&_remaining <= _quota)
+        if(!_quotaCollected &&_remainingItem <= _quota)
         {
             QuotaCollected?.Invoke(true);
             _quotaCollected = true;
@@ -55,13 +70,17 @@ public class GarbageLocator : MonoBehaviour
             _quotaCollected = false;
         }
 
-        if (_remaining <= 0)
+        if (_remainingItem <= 0)
         {
             AllCollected?.Invoke();
             QuotaCollected?.Invoke(true);
-        }
-            
-            
+        }       
+    }
+
+    public void OnCollectedPaper(PapperShow c)
+    {
+        _remainingPaper--;
+        InfoChanged?.Invoke(_remainingPaper, TotalPaper);
     }
 
     public void RestartLocator()
@@ -69,7 +88,7 @@ public class GarbageLocator : MonoBehaviour
         _items = GetComponentsInChildren<ItemsCollect>(true);
         _info = GetComponentsInChildren<PapperShow>(true);
         
-        _remaining = _items.Length;
+        _remainingItem = _items.Length;
         _quota = _items.Length/2;
 
         _quotaCollected = false;
