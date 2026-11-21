@@ -12,6 +12,7 @@ public class PlayerUI : MonoBehaviour
     private PlayerCarry _carry;
     private PlayerConfig _config;
     private MessageRefs _message;
+    private PaperRefs _paper;
     private PlayerInteract _interact;
     private PlayerMotor _motor;
     private PlayerHand _hand;
@@ -40,8 +41,6 @@ public class PlayerUI : MonoBehaviour
     private Transform _spawnLocation;
 
     
-    private GameObject _paperObj;
-    private Image _paperSprite;
     private TextMeshProUGUI _paperText;
     private LocalizedString _currentPaperText;
 
@@ -83,14 +82,15 @@ public class PlayerUI : MonoBehaviour
         _hand = hand;
         _input = input;
         _fear = fear;
+        _paper = ui.Paper;
 
         _timerCounter = ui.Timer.Counter; _timerText = ui.Timer.Text;
-        _paperObj = ui.Paper.Panel; _paperSprite = ui.Paper.Image; _paperText = ui.Paper.Text;
         _interaction = ui.Messages.MessageObject; _bagStorage = ui.Messages.BagStorage; _hold = ui.Messages.Hold; _message = ui.Messages;
         _staminaImage = ui.Player.Stamina;
         _scoreTotal = ui.Scores.ScoreTotal; _scoreDay = ui.Scores.ScoreDay; _scoreTotalCollected = ui.Scores.ScoreTotalCollected;
         _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture; _heartBeating = ui.Map.HeartBeating;
         _tutorial = ui.Tutorial.Text; _tutorials = ui.Tutorial.Prompts; _tutorialPanel = ui.Tutorial.Panel; _acceptedTutorial = ui.Tutorial.Enabled;
+        _paper.SetCurrent(0);
 
         int i = PlayerPrefs.GetInt("AcceptedTutorial", 0);
         _acceptedTutorial = (i == 1);
@@ -177,6 +177,7 @@ public class PlayerUI : MonoBehaviour
     private void DropBag()
     {
         _garbageTexture.transform.localPosition = _lowerPosition;
+        Debug.Log(_quotaCollected);
 
         if(_allCollected && _quotaCollected)
             ShowScore();
@@ -396,24 +397,22 @@ public class PlayerUI : MonoBehaviour
         GarbageText(_locator.Total, _locator.Total);
     }
 
-    private void ShowPapperText(LocalizedString p, Sprite s)
+    private void ShowPapperText(LocalizedString p, int s)
     {
         ClearPaperText();
         
-        if(p != null || !p.IsEmpty)
+        if(p != null && !p.IsEmpty)
         {
-            _paperObj.SetActive(true);
+            _paper.SetCurrent(s);
+
+            _paper.Current.SetActive(true);
+            _paperText = _paper.GetPaper(s).Text;
+
             _currentPaperText = p;
             _currentPaperText.StringChanged += LocalizedPapperText;
             _mode.SetUI();
             Time.timeScale = 0f;
         }
-
-        if(s != null)
-        {
-            _paperSprite.sprite = s;
-        }
-        
     }
     private void ShowTutorialText(int index)
     {
@@ -475,7 +474,7 @@ public class PlayerUI : MonoBehaviour
     {
         Stamina(); Timer(); 
         
-        if(_scoreTotal.activeSelf || _paperObj.activeSelf)return;
+        if(_scoreTotal.activeSelf || _paper.Current.activeSelf)return;
         
         ShowInteractText(); if(_interacted)ShowInteractionDuration();
 

@@ -56,7 +56,11 @@ public class GarbageLocator : MonoBehaviour
         }
 
         if (_remaining <= 0)
+        {
             AllCollected?.Invoke();
+            QuotaCollected?.Invoke(true);
+        }
+            
             
     }
 

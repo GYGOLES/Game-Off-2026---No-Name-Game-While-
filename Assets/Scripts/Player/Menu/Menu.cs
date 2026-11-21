@@ -52,7 +52,7 @@ public class Menu : MonoBehaviour
     }
     public void DisableMenu()
     {
-        if(_uiConfig.Scores.ScoreTotal.activeSelf || _uiConfig.Paper.Panel.activeSelf)return;
+        if(_uiConfig.Scores.ScoreTotal.activeSelf || _uiConfig.Paper.Current.activeSelf)return;
 
         _uiConfig.Menu.GameplaySettings.SaveSettings();
 
@@ -73,9 +73,9 @@ public class Menu : MonoBehaviour
 
     public void DisablePaper()
     {
-        if(!_uiConfig.Paper.Panel.activeSelf)return;
+        if(!_uiConfig.Paper.Current.activeSelf)return;
 
-        _uiConfig.Paper.Panel.SetActive(false);
+        _uiConfig.Paper.Current.SetActive(false);
         SetGameplay();
     }
 

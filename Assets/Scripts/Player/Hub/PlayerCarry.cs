@@ -16,7 +16,7 @@ public sealed class PlayerCarry
 
     public event Action OnDrop;
 
-    public event Action<LocalizedString, Sprite> OnShowText;
+    public event Action<LocalizedString, int> OnShowText;
     public event Action OnCollect;
 
     public event Action<int> OnFirstDropped;
@@ -85,7 +85,7 @@ public sealed class PlayerCarry
             return;
         }
         _fear.GetFear(i.Fear);
-        OnShowText?.Invoke(i.Text, i.Sprite);
+        OnShowText?.Invoke(i.Text, i.Index);
         OnCollect?.Invoke();
     }
 }

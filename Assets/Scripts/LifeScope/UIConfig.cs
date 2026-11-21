@@ -76,13 +76,18 @@ public sealed class TimerRefs //Done
 [Serializable]
 public sealed class PaperRefs
 {
-    [SerializeField] GameObject _panel;
-    [SerializeField] Image _image;
-    [SerializeField] TextMeshProUGUI _text;
+    [SerializeField] PaperView[] _paperViews;
 
-    public GameObject Panel => _panel;
-    public Image Image => _image;
-    public TextMeshProUGUI Text => _text;
+    public GameObject Current {get; private set;}
+
+    public void SetCurrent(int i) => Current = _paperViews[i].Note;
+
+    public PaperView GetPaper(int i)
+    {
+        if (_paperViews == null || i < 0 || i >= _paperViews.Length)return null;
+
+        return _paperViews[i];
+    }
 }
 [Serializable]
 public sealed class MenuRefs
