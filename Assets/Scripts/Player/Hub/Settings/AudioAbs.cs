@@ -29,7 +29,7 @@ public abstract class AudioAbs : MonoBehaviour
     {
         if(_audio == null || _audio.ArraClips.Length <= 0)return;
 
-        PlayRandomClips(_audio.ArraClips, transform.position, false, _audio.Volume, _audio.Pitch);
+        PlayRandomClips(_audio.ArraClips, transform.position, false, _audio.Volume, RandomPitch(_audio.RandomPitch, _audio.MinPitch, _audio.Pitch));
     }
     protected AudioClip GetRandomClip(AudioClip[] clips)    
     {

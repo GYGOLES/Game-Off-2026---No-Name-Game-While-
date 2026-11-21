@@ -336,10 +336,7 @@ public class PlayerUI : MonoBehaviour
         _currentQuotaCollected = b;
         if (_day == 1)
         {
-            Debug.Log(b
-                ? "WELL DONE, YOU COLLECTED QUOTA"
-                : "YOU SHOULD COLLECT GARBAGE!");
-
+            Debug.Log(b? "WELL DONE, YOU COLLECTED QUOTA" : "YOU SHOULD COLLECT GARBAGE!");
             _quotaCollected = true;
         }
         else
