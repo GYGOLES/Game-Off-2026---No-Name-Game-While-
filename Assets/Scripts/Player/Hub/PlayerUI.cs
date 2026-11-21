@@ -66,6 +66,8 @@ public class PlayerUI : MonoBehaviour
     private TimerCounter _timerCounter;
     private TextMeshProUGUI _timerText;
 
+    private GameObject _goodEnding;
+
     private bool _allCollected;
     private bool _quotaCollected;
     private bool _interacted;
@@ -93,6 +95,7 @@ public class PlayerUI : MonoBehaviour
         _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture; _heartBeating = ui.Map.HeartBeating;
         _tutorial = ui.Tutorial.Text; _tutorials = ui.Tutorial.Prompts; _tutorialPanel = ui.Tutorial.Panel; _acceptedTutorial = ui.Tutorial.Enabled;
         _paper.SetCurrent(0);
+        _goodEnding = ui.Ending.GoodEndingGame;
 
         int i = PlayerPrefs.GetInt("AcceptedTutorial", 0);
         _acceptedTutorial = (i == 1);
@@ -325,10 +328,8 @@ public class PlayerUI : MonoBehaviour
 
         Reset();
 
-        SetLocator(_day - 1);
-
-        ResumeGameplay();
-        
+        if(SetLocator(_day - 1))
+            ResumeGameplay();   
     }
 
     private void QuotaService(bool b)
@@ -382,8 +383,14 @@ public class PlayerUI : MonoBehaviour
         _hand.DropBag();
     }
 
-    private void SetLocator(int index)
+    private bool SetLocator(int index)
     {
+        if(index == 3)
+        {
+            SetEnding();
+            return false;
+        }
+
         _allCollected = false;
         _quotaCollected = false;
         _currentQuotaCollected = false;
@@ -398,6 +405,7 @@ public class PlayerUI : MonoBehaviour
         }
 
         _locator = _locators[index];
+
         _locator.gameObject.SetActive(true);
         _locator.Changed += GarbageText;
         _locator.AllCollected += OnCollected;
@@ -405,6 +413,16 @@ public class PlayerUI : MonoBehaviour
         _locator.InfoChanged += ScorePaperText;
         
         GarbageText(_locator.TotalItem, _locator.TotalItem);
+
+        return true;
+    }
+
+    private void SetEnding()
+    {
+        if (_quotaCollected)
+        {
+            _goodEnding.SetActive(true);
+        }
     }
 
     private void ShowPapperText(LocalizedString p, int s)

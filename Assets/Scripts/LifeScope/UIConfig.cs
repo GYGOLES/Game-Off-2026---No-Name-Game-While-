@@ -15,6 +15,7 @@ public sealed class UIConfig
     [SerializeField] ScoreRefs _scores;
     [SerializeField] MapRefs _mapRefs;
     [SerializeField] Tutorial _tutorial;
+    [SerializeField] EndingRefs _endings;
 
     public PlayerStateRefs Player => _player;
     public MessageRefs Messages => _messages;
@@ -24,6 +25,7 @@ public sealed class UIConfig
     public ScoreRefs Scores => _scores;
     public MapRefs Map => _mapRefs;
     public Tutorial Tutorial => _tutorial;
+    public EndingRefs Ending => _endings;
 }
 
 [Serializable]
@@ -143,4 +145,11 @@ public sealed class Tutorial
     public GameObject Panel => _panel;
     public TextMeshProUGUI Text => _text;
     public LocalizedString[] Prompts => _prompts;
+}
+[Serializable]
+public sealed class EndingRefs
+{
+    [SerializeField] GameObject _GoodEndGame;
+
+    public GameObject GoodEndingGame => _GoodEndGame;
 }
