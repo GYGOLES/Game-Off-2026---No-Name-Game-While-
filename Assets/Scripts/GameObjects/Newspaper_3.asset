@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99d72edf0798ee498b271a5cd9fb397, type: 3}
   m_Name: Newspaper_3
   m_EditorClassIdentifier: Assembly-CSharp::PaperInfo
-  _spirte: {fileID: 21300000, guid: 3cd0fa8568d735e42b72ea7d0516d7a1, type: 3}
+  _indexPaper: 6
   _text:
     m_TableReference:
       m_TableCollectionName: GUID:cd5eac7a093acfa4eb1838f4a42248ec

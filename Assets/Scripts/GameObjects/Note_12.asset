@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99d72edf0798ee498b271a5cd9fb397, type: 3}
   m_Name: Note_12
   m_EditorClassIdentifier: Assembly-CSharp::PaperInfo
-  _spirte: {fileID: 21300000, guid: 771c992dfc438d54cabd2848a8f57d64, type: 3}
+  _indexPaper: 1
   _text:
     m_TableReference:
       m_TableCollectionName: GUID:618129ca0c63c034993e09e51c102cb3

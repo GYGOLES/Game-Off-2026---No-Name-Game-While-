@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Item_newspaper
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeight
   ItemName: newspaper
-  Weight: 5
+  Weight: 0

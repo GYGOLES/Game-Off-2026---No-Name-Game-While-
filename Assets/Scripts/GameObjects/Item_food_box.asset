@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Item_food_box
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeight
   ItemName: food_box
-  Weight: 5
+  Weight: 1

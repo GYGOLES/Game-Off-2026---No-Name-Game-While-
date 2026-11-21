@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Item_wrapper
   m_EditorClassIdentifier: Assembly-CSharp::ItemWeight
   ItemName: wrapper
-  Weight: 5
+  Weight: 1
