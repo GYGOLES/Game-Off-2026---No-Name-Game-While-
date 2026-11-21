@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] Animator _enemy;
     [SerializeField] Transform _target;
     [SerializeField] NavMeshAgent _agent;
+    [SerializeField] float distance = 2f;
     
 
     private bool _applyWalk = false;
@@ -26,13 +27,14 @@ public class EnemyMovement : MonoBehaviour
 
     
 
-        if(dist <= 5 && _applyWalk)
+        if(dist <= distance && _applyWalk)
         {
             ApplyMovement(false);
         }
 
-        if(dist > 5 && !_applyWalk)
+        if(dist > distance && !_applyWalk)
         {
+            Debug.Log("check");
             ApplyMovement(true);
         }
         if(_applyWalk)

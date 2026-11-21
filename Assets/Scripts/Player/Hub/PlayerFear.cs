@@ -1,5 +1,9 @@
 using System;
-using UnityEngine;
+
+public enum FearState
+{
+    Fine, Critical, Insane
+}
 
 public class PlayerFear
 {
@@ -10,6 +14,8 @@ public class PlayerFear
     public float CurrentFear => _currentFear;
     public float FearNormalized => _currentFear / _config.MaxFear;
 
+    private FearState _currentState;
+    public FearState State => _currentState;
 
     public event Action OnGetInsane;
     public event Action Ambience;

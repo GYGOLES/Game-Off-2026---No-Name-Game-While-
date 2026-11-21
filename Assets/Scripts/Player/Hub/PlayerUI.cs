@@ -69,6 +69,7 @@ public class PlayerUI : MonoBehaviour
     private bool _allCollected;
     private bool _quotaCollected;
     private bool _interacted;
+    private bool _currentQuotaCollected;
 
 
     [Inject]
@@ -180,7 +181,6 @@ public class PlayerUI : MonoBehaviour
     private void DropBag()
     {
         _garbageTexture.transform.localPosition = _lowerPosition;
-        Debug.Log(_quotaCollected);
 
         if(_allCollected && _quotaCollected)
             ShowScore();
@@ -188,13 +188,25 @@ public class PlayerUI : MonoBehaviour
 
     public void ShowScore()
     {
+        QuotaService(_currentQuotaCollected);
         if (_scoreTotal.activeSelf) return;
         if(_mode == null)return;
 
         ClearPrompt();
         _interaction.gameObject.SetActive(false);
 
-        _scoreTotal.SetActive(true);   
+        if(_day > 1 && !_quotaCollected)
+        {
+            Debug.Log("SHOW BAD ENDING");
+            _scoreTotal.SetActive(false);
+
+        }
+        else
+        {
+            _scoreTotal.SetActive(true); 
+        }
+        
+          
         _mode.SetUI();
         Time.timeScale = 0f;
     }
@@ -308,12 +320,6 @@ public class PlayerUI : MonoBehaviour
 
     public void SetNextShift(int i)
     {
-        if (!_quotaCollected)
-        {
-            Debug.Log("SHOW ENDING");
-            return;
-        }
-
         _day += i;
         _scoreDay.text = _day.ToString();
 
@@ -327,29 +333,24 @@ public class PlayerUI : MonoBehaviour
 
     private void QuotaService(bool b)
     {
-        if(_day <= 1)
+        _currentQuotaCollected = b;
+        if (_day == 1)
         {
-            if (b)
-            {
-                Debug.Log("WELL DONE, YOU COLLECTED QUOTA");
-                _quotaCollected = true;
-            }
-            else
-            {
-                Debug.Log("IF YOU WONT PICK UP A GARBAGE - YOU WILL DIE");
-                _quotaCollected = true;
-            }
+            Debug.Log(b
+                ? "WELL DONE, YOU COLLECTED QUOTA"
+                : "YOU SHOULD COLLECT GARBAGE!");
+
+            _quotaCollected = true;
         }
         else
         {
-            if (b)
+            if (_currentQuotaCollected)
             {
                 Debug.Log("WELL DONE YOU COLLECTED");
                 _quotaCollected = true;
             }
             else
             {
-                Debug.Log("SHOW BAD ENDING");
                 _quotaCollected = false;
             }
         }
@@ -387,6 +388,8 @@ public class PlayerUI : MonoBehaviour
     private void SetLocator(int index)
     {
         _allCollected = false;
+        _quotaCollected = false;
+        _currentQuotaCollected = false;
         if (_locator != null)
         {
             _locator.Changed -= GarbageText;

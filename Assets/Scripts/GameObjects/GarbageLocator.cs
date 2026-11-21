@@ -64,11 +64,6 @@ public class GarbageLocator : MonoBehaviour
             QuotaCollected?.Invoke(true);
             _quotaCollected = true;
         }
-        else
-        {
-            QuotaCollected?.Invoke(false);
-            _quotaCollected = false;
-        }
 
         if (_remainingItem <= 0)
         {
