@@ -11,8 +11,13 @@ public class PlayerUI : MonoBehaviour
     private PlayerStates _states;
     private PlayerCarry _carry;
     private PlayerConfig _config;
+
+
     private MessageRefs _message;
     private PaperRefs _paper;
+    private EndingRefs _endingRefs;
+
+
     private PlayerInteract _interact;
     private PlayerMotor _motor;
     private PlayerHand _hand;
@@ -66,7 +71,11 @@ public class PlayerUI : MonoBehaviour
     private TimerCounter _timerCounter;
     private TextMeshProUGUI _timerText;
 
-    private GameObject _goodEnding;
+    private GameObject _endingPanel;
+    private TextMeshProUGUI _currentEndingText;
+    private TextMeshProUGUI _currentStampText;
+    private LocalizedString _currentLocalizedEnding;
+    private LocalizedString _currentStampLocalized;
 
     private bool _allCollected;
     private bool _quotaCollected;
@@ -87,6 +96,7 @@ public class PlayerUI : MonoBehaviour
         _input = input;
         _fear = fear;
         _paper = ui.Paper;
+        _endingRefs = ui.Ending;
 
         _timerCounter = ui.Timer.Counter; _timerText = ui.Timer.Text;
         _interaction = ui.Messages.MessageObject; _bagStorage = ui.Messages.BagStorage; _hold = ui.Messages.Hold; _message = ui.Messages;
@@ -95,7 +105,7 @@ public class PlayerUI : MonoBehaviour
         _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture; _heartBeating = ui.Map.HeartBeating;
         _tutorial = ui.Tutorial.Text; _tutorials = ui.Tutorial.Prompts; _tutorialPanel = ui.Tutorial.Panel; _acceptedTutorial = ui.Tutorial.Enabled;
         _paper.SetCurrent(0);
-        _goodEnding = ui.Ending.GoodEndingGame;
+        _endingPanel = _endingRefs.EndingPanel; _currentEndingText = _endingRefs.CurrentText; _currentStampText = _endingRefs.CurrentStampText;
 
         int i = PlayerPrefs.GetInt("AcceptedTutorial", 0);
         _acceptedTutorial = (i == 1);
@@ -200,7 +210,7 @@ public class PlayerUI : MonoBehaviour
 
         if(_day > 1 && !_quotaCollected)
         {
-            Debug.Log("SHOW BAD ENDING");
+            ShowEnding(1);
             _scoreTotal.SetActive(false);
 
         }
@@ -321,6 +331,20 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    public void ClearEndingText()
+    {
+        if(_currentLocalizedEnding != null)
+        {
+            _currentLocalizedEnding.StringChanged -= LocalizedEndingText;
+            _currentLocalizedEnding = null;
+        }
+        if(_currentStampLocalized != null)
+        {
+            _currentStampLocalized.StringChanged -= LocalizedStampEnding;
+            _currentStampLocalized = null;
+        }
+    }
+
     public void SetNextShift(int i)
     {
         _day += i;
@@ -387,7 +411,7 @@ public class PlayerUI : MonoBehaviour
     {
         if(index == 3)
         {
-            SetEnding();
+            GoodEnding();
             return false;
         }
 
@@ -417,11 +441,11 @@ public class PlayerUI : MonoBehaviour
         return true;
     }
 
-    private void SetEnding()
+    private void GoodEnding()
     {
         if (_quotaCollected)
         {
-            _goodEnding.SetActive(true);
+            ShowEnding(0);
         }
     }
 
@@ -466,9 +490,33 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    public void ShowEnding(int i)
+    {
+        ClearEndingText();
+        
+        EndingView view = _endingRefs.GetEnding(i);
+        if(view != null)
+        {
+            _currentLocalizedEnding = view.Text;
+            _currentStampLocalized = view.Stamp;
+
+            _currentLocalizedEnding.StringChanged += LocalizedEndingText;
+            _currentLocalizedEnding.StringChanged += LocalizedStampEnding;
+            
+            
+
+            _endingPanel.SetActive(true);
+
+            _mode.SetUI();
+            Time.timeScale = 0;
+        }
+    }
+
     private void LocalizedInteractionText(string value) => _interaction.text = value;
     private void LocalizedPapperText(string v) => _paperText.text = v;
     private void LocalizedTutorialText(string v) => _tutorial.text = v;
+    private void LocalizedEndingText(string v) => _currentEndingText.text = v;
+    private void LocalizedStampEnding(string v) => _currentStampText.text = v;
 
     private void SetPitch() => _heartBeating.pitch = _fear.FearNormalized >= 0.8f? 1.2f : _fear.FearNormalized >= 0.3f? 1f : 0.8f;
     private void SetVolume() => _heartBeating.volume = _fear.FearNormalized;

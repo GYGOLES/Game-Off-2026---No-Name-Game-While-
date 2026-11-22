@@ -149,7 +149,22 @@ public sealed class Tutorial
 [Serializable]
 public sealed class EndingRefs
 {
-    [SerializeField] GameObject _GoodEndGame;
+    [Header("Main")]
+    [SerializeField] EndingView[] _endings;
+    [SerializeField] GameObject _ending;
+    
+    [Header("Text")]
+    [SerializeField] TextMeshProUGUI _currentText;
+    [SerializeField] TextMeshProUGUI _currentStampText;
+    public GameObject EndingPanel => _ending;
 
-    public GameObject GoodEndingGame => _GoodEndGame;
+    public TextMeshProUGUI CurrentText => _currentText;
+    public TextMeshProUGUI CurrentStampText => _currentStampText;
+
+    public EndingView GetEnding(int i)
+    {
+        if(_endings == null || i < 0 || i >= _endings.Length)return null;
+
+        return _endings[i];
+    }
 }

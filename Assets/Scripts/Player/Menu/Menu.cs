@@ -34,7 +34,7 @@ public class Menu : MonoBehaviour
 
     private void EnableMenu()
     {
-        if(_uiConfig.Scores.ScoreTotal.activeSelf || _uiConfig.Ending.GoodEndingGame.activeSelf)return;
+        if(_uiConfig.Scores.ScoreTotal.activeSelf || _uiConfig.Ending.EndingPanel.activeSelf)return;
 
         for (int i = 0; i < _uiConfig.Menu.MenuComponents.Length; i++)
         {
@@ -52,7 +52,7 @@ public class Menu : MonoBehaviour
     }
     public void DisableMenu()
     {
-        if(_uiConfig.Scores.ScoreTotal.activeSelf || _uiConfig.Paper.Current.activeSelf || _uiConfig.Ending.GoodEndingGame.activeSelf)return;
+        if(_uiConfig.Scores.ScoreTotal.activeSelf || _uiConfig.Paper.Current.activeSelf || _uiConfig.Ending.EndingPanel.activeSelf)return;
 
         _uiConfig.Menu.GameplaySettings.SaveSettings();
 
