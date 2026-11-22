@@ -13,6 +13,7 @@ public class LightEvent : MonoBehaviour
     [SerializeField] float minInterval = 0.05f;
     [SerializeField] float maxInterval = 0.3f;
     [SerializeField] float duration = 5f;
+    [SerializeField] bool applyReset;
     [Inject] PlayerFear _fear;
 
 
@@ -47,6 +48,7 @@ public class LightEvent : MonoBehaviour
     {
         if(lights.Length == 0)return;
 
+        if(applyReset)
         ResetLight();
 
         int i = Random.Range(0 ,lights.Length);
@@ -55,7 +57,6 @@ public class LightEvent : MonoBehaviour
         lights[i].range = Random.Range(5, range);
 
         lights[i].enabled = !lights[i].enabled;
-
     }
 
     void Update()
