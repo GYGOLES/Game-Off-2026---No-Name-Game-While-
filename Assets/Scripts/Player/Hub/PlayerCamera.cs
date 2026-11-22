@@ -7,7 +7,6 @@ namespace Assets.Scripts.Player.Hub
     {
         private readonly IPlayerInput _input;
         private readonly PlayerConfig _config;
-        private readonly Camera _camera;
 
         private Vector2 _look;
 
