@@ -19,17 +19,18 @@ public class EnemyMovement : MonoBehaviour
         _agent.isStopped = !t;
     }
 
-    public void SetMovement() => _setMovement = true;
+    void OnEnable() => _setMovement = true;
+    void OnDisable() => _setMovement = false;
 
     private void Distanation()
     {
         float dist = (_agent.transform.position - _target.transform.position).magnitude;
 
-    
 
         if(dist <= distance && _applyWalk)
         {
             ApplyMovement(false);
+            gameObject.SetActive(false);
         }
 
         if(dist > distance && !_applyWalk)

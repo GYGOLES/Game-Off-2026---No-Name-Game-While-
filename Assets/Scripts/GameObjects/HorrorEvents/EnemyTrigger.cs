@@ -7,7 +7,7 @@ public class EnemyTrigger : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
-        _enemy.SetMovement();
+        _enemy.gameObject.SetActive(true);
         
     }
 }
