@@ -26,7 +26,6 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
-    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c64c8123ad279c478ec789b78ec13a2
     m_Address: End_game_ru

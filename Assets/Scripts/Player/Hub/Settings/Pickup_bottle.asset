@@ -15,7 +15,7 @@ MonoBehaviour:
   volume: 0.05
   pitch: 1
   _minPitch: 0.8
-  _randomPitch: 0
+  _randomPitch: 1
   arrayClips:
   - {fileID: 8300000, guid: e5b7b866d1adc3b4589926a37ea26bdb, type: 3}
   clip: {fileID: 8300000, guid: 6e3ae2ca23a45944d9df87f9b31ea5e2, type: 3}
