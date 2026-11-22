@@ -46,6 +46,7 @@ public class TrainEvent : MonoBehaviour
         {
             _source.Stop( );
             _trainTransform.position = _startPosition;
+            gameObject.SetActive(false);
         });
 
         _volumeTween = Tween.AudioVolume(_source, 0f, 1.5f, startDelay: _duration - 1.5f).OnComplete(() => {_source.Stop(); _source.volume = _volume;});
