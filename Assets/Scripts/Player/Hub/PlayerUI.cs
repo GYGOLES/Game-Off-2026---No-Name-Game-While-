@@ -1,3 +1,4 @@
+using System;
 using Assets.Scripts.Inputmanager;
 using Assets.Scripts.Player.Hub;
 using TMPro;
@@ -240,8 +241,8 @@ public class PlayerUI : MonoBehaviour
     public void Timer()
     {
         if(_timerCounter == null)return;
-
-        _timerText.text = Mathf.CeilToInt(_timerCounter.CurrentTimer).ToString();
+        TimeSpan timeSpan = TimeSpan.FromSeconds(_timerCounter.CurrentTimer);
+        _timerText.text = timeSpan.ToString(@"mm\:ss");
     }
 
     public void GarbageText(int remain, int total)
