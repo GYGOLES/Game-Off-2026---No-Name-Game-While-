@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Localized: Throw the trash in the container.
     m_Metadata:
       m_Items: []
+  - m_Id: 2355865062465536
+    m_Localized: Current task
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

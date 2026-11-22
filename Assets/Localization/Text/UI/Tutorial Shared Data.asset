@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: task_3
     m_Metadata:
       m_Items: []
+  - m_Id: 2355865062465536
+    m_Key: current_task
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
