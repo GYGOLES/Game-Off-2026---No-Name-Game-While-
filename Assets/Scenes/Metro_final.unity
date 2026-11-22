@@ -96034,9 +96034,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: GUID:0fa41eabb8565c440a299ec7b748330d
+      m_TableCollectionName: 
     m_TableEntryReference:
-      m_KeyId: 612580294656
+      m_KeyId: 0
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -220387,9 +220387,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: GUID:0fa41eabb8565c440a299ec7b748330d
+      m_TableCollectionName: 
     m_TableEntryReference:
-      m_KeyId: 40611376783360
+      m_KeyId: 0
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
