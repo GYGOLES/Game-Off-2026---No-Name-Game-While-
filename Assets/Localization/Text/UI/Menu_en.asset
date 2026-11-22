@@ -82,6 +82,10 @@ MonoBehaviour:
     m_Localized: Mouse sensitivity
     m_Metadata:
       m_Items: []
+  - m_Id: 5384038403231744
+    m_Localized: CREDITS
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -79,6 +79,10 @@ MonoBehaviour:
     m_Key: mouse_sensitivity
     m_Metadata:
       m_Items: []
+  - m_Id: 5384038403231744
+    m_Key: authors
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
