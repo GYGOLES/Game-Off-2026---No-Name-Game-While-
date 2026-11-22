@@ -502,7 +502,7 @@ public class PlayerUI : MonoBehaviour
 
             _currentLocalizedEnding.StringChanged += LocalizedEndingText;
             _currentLocalizedEnding.StringChanged += LocalizedStampEnding;
-            
+
             
 
             _endingPanel.SetActive(true);

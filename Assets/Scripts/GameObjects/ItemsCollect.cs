@@ -11,7 +11,6 @@ public class ItemsCollect : AudioAbs, IInteract
     [SerializeField] LocalizedString _string;
 
     [SerializeField] Outline _outline;
-    private Tween _bagAnim;
     private Tween _CollectAnimation;
 
     public LocalizedString Prompt => _string;
@@ -22,6 +21,7 @@ public class ItemsCollect : AudioAbs, IInteract
     public event Action<ItemsCollect> Collected;
 
     private Vector3 _startPosition;
+
     private int _layerDefault;
     private int _layerTarget;
     void Awake()
@@ -39,7 +39,6 @@ public class ItemsCollect : AudioAbs, IInteract
     }
     void OnDisable()
     {
-        _bagAnim.Stop();
         _CollectAnimation.Stop();
     }
 
@@ -59,16 +58,12 @@ public class ItemsCollect : AudioAbs, IInteract
 
         carry.TryAdd(_item); 
         PlayDefaultClips();
-        Anim(hand.Bag);
+        
+        hand.AnimateBag();
         AnimObject(hand.Bag);
 
         Collected?.Invoke(this);
         return InteractResult.Success;
-    }
-
-    void Anim(Transform bag)
-    {
-        _bagAnim = Tween.ShakeLocalPosition(bag, Vector3.down*0.05f, 1, frequency: 2f);
     }
 
     void AnimObject(Transform bag)
