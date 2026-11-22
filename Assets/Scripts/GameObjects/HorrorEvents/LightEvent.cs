@@ -54,7 +54,7 @@ public class LightEvent : MonoBehaviour
 
             lights[i].enabled = !lights[i].enabled;
             
-            float interval = Random.Range(minInterval, maxInterval * _fear.FearNormalized);
+            float interval = Random.Range(minInterval, maxInterval / _fear.FearNormalized);
 
             yield return new WaitForSeconds(interval);
             timer += interval;
