@@ -74,7 +74,7 @@ public class ItemsCollect : AudioAbs, IInteract
         _CollectAnimation = Tween.Custom(0f, 1f, duration: 0.6f, onValueChange: t =>
         {
             Vector3 pos = Vector3.Lerp(startPos, bag.position + Vector3.up*0.4f, t);
-            pos.y = Mathf.Sin(t * Mathf.PI);
+            pos.y += Mathf.Sin(t * Mathf.PI) * 0.5f;
             transform.position = pos;
         }).OnComplete(() => 
         {
