@@ -15,7 +15,11 @@ public class LightEvent : MonoBehaviour
     [SerializeField] float duration = 5f;
     [Inject] PlayerFear _fear;
 
-    private Coroutine _cor;
+
+    private bool _blinkingLight;
+    private float _timer = 0f;
+    private float _blinkTimer = 0f;
+    private float _nextBlinkInterval;
     void OnEnable()
     {
         if(_fear == null)return;
@@ -27,40 +31,55 @@ public class LightEvent : MonoBehaviour
         if(_fear == null)return;
         _fear.Ambience -= LightsOff;
 
-        if(_cor != null)
-        StopCoroutine(_cor);
     }
 
     private void LightsOff()
     {
-        _cor = StartCoroutine(Coroutine());
+        _timer = 0f;
+        _blinkTimer = 0f;
+        _blinkingLight = true;
+        _nextBlinkInterval = RandomInterval;
     }
 
-    public IEnumerator Coroutine()
+    private float RandomInterval => 
+    Random.Range(Mathf.Lerp(maxInterval, minInterval, _fear.FearNormalized),Mathf.Lerp(maxInterval * 2, minInterval, _fear.FearNormalized));
+    private void BlinkingLight()
     {
-        float timer = 0f;
-        while (timer <= duration)
-        {
-            timer += Time.deltaTime;
+        if(lights.Length == 0)return;
 
-            int i = Random.Range(0 ,lights.Length);
-
-
-            float perlinIntensity = Random.Range(1, intensity);
-            float perlinRange = Random.Range(5, range);
-
-            lights[i].intensity = perlinIntensity;
-            lights[i].range = perlinRange;
-
-            lights[i].enabled = !lights[i].enabled;
-            
-            float interval = Random.Range(minInterval, maxInterval / _fear.FearNormalized);
-
-            yield return new WaitForSeconds(interval);
-            timer += interval;
-        }
         ResetLight();
-        _cor = null;
+
+        int i = Random.Range(0 ,lights.Length);
+
+        lights[i].intensity = Mathf.Lerp(lights[i].intensity ,Random.Range(1, intensity), Time.deltaTime*2);
+        lights[i].range = Random.Range(5, range);
+
+        lights[i].enabled = !lights[i].enabled;
+
+    }
+
+    void Update()
+    {
+        if(!_blinkingLight)return;
+
+        _blinkTimer += Time.deltaTime;
+        _timer += Time.deltaTime;
+
+
+        if(_blinkTimer >= _nextBlinkInterval)
+        {
+            _blinkTimer = 0f;
+            BlinkingLight();
+
+            _nextBlinkInterval = RandomInterval;
+        }
+
+        if(_timer >= duration )
+        {
+            ResetLight();
+            _blinkingLight = false;
+        }
+        
     }
 
     void ResetLight()
