@@ -202,23 +202,24 @@ public class PlayerUI : MonoBehaviour
     public void ShowScore()
     {
         QuotaService(_currentQuotaCollected);
-        if (_scoreTotal.activeSelf) return;
+        Debug.Log(_currentQuotaCollected);
         if(_mode == null)return;
 
         ClearPrompt();
         _interaction.gameObject.SetActive(false);
 
-        if(_day > 1 && !_quotaCollected)
+        if (_day == 2 || _day == 3)
         {
-            ShowEnding(1);
-            _scoreTotal.SetActive(false);
+            if (!_quotaCollected)
+            {
+                _scoreTotal.SetActive(false);
+                ShowEnding(1);
+                return;
+            }
+        }
+        if (_scoreTotal.activeSelf) return;
 
-        }
-        else
-        {
-            _scoreTotal.SetActive(true); 
-        }
-        
+        _scoreTotal.SetActive(true);
           
         _mode.SetUI();
         Time.timeScale = 0f;
@@ -501,7 +502,7 @@ public class PlayerUI : MonoBehaviour
             _currentStampLocalized = view.Stamp;
 
             _currentLocalizedEnding.StringChanged += LocalizedEndingText;
-            _currentLocalizedEnding.StringChanged += LocalizedStampEnding;
+            _currentStampLocalized.StringChanged += LocalizedStampEnding;
 
             
 

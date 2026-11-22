@@ -164,7 +164,6 @@ public sealed class EndingRefs
     public EndingView GetEnding(int i)
     {
         if(_endings == null || i < 0 || i >= _endings.Length)return null;
-
         return _endings[i];
     }
 }
