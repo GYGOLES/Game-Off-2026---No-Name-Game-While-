@@ -43,6 +43,7 @@ public class Menu : MonoBehaviour
 
         _uiConfig.Menu.Pause.SetActive(true);
         _uiConfig.Menu.Options.SetActive(false);
+        _uiConfig.Menu.Devs.SetActive(false);
 
         for (int i = 0; i < _uiConfig.Menu.GameplayComponents.Length; i++)
         {
@@ -63,6 +64,7 @@ public class Menu : MonoBehaviour
 
         _uiConfig.Menu.Pause.SetActive(false);
         _uiConfig.Menu.Options.SetActive(false);
+        _uiConfig.Menu.Devs.SetActive(false);
 
         for (int i = 0; i < _uiConfig.Menu.GameplayComponents.Length; i++)
         {
