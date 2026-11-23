@@ -24,4 +24,5 @@ public sealed class LanguageRefs
     }
 
     public void SaveLanguage() => PlayerPrefs.SetInt(SetLanguageKey, 0);
+    public void DeleteKey() => PlayerPrefs.DeleteKey(SetLanguageKey);
 }
