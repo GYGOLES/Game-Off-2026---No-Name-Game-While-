@@ -526,6 +526,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1213180986}
+        m_TargetAssemblyTypeName: SaveMenuSettings, Assembly-CSharp
+        m_MethodName: SaveLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &171784543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2848,7 +2860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1447381880}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1058712762
@@ -3496,6 +3508,7 @@ GameObject:
   - component: {fileID: 1213180982}
   - component: {fileID: 1213180983}
   - component: {fileID: 1213180985}
+  - component: {fileID: 1213180986}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -3549,7 +3562,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18c3a843dce7e943b2b6d65a015ad01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGame
-  buildIndexs: 1
+--- !u!114 &1213180986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213180981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a54d519902bbd42bedee59150eaa53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveMenuSettings
 --- !u!1 &1303157780
 GameObject:
   m_ObjectHideFlags: 0
@@ -4193,6 +4217,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1213180986}
+        m_TargetAssemblyTypeName: SaveMenuSettings, Assembly-CSharp
+        m_MethodName: SaveLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1447381883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4623,6 +4659,10 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 283355330}
+  _configMenu:
+    _languageRefs:
+      _disclaimer: {fileID: 1050889960}
+      _setLanguage: {fileID: 1809276289}
   _config:
     _lookLimit: 80
     _sensitivity: 0.05
@@ -5811,11 +5851,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1213180985}
         m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
         m_MethodName: StartGameScene
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
