@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Localization.Settings;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VContainer;
 
@@ -76,6 +77,7 @@ public class GameplaySettings : MonoBehaviour
             PlayerPrefs.SetInt(_locale, index);
         }
     }
+
     public void SetVolume(float f)
     {
         ApplyVolume(f);
@@ -91,5 +93,7 @@ public class GameplaySettings : MonoBehaviour
     static float ToSlider(float sens) => Mathf.Log(sens / PlayerConfig.MinSensitivity) / Mathf.Log(PlayerConfig.MaxSensitivity / PlayerConfig.MinSensitivity);
     static float FromSlider(float t) => PlayerConfig.MinSensitivity * Mathf.Pow(PlayerConfig.MaxSensitivity / PlayerConfig.MinSensitivity, t);
     public void SaveSettings() => _config.Save();
+    public void QuitGame() => Application.Quit();
+
     void OnDisable() => SaveSettings();
 }

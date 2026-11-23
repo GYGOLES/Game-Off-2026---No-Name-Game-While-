@@ -91,9 +91,4 @@ public class Menu : MonoBehaviour
         _mode.SetGameplay();
         Time.timeScale = 1f;
     }
-
-    public void LeaveGame()
-    {
-        Application.Quit();
-    }
 }

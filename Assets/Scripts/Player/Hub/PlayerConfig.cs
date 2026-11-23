@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 
 [Serializable]
@@ -37,9 +38,11 @@ public sealed class PlayerConfig
     [Header("Links")]
     [SerializeField] Camera _camera;
     [SerializeField] CharacterController _controller;
+    [SerializeField] Volume _volume;
 
     public Camera Camera => _camera;
     public CharacterController Controller => _controller;
+    public Volume Volume => _volume;
 
     [Header("Transforms")]
     [SerializeField] Transform _hand;
