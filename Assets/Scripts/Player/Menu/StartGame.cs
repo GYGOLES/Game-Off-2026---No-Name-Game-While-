@@ -1,9 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-    [SerializeField, Range(-1, 1)] int buildIndexs;
-
-    public void StartGameScene() => SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + buildIndexs); 
+    public void StartGameScene(int i) => SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + Mathf.Clamp(i, -1, 1)); 
 }

@@ -108,9 +108,7 @@ public class PlayerUI : MonoBehaviour
         _paper.SetCurrent(0);
         _endingPanel = _endingRefs.EndingPanel; _currentEndingText = _endingRefs.CurrentText; _currentStampText = _endingRefs.CurrentStampText;
 
-        int i = PlayerPrefs.GetInt("AcceptedTutorial", 0);
-        _acceptedTutorial = (i == 1);
-        ShowTutorialText(0);
+        
 
         _input.Interact += Interact;
 
@@ -173,6 +171,15 @@ public class PlayerUI : MonoBehaviour
         BagText(_carry.CurrentBagCollected is var b ? (int)b : 0);
         SetLocator(_day - 1);
     }
+
+    public void SetTutorial()
+    {
+        int i = PlayerPrefs.GetInt("AcceptedTutorial", 0);
+
+        _acceptedTutorial = (i == 1);
+        ShowTutorialText(0);
+    }
+
     public void BagText(int f)
     {
         if(_bagStorage == null)return;
@@ -470,11 +477,8 @@ public class PlayerUI : MonoBehaviour
     }
     private void ShowTutorialText(int index)
     {
-        if (_acceptedTutorial)
-        {
-            _tutorialPanel.SetActive(false);
-            return;
-        }
+        _tutorialPanel.SetActive(!_acceptedTutorial);
+        if(!_tutorialPanel.activeSelf)return;
 
         if(index == 2)
         {
