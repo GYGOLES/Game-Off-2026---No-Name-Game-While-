@@ -4146,8 +4146,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1213180982}
   - component: {fileID: 1213180983}
-  - component: {fileID: 1213180985}
   - component: {fileID: 1213180986}
+  - component: {fileID: 1213180987}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -4189,18 +4189,6 @@ MonoBehaviour:
   _sensivity: {fileID: 1198316362}
   _mixer: {fileID: 24100000, guid: a41a24b00a74719409540d40f67b2508, type: 2}
   _musicSlider: {fileID: 1439918213}
---- !u!114 &1213180985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213180981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18c3a843dce7e943b2b6d65a015ad01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StartGame
 --- !u!114 &1213180986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4213,6 +4201,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a54d519902bbd42bedee59150eaa53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveMenuSettings
+--- !u!114 &1213180987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213180981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c79176283f6124eaeaff01a6e83048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoadingScreenCurrent
 --- !u!1 &1303157780
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,6 +5763,9 @@ MonoBehaviour:
     _languageRefs:
       _disclaimer: {fileID: 1050889960}
       _setLanguage: {fileID: 1809276289}
+    _loadingScene:
+      _loadingPanel: {fileID: 530991866}
+      _loadingBar: {fileID: 1529418288}
   _backgrounds:
     Sources:
     - {fileID: 286828042}
@@ -7050,9 +7053,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1213180985}
-        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
-        m_MethodName: StartGameScene
+      - m_Target: {fileID: 1213180987}
+        m_TargetAssemblyTypeName: LoadingScreenCurrent, Assembly-CSharp
+        m_MethodName: LoadingSync
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

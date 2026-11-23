@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class MenuConfig
 {
     [SerializeField] LanguageRefs _languageRefs;
+    [SerializeField] LoadingScene _loadingScene;
 
     public LanguageRefs Language => _languageRefs;
+    public LoadingScene Loading => _loadingScene;
 }
 [System.Serializable]
 public sealed class LanguageRefs
@@ -25,4 +28,13 @@ public sealed class LanguageRefs
 
     public void SaveLanguage() => PlayerPrefs.SetInt(SetLanguageKey, 0);
     public void DeleteKey() => PlayerPrefs.DeleteKey(SetLanguageKey);
+}
+[System.Serializable]
+public sealed class LoadingScene
+{
+    [SerializeField] GameObject _loadingPanel;
+    [SerializeField] Image _loadingBar;
+
+    public GameObject LoadingPanel => _loadingPanel;
+    public Image LoadingBar => _loadingBar;
 }
