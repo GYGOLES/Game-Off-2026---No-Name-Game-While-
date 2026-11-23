@@ -5761,8 +5761,10 @@ MonoBehaviour:
   - {fileID: 283355330}
   _configMenu:
     _languageRefs:
+      _system: {fileID: 1058712761}
+      _currentButton: {fileID: 1447381880}
       _disclaimer: {fileID: 1050889960}
-      _setLanguage: {fileID: 1809276289}
+      _setLanguagePanel: {fileID: 1809276289}
     _loadingScene:
       _loadingPanel: {fileID: 530991866}
       _loadingBar: {fileID: 1529418288}
