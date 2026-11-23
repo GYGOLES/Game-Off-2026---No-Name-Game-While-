@@ -147,6 +147,199 @@ MonoBehaviour:
   rounded:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-1528189791751399164
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a169137338a2f47986f6bc8e00dfe8, type: 3}
+  m_Name: CRTSettings
+  m_EditorClassIdentifier: ColbyO.VNTG::ColbyO.VNTG.CRT.CRTSettings
+  active: 1
+  Enabled:
+    m_OverrideState: 1
+    m_Value: 1
+  ShowInSceneView:
+    m_OverrideState: 1
+    m_Value: 0
+  EnableScreenSettings:
+    m_OverrideState: 1
+    m_Value: 1
+  ScreenResolution:
+    m_OverrideState: 1
+    m_Value: {x: 640, y: 480}
+  UseMaxFPS:
+    m_OverrideState: 1
+    m_Value: 0
+  RefreshRate:
+    m_OverrideState: 1
+    m_Value: 50
+  DecayRate:
+    m_OverrideState: 1
+    m_Value: 0.9
+  EnableInterlacedRendering:
+    m_OverrideState: 1
+    m_Value: 1
+  EnableScreenBend:
+    m_OverrideState: 1
+    m_Value: 1
+  ScreenBend:
+    m_OverrideState: 1
+    m_Value: 4
+  EnableVignette:
+    m_OverrideState: 1
+    m_Value: 1
+  ScreenRoundness:
+    m_OverrideState: 1
+    m_Value: 1
+  VignetteOpacity:
+    m_OverrideState: 1
+    m_Value: 1
+  EnableScanlines:
+    m_OverrideState: 1
+    m_Value: 1
+  ScanLineVerticalOpacity:
+    m_OverrideState: 1
+    m_Value: 0
+  ScanLineHorizontalOpacity:
+    m_OverrideState: 1
+    m_Value: 1
+  ScanLineVerticalSpeed:
+    m_OverrideState: 1
+    m_Value: 0.1
+  ScanLineHorizontalSpeed:
+    m_OverrideState: 1
+    m_Value: -0.2
+  ScanLineStrength:
+    m_OverrideState: 1
+    m_Value: 0.2
+  EnableNoise:
+    m_OverrideState: 1
+    m_Value: 1
+  NoiseScale:
+    m_OverrideState: 1
+    m_Value: 0.9
+  NoiseRBGOffsetX:
+    m_OverrideState: 1
+    m_Value: 0.4
+  NoiseRBGOffsetY:
+    m_OverrideState: 1
+    m_Value: 0.7
+  NoiseSpeed:
+    m_OverrideState: 1
+    m_Value: 0.1
+  NoiseFade:
+    m_OverrideState: 1
+    m_Value: 0.55
+  EnableVhs:
+    m_OverrideState: 1
+    m_Value: 1
+  VhsSmear:
+    m_OverrideState: 1
+    m_Value: 0.524
+  EnableTrackerLine:
+    m_OverrideState: 1
+    m_Value: 1
+  TrackingSpeed:
+    m_OverrideState: 1
+    m_Value: 4
+  TrackingJitter:
+    m_OverrideState: 1
+    m_Value: 4
+  EnableGlitch:
+    m_OverrideState: 1
+    m_Value: 1
+  GlitchChance:
+    m_OverrideState: 1
+    m_Value: 0.2
+  GlitchLength:
+    m_OverrideState: 1
+    m_Value: 15
+  EnableSignalInterference:
+    m_OverrideState: 1
+    m_Value: 1
+  InterferenceFrequency:
+    m_OverrideState: 1
+    m_Value: 70
+  InterferenceAmplitude:
+    m_OverrideState: 1
+    m_Value: 0.25
+  EnableChromaticAberration:
+    m_OverrideState: 1
+    m_Value: 1
+  ChromaticOffset:
+    m_OverrideState: 1
+    m_Value: 0.075
+  ChromaticOffsetSpeed:
+    m_OverrideState: 1
+    m_Value: 0.1
+  EnableSubPixels:
+    m_OverrideState: 1
+    m_Value: 1
+  SubPixelMode:
+    m_OverrideState: 1
+    m_Value: 0
+  SubPixelDensity:
+    m_OverrideState: 1
+    m_Value: 100
+  EnableUnsharp:
+    m_OverrideState: 1
+    m_Value: 1
+  UnsharpAmount:
+    m_OverrideState: 1
+    m_Value: 1.5
+  UnsharpRadius:
+    m_OverrideState: 1
+    m_Value: 1
+  UnsharpThreshold:
+    m_OverrideState: 1
+    m_Value: 0.02
+  EnableClampColor:
+    m_OverrideState: 1
+    m_Value: 1
+  ClampBlack:
+    m_OverrideState: 1
+    m_Value: 0.05
+  ClampWhite:
+    m_OverrideState: 1
+    m_Value: 0.95
+  ShadowTint:
+    m_OverrideState: 1
+    m_Value: {r: 0.7, g: 0.6, b: 0.9, a: 1}
+  EnableColorAdjustment:
+    m_OverrideState: 1
+    m_Value: 1
+  Gamma:
+    m_OverrideState: 1
+    m_Value: 0.374
+  Brightness:
+    m_OverrideState: 1
+    m_Value: 0.5
+  Contrast:
+    m_OverrideState: 1
+    m_Value: 0.5
+  Saturation:
+    m_OverrideState: 1
+    m_Value: 0.5
+  Hue:
+    m_OverrideState: 1
+    m_Value: 0
+  RedShift:
+    m_OverrideState: 1
+    m_Value: 0
+  BlueShift:
+    m_OverrideState: 1
+    m_Value: 0
+  GreenShift:
+    m_OverrideState: 1
+    m_Value: 0
+  IsMonochrome:
+    m_OverrideState: 1
+    m_Value: 0
 --- !u!114 &-603200732819289488
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -217,6 +410,7 @@ MonoBehaviour:
   - {fileID: 5055794326415235594}
   - {fileID: -5519923015903837620}
   - {fileID: -5210729596306433972}
+  - {fileID: -1528189791751399164}
 --- !u!114 &1501972683180579691
 MonoBehaviour:
   m_ObjectHideFlags: 3
