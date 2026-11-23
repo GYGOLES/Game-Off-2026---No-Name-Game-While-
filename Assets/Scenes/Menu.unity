@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 25f1ad57b3c73ed44bc1597d565503be, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 5b6dad7275605324a9bd5471f957efaf, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -514,6 +514,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1213180983}
+        m_TargetAssemblyTypeName: GameplaySettings, Assembly-CSharp
+        m_MethodName: SetLanguage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &171784543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,6 +639,8 @@ Transform:
   - {fileID: 832575519}
   - {fileID: 1213180982}
   - {fileID: 911276184}
+  - {fileID: 1060394418}
+  - {fileID: 1624988424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286828040
@@ -2982,12 +2996,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060394414}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 994.4792, y: 481.46057, z: -536.17535}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1004.0981, y: 481.46057, z: -523.39734}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 283355331}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1110357349
 GameObject:
@@ -3480,8 +3494,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1213180982}
-  - component: {fileID: 1213180984}
   - component: {fileID: 1213180983}
+  - component: {fileID: 1213180985}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -3523,7 +3537,7 @@ MonoBehaviour:
   _sensivity: {fileID: 1198316362}
   _mixer: {fileID: 24100000, guid: a41a24b00a74719409540d40f67b2508, type: 2}
   _musicSlider: {fileID: 1439918213}
---- !u!114 &1213180984
+--- !u!114 &1213180985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3532,9 +3546,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1213180981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa32d1116785cd4aad620398746c07e, type: 3}
+  m_Script: {fileID: 11500000, guid: f18c3a843dce7e943b2b6d65a015ad01, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Menu
+  m_EditorClassIdentifier: Assembly-CSharp::StartGame
+  buildIndexs: 1
 --- !u!1 &1303157780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3870,7 +3885,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1213180984}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: LeaveGame
         m_Mode: 1
@@ -4158,6 +4173,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1213180983}
+        m_TargetAssemblyTypeName: GameplaySettings, Assembly-CSharp
+        m_MethodName: SetLanguage
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4547,6 +4574,88 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &1624988423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1624988424}
+  - component: {fileID: 1624988425}
+  m_Layer: 0
+  m_Name: MenuLifeTimeScope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1624988424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624988423}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 898.6907, y: 0, z: -59.248405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 283355331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1624988425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624988423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcd2bc2f81cae14e87cd95fbb3f18e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuLifeTimeScope
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects:
+  - {fileID: 283355330}
+  _config:
+    _lookLimit: 80
+    _sensitivity: 0.05
+    _invertY: 0
+    _walkSpeed: 4
+    _sprintSpeed: 6.65
+    _gravity: 20
+    _stayGround: -2
+    _camera: {fileID: 0}
+    _controller: {fileID: 0}
+    _volume: {fileID: 0}
+    _hand: {fileID: 0}
+    _garbage: {fileID: 0}
+    _orientation: {fileID: 0}
+    _headBobing: {fileID: 0}
+    _interactRay: 2
+    _groundRay: 1.5
+    _groundLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    _interactLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    _maxStamina: 100
+    _staminaRecover: 5
+    _staminaDrain: 10
+    _staminaRecoverMultiplier: 2.5
+    _maxFear: 100
+    _maxWeight: 20
+    _maxBagStorage: 10
+    _minDeceleration: 0
+    _middleDeceleration: 0
+    _maxDeceleration: 0
 --- !u!1 &1649056493
 GameObject:
   m_ObjectHideFlags: 0
@@ -5699,6 +5808,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1213180985}
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
+        m_MethodName: StartGameScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2124909378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6288,4 +6409,3 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 283355331}
-  - {fileID: 1060394418}
