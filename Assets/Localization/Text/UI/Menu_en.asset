@@ -86,6 +86,10 @@ MonoBehaviour:
     m_Localized: CREDITS
     m_Metadata:
       m_Items: []
+  - m_Id: 5806078896889856
+    m_Localized: Loading
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

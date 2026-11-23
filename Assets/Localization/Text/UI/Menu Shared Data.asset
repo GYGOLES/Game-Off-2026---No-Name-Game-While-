@@ -83,6 +83,10 @@ MonoBehaviour:
     m_Key: authors
     m_Metadata:
       m_Items: []
+  - m_Id: 5806078896889856
+    m_Key: loading
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
