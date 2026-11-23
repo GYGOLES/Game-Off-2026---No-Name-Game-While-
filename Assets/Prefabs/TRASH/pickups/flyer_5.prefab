@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1081910345302823641}
   - component: {fileID: 1838384891733036512}
   - component: {fileID: -5057240826473339930}
-  - component: {fileID: 3661922749406368953}
+  - component: {fileID: 1464078531992511075}
   m_Layer: 6
   m_Name: flyer_5
   m_TagString: Untagged
@@ -384,7 +384,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!65 &3661922749406368953
+--- !u!65 &1464078531992511075
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,5 +403,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3638028, y: 0.0056553353, z: 0.22159703}
+  m_Size: {x: 0.51, y: 0.25, z: 0.4}
   m_Center: {x: 0.06718135, y: -0.00362921, z: -0.024013124}

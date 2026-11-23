@@ -370,6 +370,17 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2e9d44f9-d636-48f9-b648-0d9397ed976b"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""8e2fabac-3509-46a6-89c0-eba37db4abfd"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",

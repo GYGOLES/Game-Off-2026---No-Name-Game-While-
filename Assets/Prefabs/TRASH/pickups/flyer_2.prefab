@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6420533667376610325}
   - component: {fileID: 1081910345302823641}
   - component: {fileID: 1838384891733036512}
-  - component: {fileID: 3647212265779954219}
   - component: {fileID: 5237166441542559531}
+  - component: {fileID: 1334780783667658136}
   m_Layer: 6
   m_Name: flyer_2
   m_TagString: Untagged
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Test
   _audio: {fileID: 11400000, guid: 7805be2adf756534b8e67e499a847081, type: 2}
-  _collider: {fileID: 3647212265779954219}
+  _collider: {fileID: 0}
   _item: {fileID: 11400000, guid: e85e89cae68111d41b2b26e577399a04, type: 2}
   _string:
     m_TableReference:
@@ -366,27 +366,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!65 &3647212265779954219
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142582281562215750}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.17636347, y: 0.00274158, z: 0.10742529}
-  m_Center: {x: 0.06718135, y: -0.00362921, z: -0.024013124}
 --- !u!114 &5237166441542559531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,3 +384,24 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!65 &1334780783667658136
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142582281562215750}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3, y: 0.1, z: 0.19}
+  m_Center: {x: 0.07, y: 0, z: -0.03}

@@ -76,7 +76,7 @@ PrefabInstance:
       addedObject: {fileID: -1080141392526540348}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c365ae2f7658e74a87e64c4d303ac25, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2103232978705499871}
+      addedObject: {fileID: -2153753893212180293}
   m_SourcePrefab: {fileID: 100100000, guid: 4c365ae2f7658e74a87e64c4d303ac25, type: 3}
 --- !u!1 &1640816018254462225 stripped
 GameObject:
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Test
   _audio: {fileID: 11400000, guid: 671089d012130634fb1ae6859085eced, type: 2}
-  _collider: {fileID: 2103232978705499871}
+  _collider: {fileID: 0}
   _item: {fileID: 11400000, guid: eba3af8979a22a640838f34f13a1ba20, type: 2}
   _string:
     m_TableReference:
@@ -129,8 +129,8 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!65 &2103232978705499871
-BoxCollider:
+--- !u!136 &-2153753893212180293
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,6 +147,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.07255238, y: 0.28063792, z: 0.07291515}
+  serializedVersion: 2
+  m_Radius: 0.09
+  m_Height: 0.31
+  m_Direction: 1
   m_Center: {x: 0, y: 0.1412949, z: 0}
