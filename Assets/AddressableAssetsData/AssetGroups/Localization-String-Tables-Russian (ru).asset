@@ -20,18 +20,21 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 365a6728a126fb249b0375d67060e3ae
     m_Address: Text_UI_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65d80fd620706e744838b4cacc7235a3
     m_Address: WARNING_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c64c8123ad279c478ec789b78ec13a2
     m_Address: End_game_ru
