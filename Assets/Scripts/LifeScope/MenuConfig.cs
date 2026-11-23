@@ -24,10 +24,14 @@ public sealed class LanguageRefs
     [SerializeField] CanvasGroup _languageCanvas;
     [SerializeField] CanvasGroup _disclaimerCanvas;
 
+    [Header("BackGround")]
+    [SerializeField] RawImage _background;
+
     [Header("Duration")]
     [SerializeField] float _duration = 0.5f;
 
     public GameObject CurrentButton => _currentButton;
+    public RawImage Background => _background;
 
     public CanvasGroup LanguageCanvas => _languageCanvas;
     public CanvasGroup DisclaimerCanvas => _disclaimerCanvas;
@@ -42,7 +46,7 @@ public sealed class LanguageRefs
         _languageCanvas.gameObject.SetActive(PlayerPrefs.GetInt(SetLanguageKey, 1) == 1);
         _disclaimerCanvas.gameObject.SetActive(PlayerPrefs.GetInt(SetLanguageKey, 1) == 0);
         if(_disclaimerCanvas.gameObject.activeSelf)
-            _disclaimerTween = Tween.Alpha(_disclaimerCanvas, 1, _duration);
+            _disclaimerTween = Tween.Alpha(_disclaimerCanvas, 1, _duration*14);
 
         _system.firstSelectedGameObject = _languageCanvas.gameObject.activeSelf? _currentButton : _disclaimerCanvas.gameObject;
     }
@@ -78,6 +82,22 @@ public sealed class LanguageRefs
  
     public void SaveLanguage() => PlayerPrefs.SetInt(SetLanguageKey, 0);
     public void DeleteKey() => PlayerPrefs.DeleteKey(SetLanguageKey);
+
+    public void OnDestroy()
+    {
+        _disclaimerTween.Stop();
+        _languageTween.Stop();
+    }
+
+    public void Tick()
+    {
+        Rect target = _background.uvRect;
+
+        target.x -= 0.01f * Time.deltaTime;
+        target.y -= 0.005f * Time.deltaTime;
+
+        _background.uvRect = target;
+    }
 }
 [System.Serializable]
 public sealed class LoadingScene

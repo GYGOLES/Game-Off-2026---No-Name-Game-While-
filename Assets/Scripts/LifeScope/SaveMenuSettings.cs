@@ -12,4 +12,6 @@ public class SaveMenuSettings : MonoBehaviour
     public void TweenDisclaimer() => _config.Language.TweenDisclaimer();
 
     public void DeleteKey() => _config.Language.DeleteKey();
+    public void OnDisable() => _config.Language.OnDestroy();
+    public void Update() => _config.Language.Tick();
 }
