@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: language_change
     m_Metadata:
       m_Items: []
+  - m_Id: 448884554850304
+    m_Key: gamepads
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
