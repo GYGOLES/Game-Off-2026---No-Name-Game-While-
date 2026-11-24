@@ -50,6 +50,8 @@ public sealed class PlayerCarry
         _fear.DrainFear(weight.Weight);
 
         _currentBagCollected ++;
+        if(weight.ALotOfGarbage)
+            _currentBagCollected = _config.MaxBagStorage;
 
         BagIntChange?.Invoke(_currentBagCollected);
 

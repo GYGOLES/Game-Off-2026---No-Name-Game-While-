@@ -14,7 +14,7 @@ public class ItemsCollect : AudioAbs, IInteract
     private Tween _CollectAnimation;
 
     public LocalizedString Prompt => _string;
-    public InputPhase Phase => InputPhase.started;
+    public InputPhase Phase => _item.Phase;
 
     public Outline Outline => _outline;
 
@@ -59,11 +59,13 @@ public class ItemsCollect : AudioAbs, IInteract
         Debug.Log($"{r} items");
         if(r != InteractResult.Success)return r;
 
-        carry.TryAdd(_item); 
+        carry.TryAdd(_item);
+         
         PlayDefaultClips();
         
         hand.AnimateBag();
-        AnimObject(hand, carry);
+        
+        GrabTotalGarbage(hand, carry);
 
         Collected?.Invoke(this);
         return InteractResult.Success;
@@ -90,5 +92,20 @@ public class ItemsCollect : AudioAbs, IInteract
             _collider.enabled = true;
             h.SetFullBag(c.MaxCollected);
         });
+    }
+
+    private void GrabTotalGarbage(PlayerHand h, PlayerCarry c)
+    {
+        if (_item.ALotOfGarbage)
+        {
+            gameObject.layer = _layerDefault;
+            gameObject.SetActive(false); 
+            _collider.enabled = true;
+            h.SetFullBag(c.MaxCollected);
+        }
+        else
+        {
+            AnimObject(h, c);
+        }
     }
 }
