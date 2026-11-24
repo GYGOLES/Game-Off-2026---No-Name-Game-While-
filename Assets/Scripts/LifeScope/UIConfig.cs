@@ -49,12 +49,10 @@ public sealed class MessageRefs
 
     [SerializeField] Image _hold;
     [SerializeField] TextMeshProUGUI _messageObject; 
-    [SerializeField] TextMeshProUGUI _bagStorage;
     [SerializeField] ResultMessage[] _results;
 
     public Image Hold => _hold;
     public TextMeshProUGUI MessageObject => _messageObject;
-    public TextMeshProUGUI BagStorage => _bagStorage;
 
     public LocalizedString Get(InteractResult result)
     {

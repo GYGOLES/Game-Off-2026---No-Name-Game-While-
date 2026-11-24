@@ -29,7 +29,6 @@ public class PlayerUI : MonoBehaviour
 
 
     
-    private TextMeshProUGUI _bagStorage;
     private Image _staminaImage;
     private Image _hold;
     
@@ -109,7 +108,7 @@ public class PlayerUI : MonoBehaviour
         _endingRefs = ui.Ending;
 
         _timerCounter = ui.Timer.Counter; _timerText = ui.Timer.Text;
-        _interaction = ui.Messages.MessageObject; _bagStorage = ui.Messages.BagStorage; _hold = ui.Messages.Hold; _message = ui.Messages;
+        _interaction = ui.Messages.MessageObject;  _hold = ui.Messages.Hold; _message = ui.Messages;
         _staminaImage = ui.Player.Stamina;
         _scoreTotal = ui.Scores.ScoreTotal; _scoreDay = ui.Scores.ScoreDay; _scoreTotalCollected = ui.Scores.ScoreTotalCollected; _scoreTotalPaperCollected = ui.Scores.ScoreTotalPaperCollected;
         _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture; _heartBeating = ui.Map.HeartBeating; _system = ui.Map.System; _startGameCanvas = ui.Map.StartCanvas; _durationStart = ui.Map.Duration;
@@ -203,10 +202,6 @@ public class PlayerUI : MonoBehaviour
 
     public void BagText(int f)
     {
-        if(_bagStorage == null)return;
-
-        _bagStorage.text = f.ToString() + "/" + _config.MaxBagStorage.ToString();
-
         ChangePosition(f);
     }
 
