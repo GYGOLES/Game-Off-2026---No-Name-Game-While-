@@ -116,7 +116,7 @@ public class PlayerUI : MonoBehaviour
         _paper.SetCurrent(0);
         _endingPanel = _endingRefs.EndingPanel; _currentEndingText = _endingRefs.CurrentText; _currentStampText = _endingRefs.CurrentStampText; _endingStampPanel = ui.Ending.EndingStampPanel;
 
-        
+        _timerCounter.Pause();
 
         _input.Interact += Interact;
 
@@ -189,6 +189,8 @@ public class PlayerUI : MonoBehaviour
             _startGameCanvas.gameObject.SetActive(false);
             _endingStampPanel.gameObject.SetActive(true);
             Resume();
+            _timerCounter.Resume();
+            _startGameCanvas.alpha = 1;
         });
     }
 

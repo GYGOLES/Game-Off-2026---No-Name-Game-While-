@@ -32,4 +32,7 @@ public class TimerCounter : MonoBehaviour
     {
         _timer = _defaultTimer;
     }
+
+    public void Pause() => enabled = false;
+    public void Resume() => enabled = true;
 }
