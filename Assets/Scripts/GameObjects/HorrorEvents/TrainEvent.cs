@@ -13,6 +13,9 @@ public class TrainEvent : MonoBehaviour
     [SerializeField] Transform _targetDistance;
     [SerializeField] float _duration = 7f;
 
+    [Header("ID")]
+    [SerializeField] int _id;
+
     private Tween _train;
     private Tween _volumeTween;
 
@@ -30,11 +33,14 @@ public class TrainEvent : MonoBehaviour
     void OnEnable()
     {
         if(_fear != null)
-        _fear.Ambience += OnMovePosition;
+        _fear.OnJumpscareTriggered += OnMovePosition;
     }
 
-    private void OnMovePosition()
+    private void OnMovePosition(JumpscareSystem s)
     {
+        if(s.JumpscareType != JumpscareType.Train)return;
+        if(s.ID != _id)return;
+
         _train.Stop();
         _source.Stop();
 
@@ -54,7 +60,7 @@ public class TrainEvent : MonoBehaviour
     void OnDisable()
     {   
         if(_fear != null)
-        _fear.Ambience -= OnMovePosition;
+        _fear.OnJumpscareTriggered -= OnMovePosition;
         _trainTransform.position = _startPosition;
 
         _train.Stop();

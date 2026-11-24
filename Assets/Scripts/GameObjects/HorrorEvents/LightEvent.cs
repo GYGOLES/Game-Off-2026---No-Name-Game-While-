@@ -24,18 +24,20 @@ public class LightEvent : MonoBehaviour
     void OnEnable()
     {
         if(_fear == null)return;
-        _fear.Ambience += LightsOff;
+        _fear.OnJumpscareTriggered += LightsOff;
 
     }
     void OnDisable()
     {
         if(_fear == null)return;
-        _fear.Ambience -= LightsOff;
+        _fear.OnJumpscareTriggered -= LightsOff;
 
     }
 
-    private void LightsOff()
+    private void LightsOff(JumpscareSystem s)
     {
+        if(s.JumpscareType != JumpscareType.LightBlinking)return;
+
         _timer = 0f;
         _blinkTimer = 0f;
         _blinkingLight = true;

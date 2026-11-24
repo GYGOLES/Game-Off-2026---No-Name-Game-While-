@@ -84,6 +84,7 @@ public sealed class PlayerCarry
             Debug.Log("Fear");
             return;
         }
+        _fear.TriggerJumpscare(i.Jumpscare);
         _fear.GetFear(i.Fear);
         OnShowText?.Invoke(i.Text, i.Index);
         OnCollect?.Invoke();

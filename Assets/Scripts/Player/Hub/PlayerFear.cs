@@ -5,6 +5,8 @@ public enum FearState
     Fine, Critical, Insane
 }
 
+
+
 public class PlayerFear
 {
     private readonly PlayerConfig _config;
@@ -14,11 +16,12 @@ public class PlayerFear
     public float CurrentFear => _currentFear;
     public float FearNormalized => _currentFear / _config.MaxFear;
 
-    private FearState _currentState;
-    public FearState State => _currentState;
+    public FearState State {get; private set;}
 
     public event Action OnGetInsane;
-    public event Action Ambience;
+    public event Action OnFearChange;
+    public event Action<FearState> OnFearStateChange;
+    public event Action<JumpscareSystem> OnJumpscareTriggered;
     public event Action FearDrained;
     public PlayerFear(PlayerConfig config)
     {
@@ -38,12 +41,46 @@ public class PlayerFear
 
     public void GetFear(float f)
     {
+        if(f <= 0)return;
+
         _currentFear += f;
+        OnFearChange?.Invoke();
+        UpdateState();
+
+
         if(_currentFear >= _config.MaxFear)
         {
             _currentFear = _config.MaxFear;
             OnGetInsane?.Invoke();
         }
-        Ambience?.Invoke();
+    }
+
+    public void TriggerJumpscare(JumpscareSystem jumpscareSystem, float bonusFear = 0f)
+    {
+        if(jumpscareSystem.JumpscareType == JumpscareType.None)return;
+
+        OnJumpscareTriggered?.Invoke(jumpscareSystem);
+        if (bonusFear > 0f)
+        {
+            GetFear(bonusFear);
+        }
+    }
+
+    private void UpdateState()
+    {
+        FearState s = Evaluate(FearNormalized);
+        if(s == State)return;
+
+        State = s;
+
+        OnFearStateChange?.Invoke(State);
+    }
+
+    private FearState Evaluate(float normalized)
+    {
+        if(normalized >= 1)return FearState.Insane;
+        if(normalized >= 0.6f)return FearState.Critical;
+        
+        return FearState.Fine;
     }
 }

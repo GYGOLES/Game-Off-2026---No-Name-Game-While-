@@ -120,7 +120,7 @@ public class PlayerUI : MonoBehaviour
 
         _hand.OnFirstTimeCollected += ShowTutorialText;
 
-        _fear.Ambience += GainHeart;
+        _fear.OnFearChange += GainHeart;
         _fear.FearDrained += DrainHeart;
 
         if (_locator != null)
@@ -160,7 +160,7 @@ public class PlayerUI : MonoBehaviour
         if(_currentInteract != null) ClearPrompt();
         if(_fear != null)
         {
-            _fear.Ambience -= GainHeart; 
+            _fear.OnFearChange -= GainHeart; 
             _fear.FearDrained -= DrainHeart;
         }
 

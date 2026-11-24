@@ -26,7 +26,6 @@ public class PapperShow : AudioAbs, IInteract
     public InteractResult Interact(PlayerCarry carry, PlayerHand hand)
     {
         var a = Check(carry, hand);
-        Debug.Log($"{a} paper");
         if(a != InteractResult.Success)return a;
 
         PlayDefaultClips();
