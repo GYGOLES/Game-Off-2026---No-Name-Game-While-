@@ -43,6 +43,8 @@ public sealed class LanguageRefs
 
     public void Init()
     {
+        Time.timeScale = 1f;
+
         _languageCanvas.gameObject.SetActive(PlayerPrefs.GetInt(SetLanguageKey, 1) == 1);
         _disclaimerCanvas.gameObject.SetActive(PlayerPrefs.GetInt(SetLanguageKey, 1) == 0);
         if(_disclaimerCanvas.gameObject.activeSelf)
