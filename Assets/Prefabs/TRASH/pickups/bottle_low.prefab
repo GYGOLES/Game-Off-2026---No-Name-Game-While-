@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Test
   _audio: {fileID: 11400000, guid: 671089d012130634fb1ae6859085eced, type: 2}
-  _collider: {fileID: 0}
-  _item: {fileID: 11400000, guid: eba3af8979a22a640838f34f13a1ba20, type: 2}
+  _collider: {fileID: -2153753893212180293}
+  _item: {fileID: 11400000, guid: abe317a40952cd5489cad8359b30d213, type: 2}
   _string:
     m_TableReference:
       m_TableCollectionName: GUID:3083b163c3b6a6f4da9643d801a371cc
