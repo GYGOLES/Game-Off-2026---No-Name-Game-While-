@@ -1,8 +1,10 @@
 using System;
 using Assets.Scripts.Inputmanager;
 using Assets.Scripts.Player.Hub;
+using PrimeTween;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Localization;
 using UnityEngine.UI;
 using VContainer;
@@ -73,6 +75,7 @@ public class PlayerUI : MonoBehaviour
     private TextMeshProUGUI _timerText;
 
     private GameObject _endingPanel;
+    private GameObject _endingStampPanel;
     private TextMeshProUGUI _currentEndingText;
     private TextMeshProUGUI _currentStampText;
     private LocalizedString _currentLocalizedEnding;
@@ -82,6 +85,12 @@ public class PlayerUI : MonoBehaviour
     private bool _quotaCollected;
     private bool _interacted;
     private bool _currentQuotaCollected;
+
+
+    private float _durationStart;
+    private CanvasGroup _startGameCanvas;   
+    private EventSystem _system;
+    private Tween _startGameTween;
 
 
     [Inject]
@@ -103,10 +112,10 @@ public class PlayerUI : MonoBehaviour
         _interaction = ui.Messages.MessageObject; _bagStorage = ui.Messages.BagStorage; _hold = ui.Messages.Hold; _message = ui.Messages;
         _staminaImage = ui.Player.Stamina;
         _scoreTotal = ui.Scores.ScoreTotal; _scoreDay = ui.Scores.ScoreDay; _scoreTotalCollected = ui.Scores.ScoreTotalCollected; _scoreTotalPaperCollected = ui.Scores.ScoreTotalPaperCollected;
-        _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture; _heartBeating = ui.Map.HeartBeating;
+        _items = ui.Map.TotalItems; _spawnLocation = ui.Map.Spawn; _garbageTexture = ui.Map.GarbageTexture; _heartBeating = ui.Map.HeartBeating; _system = ui.Map.System; _startGameCanvas = ui.Map.StartCanvas; _durationStart = ui.Map.Duration;
         _tutorial = ui.Tutorial.Text; _tutorials = ui.Tutorial.Prompts; _tutorialPanel = ui.Tutorial.Panel; _acceptedTutorial = ui.Tutorial.Enabled;
         _paper.SetCurrent(0);
-        _endingPanel = _endingRefs.EndingPanel; _currentEndingText = _endingRefs.CurrentText; _currentStampText = _endingRefs.CurrentStampText;
+        _endingPanel = _endingRefs.EndingPanel; _currentEndingText = _endingRefs.CurrentText; _currentStampText = _endingRefs.CurrentStampText; _endingStampPanel = ui.Ending.EndingStampPanel;
 
         
 
@@ -163,13 +172,25 @@ public class PlayerUI : MonoBehaviour
             _fear.OnFearChange -= GainHeart; 
             _fear.FearDrained -= DrainHeart;
         }
-
+        _startGameTween.Stop();
     }
     void Start()
     {
         _lowerPosition = _garbageTexture.transform.localPosition;
         BagText(_carry.CurrentBagCollected is var b ? (int)b : 0);
         SetLocator(_day - 1);
+    }
+
+    public void StartShift()
+    {
+        _startGameCanvas.interactable = false;
+        _startGameTween = Tween.Alpha(_startGameCanvas, 0, _durationStart).OnComplete(() =>
+        {
+            _startGameCanvas.interactable = true;
+            _startGameCanvas.gameObject.SetActive(false);
+            _endingStampPanel.gameObject.SetActive(true);
+            Resume();
+        });
     }
 
     public void SetTutorial()
@@ -210,7 +231,7 @@ public class PlayerUI : MonoBehaviour
     public void ShowScore()
     {
         QuotaService(_currentQuotaCollected);
-        Debug.Log(_currentQuotaCollected);
+
         if(_mode == null)return;
 
         ClearPrompt();
@@ -229,8 +250,7 @@ public class PlayerUI : MonoBehaviour
 
         _scoreTotal.SetActive(true);
           
-        _mode.SetUI();
-        Time.timeScale = 0f;
+        Pause();
     }
 
     private void OnCollected()
@@ -392,8 +412,8 @@ public class PlayerUI : MonoBehaviour
         if(_mode == null)return;
 
         _scoreTotal.SetActive(false);
-        _mode.SetGameplay();
-        Time.timeScale = 1f;
+
+        Resume();
     }
 
     public void RestartShift()
@@ -471,8 +491,8 @@ public class PlayerUI : MonoBehaviour
 
             _currentPaperText = p;
             _currentPaperText.StringChanged += LocalizedPapperText;
-            _mode.SetUI();
-            Time.timeScale = 0f;
+
+            Pause();
         }
     }
     private void ShowTutorialText(int index)
@@ -513,8 +533,7 @@ public class PlayerUI : MonoBehaviour
 
             _endingPanel.SetActive(true);
 
-            _mode.SetUI();
-            Time.timeScale = 0;
+            Pause();
         }
     }
 
@@ -560,5 +579,19 @@ public class PlayerUI : MonoBehaviour
         
         ShowInteractText(); if(_interacted)ShowInteractionDuration();
 
+    }
+    private void Resume()
+    {
+        if(_mode == null)return;
+
+        _mode.SetGameplay();
+        Time.timeScale = 1f;
+    }
+    private void Pause()
+    {
+        if(_mode == null)return;
+
+        _mode.SetUI();
+        Time.timeScale = 0f;
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Localization;
 using UnityEngine.UI;
 
@@ -130,10 +131,18 @@ public sealed class MapRefs
     [SerializeField] Transform _spawn;
     [SerializeField] GameObject _garbageTexture;
 
+    [Header("StartGame")]
+    [SerializeField] float _duration;
+    [SerializeField] CanvasGroup _startCanvas;
+    [SerializeField] EventSystem _system;
+
     public AudioSource HeartBeating => _heartBeating;
     public TextMeshProUGUI TotalItems => _totalItems;
     public Transform Spawn => _spawn;
     public GameObject GarbageTexture => _garbageTexture;
+    public EventSystem System => _system;
+    public CanvasGroup StartCanvas => _startCanvas;
+    public float Duration => _duration;
 }
 [Serializable]
 public sealed class Tutorial
@@ -154,6 +163,8 @@ public sealed class EndingRefs
     [Header("Main")]
     [SerializeField] EndingView[] _endings;
     [SerializeField] GameObject _ending;
+    [SerializeField] GameObject _endingStampPanel;
+    public GameObject EndingStampPanel => _endingStampPanel;
     
     [Header("Text")]
     [SerializeField] TextMeshProUGUI _currentText;
