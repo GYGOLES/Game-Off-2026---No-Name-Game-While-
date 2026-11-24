@@ -99969,54 +99969,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1357739777}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 620083865}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1905437585}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1401499176}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: SetGameplay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 4841592300034542832}
         m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
         m_MethodName: SetTutorial
@@ -100033,6 +99985,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4841592300034542832}
+        m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
+        m_MethodName: StartShift
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 620083865}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -293182,6 +293158,7 @@ MonoBehaviour:
   _trainTransform: {fileID: 1769175244}
   _targetDistance: {fileID: 1150742338}
   _duration: 7
+  _id: 0
 --- !u!4 &1769560868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7072635666945697146, guid: d36d50dda1c76d341bab3fb084f0caa3, type: 3}
@@ -390358,6 +390335,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1357739777}
     - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
+      propertyPath: _uiConfig._mapRefs._system
+      value: 
+      objectReference: {fileID: 1058712761}
+    - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
       propertyPath: _uiConfig._player._stamina
       value: 
       objectReference: {fileID: 1542164426}
@@ -390372,6 +390353,10 @@ PrefabInstance:
     - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
       propertyPath: _playerConfig._maxBagStorage
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
+      propertyPath: _uiConfig._mapRefs._duration
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
       propertyPath: _uiConfig._tutorial._enabled
@@ -390405,6 +390390,10 @@ PrefabInstance:
       propertyPath: _uiConfig._endings._currentText
       value: 
       objectReference: {fileID: 604087294}
+    - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
+      propertyPath: _uiConfig._mapRefs._startCanvas
+      value: 
+      objectReference: {fileID: 1357739779}
     - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
       propertyPath: _uiConfig._messages._bagStorage
       value: 
@@ -390485,6 +390474,10 @@ PrefabInstance:
       propertyPath: _uiConfig._endings._currentStampText
       value: 
       objectReference: {fileID: 1326664355}
+    - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
+      propertyPath: _uiConfig._endings._endingStampPanel
+      value: 
+      objectReference: {fileID: 1905437585}
     - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
       propertyPath: 'autoInjectGameObjects.Array.data[10]'
       value: 
