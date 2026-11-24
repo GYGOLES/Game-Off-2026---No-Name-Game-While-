@@ -7,7 +7,8 @@ public class PlayerHand
 {
     public readonly Transform Hand;
     public readonly Transform Bag;
-    public bool Occupied => Hand.GetChild(0).gameObject.activeInHierarchy;
+    public readonly Transform FullBag;
+    public bool Occupied => Bag.gameObject.activeSelf || FullBag.gameObject.activeSelf;
     public Vector3 StartBagPosition => _startBagPosition;
 
     public event Action<int> OnFirstTimeCollected;
@@ -19,6 +20,8 @@ public class PlayerHand
     {
         Hand = config.Hand;
         Bag = config.Garbage;
+        FullBag = config.FullBag;
+
         _startBagPosition = Bag.localPosition;
     }
 
@@ -45,13 +48,16 @@ public class PlayerHand
 
     private void GetBag(bool t)
     {
-        Transform bag = Hand.GetChild(0);
-        bag.gameObject.SetActive(t);
-        bag.localPosition = _startBagPosition;
+        Bag.gameObject.SetActive(t);
+        FullBag.gameObject.SetActive(false);
+        Bag.localPosition = _startBagPosition;
     }
 
-    public void AnimateBag()
+    public void SetFullBag(bool f)
     {
-        _bagAnim = Tween.ShakeLocalPosition(Bag, Vector3.down*0.05f, 1, frequency: 2f);
+        Bag.gameObject.SetActive(!f);
+        FullBag.gameObject.SetActive(f);
     }
+
+    public void AnimateBag() =>  _bagAnim = Tween.ShakeLocalPosition(Bag, Vector3.down*0.05f, 1, frequency: 2f);
 }

@@ -49,7 +49,7 @@ public class ItemsCollect : AudioAbs, IInteract
     {
         if(_item == null)return InteractResult.Failed;
         if(!hand.Occupied)return InteractResult.NoBag;
-        if(carry.Check(_item) != InteractResult.Success) return InteractResult.FullBag;
+        if(carry.Check(_item) != InteractResult.Success)return InteractResult.FullBag;
         return InteractResult.Success;
     }
 
@@ -63,13 +63,13 @@ public class ItemsCollect : AudioAbs, IInteract
         PlayDefaultClips();
         
         hand.AnimateBag();
-        AnimObject(hand.Bag);
+        AnimObject(hand, carry);
 
         Collected?.Invoke(this);
         return InteractResult.Success;
     }
 
-    void AnimObject(Transform bag)
+    void AnimObject(PlayerHand h, PlayerCarry c)
     {
         _collider.enabled = false;
         gameObject.layer = _layerTarget;
@@ -77,7 +77,7 @@ public class ItemsCollect : AudioAbs, IInteract
         Vector3 startScale = transform.localScale;
         _CollectAnimation = Tween.Custom(0f, 1f, duration: 0.6f, onValueChange: t =>
         {
-            Vector3 pos = Vector3.Lerp(startPos, bag.position + Vector3.up*0.4f, t);
+            Vector3 pos = Vector3.Lerp(startPos, h.Bag.position + Vector3.up*0.4f, t);
             Vector3 scale = Vector3.Lerp(startScale, new Vector3(0.1f, 0.1f, 0.1f), t);
             pos.y += Mathf.Sin(t * Mathf.PI) * 0.5f;
 
@@ -88,6 +88,7 @@ public class ItemsCollect : AudioAbs, IInteract
             gameObject.layer = _layerDefault;
             gameObject.SetActive(false); 
             _collider.enabled = true;
+            h.SetFullBag(c.MaxCollected);
         });
     }
 }

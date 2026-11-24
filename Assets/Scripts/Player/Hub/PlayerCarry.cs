@@ -11,6 +11,7 @@ public sealed class PlayerCarry
 
 
     public int CurrentBagCollected => _currentBagCollected;
+    public bool MaxCollected => _currentBagCollected >= _config.MaxBagStorage;
 
     public event Action<int> BagIntChange;
 
@@ -32,7 +33,7 @@ public sealed class PlayerCarry
 
     public InteractResult Check(ItemWeight weight)
     {
-        if(_currentBagCollected >= _config.MaxBagStorage)return InteractResult.FullBag;
+        if(MaxCollected)return InteractResult.FullBag;
         return InteractResult.Success;
     }
     public InteractResult TryAdd(ItemWeight weight)
