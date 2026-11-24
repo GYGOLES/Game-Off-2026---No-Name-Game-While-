@@ -74983,7 +74983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 480603121}
   - component: {fileID: 480603123}
-  - component: {fileID: 480603122}
+  - component: {fileID: 480603124}
   m_Layer: 0
   m_Name: LIST
   m_TagString: Untagged
@@ -75011,36 +75011,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &480603122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480603120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.026037714, g: 0.042607173, b: 0.08679241, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5c749c13c1ecb19479884dbb2d9f335c, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &480603123
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -75049,6 +75019,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480603120}
   m_CullTransparentMesh: 1
+--- !u!114 &480603124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480603120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.04150939, g: 0.04150939, b: 0.04150939, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 5c749c13c1ecb19479884dbb2d9f335c, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!43 &480630391
 Mesh:
   m_ObjectHideFlags: 0
@@ -156293,7 +156290,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958854522}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -348343,7 +348340,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 1000
+  far clip plane: 1
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -369719,6 +369716,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 329469413913485271, guid: 07e5e365f0285634382b5dc85fafa873, type: 3}
+      propertyPath: far clip plane
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 329469413913485271, guid: 07e5e365f0285634382b5dc85fafa873, type: 3}
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 0}
@@ -390525,6 +390526,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2559632142335446954}
     - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
+      propertyPath: _playerConfig._volume
+      value: 
+      objectReference: {fileID: 832575518}
+    - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
       propertyPath: _uiConfig._menu._devs
       value: 
       objectReference: {fileID: 2056595320}
@@ -390634,7 +390639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
       propertyPath: _uiConfig._mapRefs._duration
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 897767494307819156, guid: 42c41d7692f248b40a5e15b8453b92c4, type: 3}
       propertyPath: _uiConfig._tutorial._enabled
